@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Toonme-ToonmeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Toonme-ToonmeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		BB962D90BB6055C77BAE4EE3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1F39D5D371AD3311BD289F7A /* PrivacyInfo.xcprivacy */; };
+		E258156B2C32DEE5008A4E66 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815642C32DEE5008A4E66 /* Poppins-Black.ttf */; };
+		E258156C2C32DEE5008A4E66 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815652C32DEE5008A4E66 /* Poppins-SemiBold.ttf */; };
+		E258156D2C32DEE5008A4E66 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815662C32DEE5008A4E66 /* Poppins-Light.ttf */; };
+		E258156E2C32DEE5008A4E66 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815672C32DEE5008A4E66 /* Poppins-Thin.ttf */; };
+		E258156F2C32DEE5008A4E66 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815682C32DEE5008A4E66 /* Poppins-Regular.ttf */; };
+		E25815702C32DEE5008A4E66 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815692C32DEE5008A4E66 /* Poppins-Bold.ttf */; };
+		E25815712C32DEE5008A4E66 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E258156A2C32DEE5008A4E66 /* Poppins-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +44,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Toonme/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Toonme/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Toonme/main.m; sourceTree = "<group>"; };
-	    13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Toonme/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Toonme/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Toonme-ToonmeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Toonme-ToonmeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F39D5D371AD3311BD289F7A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Toonme/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Toonme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonme.debug.xcconfig"; path = "Target Support Files/Pods-Toonme/Pods-Toonme.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Toonme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonme.release.xcconfig"; path = "Target Support Files/Pods-Toonme/Pods-Toonme.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Toonme-ToonmeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonme-ToonmeTests.debug.xcconfig"; path = "Target Support Files/Pods-Toonme-ToonmeTests/Pods-Toonme-ToonmeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Toonme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Toonme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Toonme/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Toonme-ToonmeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonme-ToonmeTests.release.xcconfig"; path = "Target Support Files/Pods-Toonme-ToonmeTests/Pods-Toonme-ToonmeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E25815642C32DEE5008A4E66 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Black.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		E25815652C32DEE5008A4E66 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../Sources/Assets/Fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		E25815662C32DEE5008A4E66 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Light.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		E25815672C32DEE5008A4E66 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Thin.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		E25815682C32DEE5008A4E66 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		E25815692C32DEE5008A4E66 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		E258156A2C32DEE5008A4E66 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -94,6 +110,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				1F39D5D371AD3311BD289F7A /* PrivacyInfo.xcprivacy */,
 			);
 			name = Toonme;
 			sourceTree = "<group>";
@@ -118,6 +135,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E25815632C32DECE008A4E66 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* Toonme */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ToonmeTests */,
@@ -148,6 +166,20 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-Toonme-ToonmeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E25815632C32DECE008A4E66 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E25815642C32DEE5008A4E66 /* Poppins-Black.ttf */,
+				E25815692C32DEE5008A4E66 /* Poppins-Bold.ttf */,
+				E25815662C32DEE5008A4E66 /* Poppins-Light.ttf */,
+				E258156A2C32DEE5008A4E66 /* Poppins-Medium.ttf */,
+				E25815682C32DEE5008A4E66 /* Poppins-Regular.ttf */,
+				E25815652C32DEE5008A4E66 /* Poppins-SemiBold.ttf */,
+				E25815672C32DEE5008A4E66 /* Poppins-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,8 +275,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E258156C2C32DEE5008A4E66 /* Poppins-SemiBold.ttf in Resources */,
+				E25815702C32DEE5008A4E66 /* Poppins-Bold.ttf in Resources */,
+				E258156E2C32DEE5008A4E66 /* Poppins-Thin.ttf in Resources */,
+				E258156D2C32DEE5008A4E66 /* Poppins-Light.ttf in Resources */,
+				E258156B2C32DEE5008A4E66 /* Poppins-Black.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				BB962D90BB6055C77BAE4EE3 /* PrivacyInfo.xcprivacy in Resources */,
+				E258156F2C32DEE5008A4E66 /* Poppins-Regular.ttf in Resources */,
+				E25815712C32DEE5008A4E66 /* Poppins-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +520,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonme;
 				PRODUCT_NAME = Toonme;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -506,7 +546,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonme;
 				PRODUCT_NAME = Toonme;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -517,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -544,6 +585,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -563,6 +605,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -582,7 +626,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = "$(inherited)  ";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -590,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -617,6 +665,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -629,6 +678,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -647,7 +698,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = "$(inherited)  ";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
