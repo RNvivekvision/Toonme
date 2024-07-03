@@ -15,37 +15,21 @@ const RNHeader = ({
   footer,
   noScroll,
   back,
-  onSettigPress,
-  onSharePress,
-  onNextPress,
+  onSkipPress,
 }) => {
-  const { incrementCount } = useUserClick();
   const navigation = useNavigation();
   const styles = useStyles();
 
   const onBackPress = async () => {
-    await incrementCount();
     navigation.goBack();
   };
 
-  const share = async () => {
-    await incrementCount();
-    onSharePress?.();
-  };
-
-  const setting = async () => {
-    await incrementCount();
-    onSettigPress?.();
-  };
-
-  const next = async () => {
-    await incrementCount();
-    onNextPress?.();
+  const skip = async () => {
+    onSkipPress?.();
   };
 
   return (
     <View style={RNStyles.container}>
-      <StatusBar barStyle={'light-content'} />
       <View style={[styles.Container, containerStyle]}>
         {back && (
           <RNIcon
@@ -55,28 +39,10 @@ const RNHeader = ({
           />
         )}
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
-        {onSharePress && (
-          <RNIcon
-            icon={Images.setting_8}
-            iconStyle={{ tintColor: Colors.White }}
-            onPress={share}
-            containerStyle={[styles.icon, { marginRight: wp(4) }]}
-          />
-        )}
-        {onSettigPress && (
-          <RNIcon
-            icon={Images.settingHeader}
-            onPress={setting}
-            containerStyle={styles.icon}
-          />
-        )}
-        {onNextPress && (
-          <TouchableOpacity onPress={next} style={styles.next}>
-            <RNText
-              color={Colors.White}
-              family={FontFamily.SemiBold}
-              size={FontSize.font12}>
-              {Strings.Next}
+        {onSkipPress && (
+          <TouchableOpacity onPress={skip} style={styles.next}>
+            <RNText family={FontFamily.Medium} size={FontSize.font14}>
+              {'Skip'}
             </RNText>
           </TouchableOpacity>
         )}
@@ -102,7 +68,7 @@ const useStyles = () => {
     },
     Container: {
       ...RNStyles.flexRowBetween,
-      backgroundColor: Colors.Primary,
+      backgroundColor: Colors.White,
       paddingHorizontal: wp(4),
       paddingTop: inset.top + hp(2),
       paddingVertical: hp(2),
@@ -115,12 +81,13 @@ const useStyles = () => {
       backgroundColor: Colors.White + '20',
     },
     title: {
+      flex: 1,
       paddingHorizontal: hp(1),
       marginHorizontal: hp(1),
       fontSize: FontSize.font18,
       fontFamily: FontFamily.Medium,
-      color: Colors.White,
-      flex: 1,
+      color: Colors.Black,
+      textAlign: 'center',
     },
     next: {
       borderRadius: wp(2),

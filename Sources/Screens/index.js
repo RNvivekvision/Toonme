@@ -1,4 +1,5 @@
 import Onboarding from './Onboarding';
 import Permissions from './Permissions';
 import Home from './Home';
-export { Onboarding, Permissions, Home };
+import Steps from './Steps';
+export { Onboarding, Permissions, Home, Steps };

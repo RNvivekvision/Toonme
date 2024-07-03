@@ -3,6 +3,9 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
 import { Images } from '../../Constants';
 import { useInset } from '../../Hooks';
+import { DummyData, Functions } from '../../Utils';
+
+const { Drawer } = DummyData;
 
 const DrawerContent = ({ navigation }) => {
   const styles = useStyles();
@@ -13,12 +16,32 @@ const DrawerContent = ({ navigation }) => {
         <RNText style={styles.title}>{'Toonme - Cartoons From Photos'}</RNText>
       </View>
 
-      <View style={styles.screens}>
+      <View style={RNStyles.container}>
         <RNImage source={Images.appIcon} style={styles.logo} />
+        <View style={{ paddingTop: hp(10) }}>
+          {Drawer.map((v, i) => (
+            <TouchableOpacity
+              key={i}
+              activeOpacity={0.6}
+              onPress={async () => await func[v.key]?.(navigation)}
+              style={styles.renderDrawer}>
+              <View style={RNStyles.flexRow1}>
+                <RNImage source={Images['drawer_' + i]} style={RNStyles.icon} />
+                <RNText
+                  size={FontSize.font14}
+                  family={FontFamily.SemiBold}
+                  pLeft={wp(4)}>
+                  {v.title}
+                </RNText>
+              </View>
+              <RNImage source={Images.right} style={styles.icon} />
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
 
       <TouchableOpacity style={styles.buttonContainer}>
-        <View style={{ ...RNStyles.flexRow, flex: 1 }}>
+        <View style={RNStyles.flexRow1}>
           <RNImage source={Images.premium} style={styles.icon} />
           <RNText
             pLeft={wp(3)}
@@ -57,10 +80,6 @@ const useStyles = () => {
       position: 'absolute',
       top: -hp(8),
     },
-    screens: {
-      ...RNStyles.container,
-      zIndex: 1,
-    },
     icon: {
       width: size.icon,
       height: size.icon,
@@ -75,7 +94,34 @@ const useStyles = () => {
       borderRadius: wp(3),
       marginBottom: inset.bottom + hp(2),
     },
+    renderDrawer: {
+      ...RNStyles.flexRow,
+      paddingHorizontal: wp(4),
+      paddingVertical: hp(2),
+      marginVertical: hp(1),
+    },
   });
+};
+
+const func = {
+  home: nav => nav?.closeDrawer(),
+  privacy: () => privacy(),
+  rateus: () => rateus(),
+  share: () => share(),
+};
+
+const privacy = () => {
+  console.log('Privacy Policy...');
+};
+
+const rateus = () =>
+  Functions.RateUs({
+    onSuccess: () => console.log('Success'),
+    onError: () => console.error('Error'),
+  });
+
+const share = async () => {
+  await Functions.ShareApp();
 };
 
 export default DrawerContent;

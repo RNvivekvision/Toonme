@@ -10,6 +10,11 @@ const RNStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  flexRow1: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   flexRowBetween: {
     flexDirection: 'row',
     alignItems: 'center',
