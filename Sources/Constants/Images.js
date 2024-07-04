@@ -22,6 +22,9 @@ const Images = {
   cross: require(imagePath + 'cross' + png),
   trueYellow: require(imagePath + 'trueYellow' + png),
   planSelected: require(imagePath + 'planSelected' + png),
+  drawer: require(imagePath + 'drawer' + png),
+  search: require(imagePath + 'search' + png),
+  crown: require(imagePath + 'crown' + png),
 };
 
 export default Images;

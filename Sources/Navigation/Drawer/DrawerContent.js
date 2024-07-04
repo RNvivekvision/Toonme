@@ -4,10 +4,13 @@ import { RNImage, RNStyles, RNText } from '../../Common';
 import { Images } from '../../Constants';
 import { useInset } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
+import { useDispatch } from 'react-redux';
+import { togglePlans } from '../../Redux/Actions';
 
 const { Drawer } = DummyData;
 
 const DrawerContent = ({ navigation }) => {
+  const dispatch = useDispatch();
   const styles = useStyles();
 
   return (
@@ -40,7 +43,10 @@ const DrawerContent = ({ navigation }) => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={() => dispatch(togglePlans())}
+        style={styles.buttonContainer}>
         <View style={RNStyles.flexRow1}>
           <RNImage source={Images.premium} style={styles.icon} />
           <RNText

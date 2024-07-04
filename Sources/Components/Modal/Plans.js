@@ -19,6 +19,7 @@ const Plans = ({ visible, onClose }) => {
           icon={Images.cross}
           containerStyle={styles.iconContainer}
           iconStyle={styles.icon}
+          onPress={onClose}
         />
         <View style={styles.imgContainer}>
           <RNImage
@@ -55,7 +56,7 @@ const Plans = ({ visible, onClose }) => {
           ))}
         </View>
       </View>
-      <RNButton title={'Subscribe'} />
+      <RNButton title={'Subscribe'} onPress={onClose} />
       <RNText
         align={'center'}
         size={FontSize.font12}

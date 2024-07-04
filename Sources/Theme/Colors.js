@@ -5,6 +5,8 @@ const Colors = {
   Primary: '#FFD03C',
   Placeholder: '#D3D3D3',
   error: '#FF3333',
+  card: '#021639',
+  free: '#FDE8CD',
 };
 
 export default Colors;
