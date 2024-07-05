@@ -5,10 +5,18 @@ import { Images } from '../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { NativeAd } from '../Components';
 import { useState } from 'react';
+import { NavRoutes } from '../Navigation';
 
 const Permissions = ({ navigation }) => {
   const [State, setState] = useState({ termsAccepted: false });
   const styles = useStyles({ ...State });
+
+  const onAceeptPress = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: NavRoutes.Home }],
+    });
+  };
 
   return (
     <RNContainer style={styles.container}>
@@ -46,7 +54,11 @@ const Permissions = ({ navigation }) => {
           </View>
         </View>
 
-        <RNButton disable={!State.termsAccepted} title={'Accept & Continue'} />
+        <RNButton
+          disable={!State.termsAccepted}
+          title={'Accept & Continue'}
+          onPress={onAceeptPress}
+        />
       </View>
 
       <NativeAd />

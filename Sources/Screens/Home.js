@@ -1,24 +1,32 @@
-import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { togglePlans } from '../Redux/Actions';
-import { RNStyles } from '../Common';
-import { NativeAd, TOHeader, TryForFree, Plans } from '../Components';
+import { RNContainer } from '../Common';
+import {
+  NativeAd,
+  TOHeader,
+  TryForFree,
+  Plans,
+  PickerOptions,
+  ImageOptions,
+  HowToUse,
+} from '../Components';
 
-const Home = ({ navigation }) => {
+const Home = () => {
   const { showPlans } = useSelector(({ UserReducer }) => UserReducer);
   const dispatch = useDispatch();
 
   return (
-    <View style={RNStyles.container}>
+    <RNContainer useSafeArea>
       <TOHeader title={'Toon Me'}>
         <TryForFree />
+        <PickerOptions />
+        <ImageOptions />
       </TOHeader>
+      <HowToUse />
       <NativeAd />
       <Plans visible={showPlans} onClose={() => dispatch(togglePlans())} />
-    </View>
+    </RNContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Home;

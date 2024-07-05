@@ -18,10 +18,10 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={NavConfigs.screenOptions}>
-        <Stack.Screen name={NavRoutes.Home} component={Drawer} />
-        <Stack.Screen name={NavRoutes.Steps} component={Steps} />
         <Stack.Screen name={NavRoutes.OnBoarding} component={Onboarding} />
         <Stack.Screen name={NavRoutes.Permissions} component={Permissions} />
+        <Stack.Screen name={NavRoutes.Home} component={Drawer} />
+        <Stack.Screen name={NavRoutes.Steps} component={Steps} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -15,6 +15,10 @@ const Steps = ({ navigation }) => {
   };
 
   const onSkipPress = () => {
+    if (State.currentSlider + 1 >= DummyData.steps.length) {
+      navigation.goBack();
+      return;
+    }
     flatListRef.current.scrollToIndex({
       animated: true,
       index: DummyData.steps.length - 1,

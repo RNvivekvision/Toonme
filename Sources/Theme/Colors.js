@@ -7,6 +7,7 @@ const Colors = {
   error: '#FF3333',
   card: '#021639',
   free: '#FDE8CD',
+  howToUse: '#FF4646',
 };
 
 export default Colors;

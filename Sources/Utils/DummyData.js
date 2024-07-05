@@ -1,3 +1,5 @@
+import { Images } from '../Constants';
+
 const DummyData = {
   Drawer: [
     {
@@ -51,6 +53,15 @@ const DummyData = {
       price: '$12.99',
     },
   ],
+  Home: {
+    ImageOptions: [
+      { id: 0, img: Images.home_all, title: 'All' },
+      { id: 1, img: Images.home_sketch, title: 'Sketch' },
+      { id: 2, img: Images.home_2d, title: '2D' },
+      { id: 3, img: Images.home_cartoon, title: 'Cartoon' },
+      { id: 4, img: Images.home_3d, title: '3D' },
+    ],
+  },
 };
 
 export default DummyData;

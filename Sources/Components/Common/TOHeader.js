@@ -4,6 +4,8 @@ import { RNIcon, RNStyles, RNText, RNScrollView } from '../../Common';
 import { useInset } from '../../Hooks';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images } from '../../Constants';
+import { useDispatch } from 'react-redux';
+import { togglePlans } from '../../Redux/Actions';
 
 const TOHeader = ({
   title,
@@ -16,9 +18,16 @@ const TOHeader = ({
 }) => {
   const navigation = useNavigation();
   const styles = useStyles();
+  const dispatch = useDispatch();
 
   const onDrawerPress = async () => {
     navigation.openDrawer();
+  };
+
+  const onSearchPress = () => {};
+
+  const onCrownPress = () => {
+    dispatch(togglePlans());
   };
 
   return (
@@ -33,11 +42,13 @@ const TOHeader = ({
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
         <RNIcon
           icon={Images.search}
+          onPress={onSearchPress}
           containerStyle={{ ...styles.iconContainer, marginRight: wp(2) }}
           iconStyle={styles.icon}
         />
         <RNIcon
           icon={Images.crown}
+          onPress={onCrownPress}
           containerStyle={styles.iconContainer}
           iconStyle={styles.icon}
         />

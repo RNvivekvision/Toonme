@@ -25,6 +25,16 @@ const Images = {
   drawer: require(imagePath + 'drawer' + png),
   search: require(imagePath + 'search' + png),
   crown: require(imagePath + 'crown' + png),
+  camera: require(imagePath + 'camera' + png),
+  gallery: require(imagePath + 'gallery' + png),
+  collageMaker: require(imagePath + 'collageMaker' + png),
+  howToUse: require(imagePath + 'howToUse' + png),
+  home_all: require(imagePath + 'home_all' + png),
+  home_sketch: require(imagePath + 'home_sketch' + png),
+  home_2d: require(imagePath + 'home_2d' + png),
+  home_cartoon: require(imagePath + 'home_cartoon' + png),
+  home_3d: require(imagePath + 'home_3d' + png),
+  dummy: require(imagePath + 'dummy' + png),
 };
 
 export default Images;

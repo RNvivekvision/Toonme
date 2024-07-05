@@ -1,10 +1,14 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { RNButton, RNStyles, RNText } from '../Common';
-import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
+import { StyleSheet, View } from 'react-native';
+import { RNButton, RNStyles, RNText } from '../../Common';
+import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
+import Reanimated, { FadeInDown } from 'react-native-reanimated';
+import { useDispatch } from 'react-redux';
+import { togglePlans } from '../../Redux/Actions';
 
 const TryForFree = () => {
+  const dispatch = useDispatch();
   return (
-    <View style={styles.container}>
+    <Reanimated.View entering={FadeInDown.delay(100)} style={styles.container}>
       <View style={styles.free}>
         <View style={styles.circle} />
         <RNText family={FontFamily.SemiBold} size={FontSize.font10}>
@@ -25,8 +29,9 @@ const TryForFree = () => {
         doubleTicks={false}
         style={styles.tryButton}
         textStyle={{ fontSize: FontSize.font10 }}
+        onPress={() => dispatch(togglePlans())}
       />
-    </View>
+    </Reanimated.View>
   );
 };
 
@@ -39,6 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: wp(4),
     paddingHorizontal: wp(4),
     backgroundColor: Colors.card,
+    marginVertical: hp(1),
   },
   tryButton: {
     width: '30%',

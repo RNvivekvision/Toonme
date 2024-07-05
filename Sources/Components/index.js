@@ -1,6 +1,10 @@
-import TryForFree from './TryForFree';
 export { NativeAd } from './Ads';
 export { TOHeader } from './Common';
 export { Plans } from './Modal';
-export { RenderSteps, RenderPlans } from './Renders';
-export { TryForFree };
+export {
+  RenderSteps,
+  RenderPlans,
+  RenderImageOptions,
+  RenderImages,
+} from './Renders';
+export { TryForFree, PickerOptions, ImageOptions, HowToUse } from './Home';
