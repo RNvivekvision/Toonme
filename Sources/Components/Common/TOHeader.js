@@ -1,11 +1,11 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { RNIcon, RNStyles, RNText, RNScrollView } from '../../Common';
-import { useInset } from '../../Hooks';
-import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
-import { Images } from '../../Constants';
 import { useDispatch } from 'react-redux';
+import { RNIcon, RNStyles, RNText, RNScrollView } from '../../Common';
+import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { togglePlans } from '../../Redux/Actions';
+import { useInset } from '../../Hooks';
+import { Images } from '../../Constants';
 
 const TOHeader = ({
   title,

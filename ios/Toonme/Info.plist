@@ -61,5 +61,9 @@
 		<string>Poppins-SemiBold.ttf</string>
 		<string>Poppins-Thin.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to your camera to allow you to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to your photo library to allow you to upload photos.</string>
 </dict>
 </plist>

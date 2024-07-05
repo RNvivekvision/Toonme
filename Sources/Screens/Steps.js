@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import { RNButton, RNContainer, RNHeader } from '../Common';
 import { NativeAd, RenderSteps } from '../Components';
 import { DummyData } from '../Utils';
+import { Strings } from '../Constants';
 
 const Steps = ({ navigation }) => {
   const flatListRef = useRef();
@@ -52,8 +53,8 @@ const Steps = ({ navigation }) => {
             <RenderSteps item={item} index={index} />
           )}
         />
-        <RNButton title={'Next'} onPress={onNextPress} />
-        {/* <NativeAd /> */}
+        <RNButton title={Strings.Next} onPress={onNextPress} />
+        <NativeAd />
       </RNHeader>
     </RNContainer>
   );

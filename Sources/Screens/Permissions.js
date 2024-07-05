@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNButton, RNContainer, RNImage, RNStyles, RNText } from '../Common';
 import { useInset } from '../Hooks';
-import { Images } from '../Constants';
+import { Images, Strings } from '../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { NativeAd } from '../Components';
 import { useState } from 'react';
@@ -26,10 +26,10 @@ const Permissions = ({ navigation }) => {
           align={'center'}
           size={FontSize.font20}
           family={FontFamily.SemiBold}>
-          {'Welcome To Toonme'}
+          {Strings.WelcomeToToonme}
         </RNText>
         <RNText align={'center'} size={FontSize.font14}>
-          {'We value your privacy'}
+          {Strings.Wevalueyourprivacy}
         </RNText>
 
         <View style={styles.agreeContainer}>
@@ -42,25 +42,24 @@ const Permissions = ({ navigation }) => {
             <View style={styles.radio} />
           </TouchableOpacity>
           <View style={RNStyles.flexWrapHorizontal}>
-            <RNText>{'I agree to the '}</RNText>
+            <RNText>{Strings.Iagreetothe}</RNText>
             <TouchableOpacity>
-              <RNText style={styles.terms}>{'Terms of Use'}</RNText>
+              <RNText style={styles.terms}>{Strings.TermsofUse}</RNText>
             </TouchableOpacity>
-            <RNText>{' and '}</RNText>
-            <RNText>{'acknowledge that I have read the '}</RNText>
+            <RNText>{Strings.and}</RNText>
+            <RNText>{Strings.acknowledgethatIhavereadthe}</RNText>
             <TouchableOpacity>
-              <RNText style={styles.terms}>{'privacy policy.'}</RNText>
+              <RNText style={styles.terms}>{Strings.privacypolicy}</RNText>
             </TouchableOpacity>
           </View>
         </View>
 
         <RNButton
           disable={!State.termsAccepted}
-          title={'Accept & Continue'}
+          title={Strings.AcceptContinue}
           onPress={onAceeptPress}
         />
       </View>
-
       <NativeAd />
     </RNContainer>
   );

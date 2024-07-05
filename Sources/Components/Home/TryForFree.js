@@ -4,6 +4,7 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
 import { useDispatch } from 'react-redux';
 import { togglePlans } from '../../Redux/Actions';
+import { Strings } from '../../Constants';
 
 const TryForFree = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const TryForFree = () => {
       <View style={styles.free}>
         <View style={styles.circle} />
         <RNText family={FontFamily.SemiBold} size={FontSize.font10}>
-          {'Free'}
+          {Strings.Free}
         </RNText>
         <View style={[styles.circle, styles.rightCircle]} />
       </View>
@@ -22,10 +23,10 @@ const TryForFree = () => {
         pHorizontal={wp(2)}
         family={FontFamily.SemiBold}
         color={Colors.White}>
-        {'Try the FREE full\nPRO version'}
+        {Strings.freeDesc}
       </RNText>
       <RNButton
-        title={'Try for free'}
+        title={Strings.Tryforfree}
         doubleTicks={false}
         style={styles.tryButton}
         textStyle={{ fontSize: FontSize.font10 }}

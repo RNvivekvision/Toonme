@@ -1,7 +1,7 @@
-import { StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RNIcon, RNStyles, RNText, RNScrollView } from './index';
-import { useInset, useUserClick } from '../Hooks';
+import { useInset } from '../Hooks';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { Images, Strings } from '../Constants';
 
@@ -42,7 +42,7 @@ const RNHeader = ({
         {onSkipPress && (
           <TouchableOpacity onPress={skip} style={styles.next}>
             <RNText family={FontFamily.Medium} size={FontSize.font14}>
-              {'Skip'}
+              {Strings.Skip}
             </RNText>
           </TouchableOpacity>
         )}

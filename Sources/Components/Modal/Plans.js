@@ -1,6 +1,6 @@
 import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNButton, RNIcon, RNImage, RNStyles, RNText } from '../../Common';
-import { Images } from '../../Constants';
+import { Images, Strings } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { useInset } from '../../Hooks';
 import { DummyData } from '../../Utils';
@@ -31,19 +31,19 @@ const Plans = ({ visible, onClose }) => {
 
         <View style={styles.content}>
           <RNText size={FontSize.font20} family={FontFamily.SemiBold}>
-            {'Upgrade Now !!!'}
+            {Strings.UpgradeNow}
           </RNText>
           <RNText size={FontSize.font14} pBottom={hp(1)} pRight={wp(6)}>
-            {"You'll need a premium membership to connect"}
+            {Strings.UpgradeNowDesc}
           </RNText>
 
           <View style={styles.trueContainer}>
             <RNImage source={Images.trueYellow} style={RNStyles.icon} />
-            <RNText style={styles.trueText}>{'Remove All Ads'}</RNText>
+            <RNText style={styles.trueText}>{Strings.RemoveAllAds}</RNText>
           </View>
           <View style={styles.trueContainer}>
             <RNImage source={Images.trueYellow} style={RNStyles.icon} />
-            <RNText style={styles.trueText}>{'Unlimited Download'}</RNText>
+            <RNText style={styles.trueText}>{Strings.UnlimitedDownload}</RNText>
           </View>
 
           {DummyData.plans.map((v, i) => (
@@ -56,13 +56,13 @@ const Plans = ({ visible, onClose }) => {
           ))}
         </View>
       </View>
-      <RNButton title={'Subscribe'} onPress={onClose} />
+      <RNButton title={Strings.Subscribe} onPress={onClose} />
       <RNText
         align={'center'}
         size={FontSize.font12}
         pBottom={inset.bottom + hp(2)}
         family={FontFamily.Medium}>
-        {'No commitments, Cancel Anytime'}
+        {Strings.SubscribeDesc}
       </RNText>
     </Modal>
   );

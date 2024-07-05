@@ -3,7 +3,7 @@ import Reanimated, { BounceInRight } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
-import { Images } from '../../Constants';
+import { Images, Strings } from '../../Constants';
 import { NavRoutes } from '../../Navigation';
 
 const HowToUse = () => {
@@ -22,7 +22,7 @@ const HowToUse = () => {
           pLeft={wp(3)}
           size={FontSize.font14}
           family={FontFamily.SemiBold}>
-          {'How To Use'}
+          {Strings.HowToUse}
         </RNText>
       </TouchableOpacity>
     </Reanimated.View>

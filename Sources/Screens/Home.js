@@ -10,6 +10,7 @@ import {
   ImageOptions,
   HowToUse,
 } from '../Components';
+import { Strings } from '../Constants';
 
 const Home = () => {
   const { showPlans } = useSelector(({ UserReducer }) => UserReducer);
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <RNContainer useSafeArea>
-      <TOHeader title={'Toon Me'}>
+      <TOHeader title={Strings.ToonMe}>
         <TryForFree />
         <PickerOptions />
         <ImageOptions />

@@ -1,64 +1,64 @@
-import { Images } from '../Constants';
+import { Images, Strings } from '../Constants';
 
 const DummyData = {
   Drawer: [
     {
-      title: 'Home',
+      title: Strings.Home,
       key: 'home',
     },
     {
-      title: 'Privacy Policy',
+      title: Strings.PrivacyPolicy,
       key: 'privacy',
     },
     {
-      title: 'Ratings',
+      title: Strings.Ratings,
       key: 'rateus',
     },
     {
-      title: 'Share This App',
+      title: Strings.ShareThisApp,
       key: 'share',
     },
   ],
   steps: [
     {
-      title: 'Upload Your Photo',
-      text: 'Start by selecting a photo from your gallery or taking a new one.',
+      title: Strings.step_0_title,
+      text: Strings.step_0_text,
     },
     {
-      title: 'Select a Cartoon Style',
-      text: 'Simply swipe through the styles & tap on your favorite to apply it to your photo.',
+      title: Strings.step_1_title,
+      text: Strings.step_1_text,
     },
     {
-      title: 'Customize Your Cartoon',
-      text: 'Make your cartoon unique with our customization options.',
+      title: Strings.step_2_title,
+      text: Strings.step_2_text,
     },
     {
-      title: 'Add Fun Elements',
-      text: 'Drag and drop elements onto your cartoon & adjust their size and position to your liking.',
+      title: Strings.step_3_title,
+      text: Strings.step_3_text,
     },
     {
-      title: 'Save and Share',
-      text: "Once you're happy with your creation, save it your device or share it directly from the app.",
+      title: Strings.step_4_title,
+      text: Strings.step_4_text,
     },
   ],
   plans: [
     {
       id: 0,
-      title: 'Monthly Plan',
+      title: Strings.MonthlyPlan,
       price: '$6.99',
     },
     {
       id: 1,
-      title: 'Yearly Plan',
+      title: Strings.YearlyPlan,
       price: '$12.99',
     },
   ],
   Home: {
     ImageOptions: [
-      { id: 0, img: Images.home_all, title: 'All' },
-      { id: 1, img: Images.home_sketch, title: 'Sketch' },
+      { id: 0, img: Images.home_all, title: Strings.All },
+      { id: 1, img: Images.home_sketch, title: Strings.Sketch },
       { id: 2, img: Images.home_2d, title: '2D' },
-      { id: 3, img: Images.home_cartoon, title: 'Cartoon' },
+      { id: 3, img: Images.home_cartoon, title: Strings.Cartoon },
       { id: 4, img: Images.home_3d, title: '3D' },
     ],
   },

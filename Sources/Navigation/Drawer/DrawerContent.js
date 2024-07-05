@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
-import { Images } from '../../Constants';
+import { Images, Strings } from '../../Constants';
 import { useInset } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
 import { useDispatch } from 'react-redux';
@@ -16,7 +16,7 @@ const DrawerContent = ({ navigation }) => {
   return (
     <View style={RNStyles.container}>
       <View style={styles.logoContainer}>
-        <RNText style={styles.title}>{'Toonme - Cartoons From Photos'}</RNText>
+        <RNText style={styles.title}>{Strings.ToonmeCartoonsFromPhotos}</RNText>
       </View>
 
       <View style={RNStyles.container}>
@@ -53,7 +53,7 @@ const DrawerContent = ({ navigation }) => {
             pLeft={wp(3)}
             family={FontFamily.SemiBold}
             size={FontSize.font14}>
-            {'Get Premium'}
+            {Strings.GetPremium}
           </RNText>
         </View>
         <RNImage source={Images.right} style={styles.icon} />

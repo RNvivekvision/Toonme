@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNImage, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
-import { Images } from '../../Constants';
+import { Images, Strings } from '../../Constants';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
 
 const PickerOptions = () => {
@@ -14,21 +14,21 @@ const PickerOptions = () => {
   return (
     <View style={styles.container}>
       <Option
-        title={'Camera'}
+        title={Strings.Camera}
         image={Images.camera}
         delay={150}
         onPress={onCollageMakerPress}
       />
 
       <Option
-        title={'Gallery'}
+        title={Strings.Gallery}
         image={Images.gallery}
         delay={300}
         onPress={onCollageMakerPress}
       />
 
       <Option
-        title={'Collage Maker'}
+        title={Strings.CollageMaker}
         image={Images.collageMaker}
         delay={450}
         onPress={onCollageMakerPress}

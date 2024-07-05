@@ -3178,11 +3178,13 @@ __metadata:
     react: 18.2.0
     react-native: 0.74.2
     react-native-gesture-handler: ^2.17.1
+    react-native-image-crop-picker: ^0.41.2
     react-native-rate: ^1.2.12
     react-native-reanimated: ^3.12.1
     react-native-safe-area-context: ^4.10.7
     react-native-screens: ^3.32.0
     react-native-splash-screen: ^3.3.0
+    react-native-vision-camera: ^4.4.1
     react-redux: ^9.1.2
     react-test-renderer: 18.2.0
     typescript: 5.0.4
@@ -3225,11 +3227,11 @@ __metadata:
   linkType: hard
 
 "acorn@npm:^8.8.2, acorn@npm:^8.9.0":
-  version: 8.12.0
-  resolution: "acorn@npm:8.12.0"
+  version: 8.12.1
+  resolution: "acorn@npm:8.12.1"
   bin:
     acorn: bin/acorn
-  checksum: ae142de8739ef15a5d936c550c1d267fc4dedcdbe62ad1aa2c0009afed1de84dd0a584684a5d200bb55d8db14f3e09a95c6e92a5303973c04b9a7413c36d1df0
+  checksum: 677880034aee5bdf7434cc2d25b641d7bedb0b5ef47868a78dadabedccf58e1c5457526d9d8249cd253f2df087e081c3fe7d903b448d8e19e5131a3065b83c07
   languageName: node
   linkType: hard
 
@@ -3836,9 +3838,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001629":
-  version: 1.0.30001639
-  resolution: "caniuse-lite@npm:1.0.30001639"
-  checksum: 0d9291cc47ffaad5806716bff6fef41eec21f86a448370bc30a72823fcaf24ba5ccb4704841e6a60f078ddf2e9987e3d23f4d3ca0fffc51f6cb0400b7411ad28
+  version: 1.0.30001640
+  resolution: "caniuse-lite@npm:1.0.30001640"
+  checksum: ec492d8d1e11d1c55e0f5c0f218229369dc0a4bd1b5d0a579a6435865fe8f4c84bde7e816a844cce1b9cdd97f5a85b6dac5599639fabcdb0c4c5bd039e46cbfd
   languageName: node
   linkType: hard
 
@@ -5159,9 +5161,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.238.3
-  resolution: "flow-parser@npm:0.238.3"
-  checksum: a8a3cbb3b1a32e5f655391410feedcf4842a4818496c6fe115eb5fe25dbf57a1a705f31892190500774a06e4b39a05a088f8d6e594d773e27a70191cb6462a20
+  version: 0.239.0
+  resolution: "flow-parser@npm:0.239.0"
+  checksum: 20d75183560a901f458878958f8e59c9ca82f118bbb5d265bc67143d4ae6db2b2ee52bc38391d9a4053e623de6ef9c0ca11d24b66cf5b64e5c6ceb873f38192d
   languageName: node
   linkType: hard
 
@@ -8169,12 +8171,12 @@ __metadata:
   linkType: hard
 
 "react-devtools-core@npm:^5.0.0":
-  version: 5.3.0
-  resolution: "react-devtools-core@npm:5.3.0"
+  version: 5.3.1
+  resolution: "react-devtools-core@npm:5.3.1"
   dependencies:
     shell-quote: ^1.6.1
     ws: ^7
-  checksum: fda4c8e7678655f39ca63949242c82d289962282a0e18fc95ffabc25de0424ff30b7d557d7863a5c10494ef0e6cb616e7d1aa64cd5879ddd6df5ecfc617b5735
+  checksum: a68434a6af8261f5eb7defd823ebc77cc86f42a93521755bc58e5925956af579a312e109f9b27f652d016c2d580ef28f6e8d1643502624c0fe7913c93c743170
   languageName: node
   linkType: hard
 
@@ -8223,6 +8225,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-image-crop-picker@npm:^0.41.2":
+  version: 0.41.2
+  resolution: "react-native-image-crop-picker@npm:0.41.2"
+  peerDependencies:
+    react-native: ">=0.40.0"
+  checksum: c1333b3b761e948bd0bc856773f68dcc859c7ce39dda3e14d2c32c17d55927735bfc5cbbb7ac5e8bac21feda87c93399f2a596aca7d5b0611cc1e8203d97ad2e
+  languageName: node
+  linkType: hard
+
 "react-native-rate@npm:^1.2.12":
   version: 1.2.12
   resolution: "react-native-rate@npm:1.2.12"
@@ -8231,8 +8242,8 @@ __metadata:
   linkType: hard
 
 "react-native-reanimated@npm:^3.12.1":
-  version: 3.12.1
-  resolution: "react-native-reanimated@npm:3.12.1"
+  version: 3.13.0
+  resolution: "react-native-reanimated@npm:3.13.0"
   dependencies:
     "@babel/plugin-transform-arrow-functions": ^7.0.0-0
     "@babel/plugin-transform-nullish-coalescing-operator": ^7.0.0-0
@@ -8246,7 +8257,7 @@ __metadata:
     "@babel/core": ^7.0.0-0
     react: "*"
     react-native: "*"
-  checksum: 91575b3a20a5878f42d0302cf304ed46ff35c12ce717018c0bfb6af047bf675f224ab95de778daae483b139e66c5290a661635c06304065879b02a5926243e1c
+  checksum: 16e12a253cd2bd13f5d105aaabb6e8f3398f00e1dd67a6834c25bd6031c65526bb00b15a3daf9ce908f4ef6a6aa679ec4edb62f2328625a45aada96414a0f04a
   languageName: node
   linkType: hard
 
@@ -8279,6 +8290,26 @@ __metadata:
   peerDependencies:
     react-native: ">=0.57.0"
   checksum: 14c565d5d4214f55586dcf6f7abd12d99d3e0667f67de3bda7aa24988971567b283a4187fbc0c6269c83b3c21d59d1950335c61bb0780ec2d065e20b3b9199d0
+  languageName: node
+  linkType: hard
+
+"react-native-vision-camera@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "react-native-vision-camera@npm:4.4.1"
+  peerDependencies:
+    "@shopify/react-native-skia": "*"
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: "*"
+    react-native-worklets-core: "*"
+  peerDependenciesMeta:
+    "@shopify/react-native-skia":
+      optional: true
+    react-native-reanimated:
+      optional: true
+    react-native-worklets-core:
+      optional: true
+  checksum: bd471d6837f9c80278d10ed9544eb359a1ea376ea5805554cfc81605f802bdd5046ffb592f1a354238419a7cd6a3816564ef304e38b0e4857a6fa1bb2a39f3fe
   languageName: node
   linkType: hard
 
@@ -9698,8 +9729,8 @@ __metadata:
   linkType: hard
 
 "update-browserslist-db@npm:^1.0.16":
-  version: 1.0.16
-  resolution: "update-browserslist-db@npm:1.0.16"
+  version: 1.1.0
+  resolution: "update-browserslist-db@npm:1.1.0"
   dependencies:
     escalade: ^3.1.2
     picocolors: ^1.0.1
@@ -9707,7 +9738,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     update-browserslist-db: cli.js
-  checksum: 51b1f7189c9ea5925c80154b0a6fd3ec36106d07858d8f69826427d8edb4735d1801512c69eade38ba0814d7407d11f400d74440bbf3da0309f3d788017f35b2
+  checksum: 7b74694d96f0c360f01b702e72353dc5a49df4fe6663d3ee4e5c628f061576cddf56af35a3a886238c01dd3d8f231b7a86a8ceaa31e7a9220ae31c1c1238e562
   languageName: node
   linkType: hard
 
