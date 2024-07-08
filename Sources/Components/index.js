@@ -1,6 +1,6 @@
 export { NativeAd } from './Ads';
 export { TOHeader } from './Common';
-export { Plans } from './Modal';
+export { Plans, CameraModal } from './Modal';
 export {
   RenderSteps,
   RenderPlans,

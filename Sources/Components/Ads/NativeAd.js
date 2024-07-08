@@ -2,8 +2,11 @@ import { StyleSheet } from 'react-native';
 import { RNText, RNStyles } from '../../Common';
 import { Colors, FontFamily, hp, wp } from '../../Theme';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
+import { GoogleNativeAd } from './google';
 
 const NativeAd = () => {
+  return <GoogleNativeAd />;
+
   return (
     <Reanimated.View entering={FadeInDown.delay(200)} style={styles.container}>
       <RNText family={FontFamily.Medium}>{'Native Ad'}</RNText>

@@ -34,7 +34,9 @@ const Images = {
   home_2d: require(imagePath + 'home_2d' + png),
   home_cartoon: require(imagePath + 'home_cartoon' + png),
   home_3d: require(imagePath + 'home_3d' + png),
-  dummy: require(imagePath + 'dummy' + png),
+  camera: require(imagePath + 'camera' + png),
+  changeCamera: require(imagePath + 'changeCamera' + png),
+  flashlight: require(imagePath + 'flashlight' + png),
 };
 
 export default Images;

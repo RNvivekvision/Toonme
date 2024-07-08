@@ -115,19 +115,8 @@ const func = {
   rateus: () => rateus(),
   share: () => share(),
 };
-
-const privacy = () => {
-  console.log('Privacy Policy...');
-};
-
-const rateus = () =>
-  Functions.RateUs({
-    onSuccess: () => console.log('Success'),
-    onError: () => console.error('Error'),
-  });
-
-const share = async () => {
-  await Functions.ShareApp();
-};
+const privacy = () => console.log('Privacy Policy...');
+const rateus = () => Functions.RateUs();
+const share = async () => await Functions.ShareApp();
 
 export default DrawerContent;

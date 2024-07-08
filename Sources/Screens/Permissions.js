@@ -6,12 +6,14 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { NativeAd } from '../Components';
 import { useState } from 'react';
 import { NavRoutes } from '../Navigation';
+import { Functions } from '../Utils';
 
 const Permissions = ({ navigation }) => {
   const [State, setState] = useState({ termsAccepted: false });
   const styles = useStyles({ ...State });
 
-  const onAceeptPress = () => {
+  const onAceeptPress = async () => {
+    await Functions.setAppData({ hasUser: true });
     navigation.reset({
       index: 0,
       routes: [{ name: NavRoutes.Home }],

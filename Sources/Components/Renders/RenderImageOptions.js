@@ -1,19 +1,24 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { RNImage, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
-import Reanimated, { FadeInDown, SlideInRight } from 'react-native-reanimated';
+import Reanimated, { FadeInDown } from 'react-native-reanimated';
 
-const RenderImageOptions = ({ item, selected }) => {
+const RenderImageOptions = ({ item, index, selected, onPress }) => {
   const styles = useStyles({ selected });
+  const img = `data:image/png;base64,${item?.category_logo}`;
 
   return (
     <Reanimated.View
-      entering={FadeInDown.delay(100 * item.id)}
+      entering={FadeInDown.delay(100 * index)}
       style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        <RNImage source={item.img} style={styles.img} />
+      <TouchableOpacity onPress={() => onPress?.(index)} style={styles.button}>
+        <RNImage
+          source={{ uri: img }}
+          resizeMode={'cover'}
+          style={styles.img}
+        />
         <RNText size={FontSize.font10} family={FontFamily.SemiBold}>
-          {item.title}
+          {item?.category_name}
         </RNText>
       </TouchableOpacity>
     </Reanimated.View>

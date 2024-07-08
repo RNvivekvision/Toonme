@@ -1,2 +1,3 @@
 import Plans from './Plans';
-export { Plans };
+import CameraModal from './CameraModal';
+export { Plans, CameraModal };

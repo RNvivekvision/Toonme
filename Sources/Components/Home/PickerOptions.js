@@ -3,11 +3,23 @@ import { RNImage, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images, Strings } from '../../Constants';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
+import { useDispatch } from 'react-redux';
+import { toggleCamera } from '../../Redux/Actions';
+import { Functions } from '../../Utils';
 
 const PickerOptions = () => {
-  const onCameraPress = () => {};
+  const dispatch = useDispatch();
 
-  const onGalleryPress = () => {};
+  const onCameraPress = () => dispatch(toggleCamera());
+
+  const onGalleryPress = async () => {
+    try {
+      const img = await Functions.openGallery();
+      console.log('img -> ', JSON.stringify(img, null, 2));
+    } catch (e) {
+      console.error('Error onGalleryPress -> ', e);
+    }
+  };
 
   const onCollageMakerPress = () => {};
 
@@ -17,14 +29,14 @@ const PickerOptions = () => {
         title={Strings.Camera}
         image={Images.camera}
         delay={150}
-        onPress={onCollageMakerPress}
+        onPress={onCameraPress}
       />
 
       <Option
         title={Strings.Gallery}
         image={Images.gallery}
         delay={300}
-        onPress={onCollageMakerPress}
+        onPress={onGalleryPress}
       />
 
       <Option

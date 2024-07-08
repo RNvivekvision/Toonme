@@ -1,1 +1,1 @@
-export { togglePlans } from '../Reducers/UserReducer';
+export { togglePlans, toggleCamera } from '../Reducers/UserReducer';

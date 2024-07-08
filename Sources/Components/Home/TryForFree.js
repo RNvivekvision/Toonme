@@ -39,7 +39,6 @@ const TryForFree = () => {
 const styles = StyleSheet.create({
   container: {
     ...RNStyles.flexRowBetween,
-    borderWidth: 1,
     paddingVertical: hp(1),
     marginHorizontal: wp(4),
     borderRadius: wp(4),
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     borderRadius: wp(2),
   },
   free: {
-    borderWidth: 1,
     backgroundColor: Colors.free,
     paddingHorizontal: wp(4),
     paddingVertical: hp(1),

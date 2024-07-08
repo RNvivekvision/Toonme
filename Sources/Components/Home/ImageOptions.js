@@ -1,38 +1,60 @@
-import { useState } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 import { RenderImageOptions, RenderImages } from '../Renders';
-import { hp, wp } from '../../Theme';
-import { DummyData } from '../../Utils';
-
-const { Home } = DummyData;
+import { wp } from '../../Theme';
+import { URL } from '../../Services';
+import { useDispatch } from 'react-redux';
+import { showAdLoader } from '../../Redux/Reducers/UserReducer';
 
 const ImageOptions = () => {
-  const [State, setState] = useState({ selected: Home.ImageOptions[0] });
-  const columnCount = 2;
-  const images = new Array(50).fill(null).map((_, index) => {
-    return {
-      index,
-      height: ((index * 10) % 100) + hp(25) / ((index % columnCount) + 1),
-    };
+  const dispatch = useDispatch();
+  const [State, setState] = useState({
+    categories: [],
+    selected: 0,
   });
 
+  useEffect(() => {
+    getAllFilters();
+  }, []);
+
+  const getAllFilters = async () => {
+    dispatch(showAdLoader(true));
+    try {
+      const responseJson = await fetch(URL.filters);
+      const response = await responseJson.json();
+      const categories = response?.categories?.sort((a, b) => {
+        if (a.category_name < b.category_name) return -1;
+        if (a.category_name > b.category_name) return 1;
+        return 0;
+      });
+      setState(p => ({ ...p, categories: categories, selected: 0 }));
+      // console.log('response -> ', JSON.stringify(categories, null, 2));
+    } catch (e) {
+      console.error('Error getAllFilters -> ', e);
+    } finally {
+      dispatch(showAdLoader(false));
+    }
+  };
+
   return (
-    <View>
+    <>
       <FlatList
-        data={Home.ImageOptions}
+        data={State.categories}
         horizontal
         contentContainerStyle={styles.contentContainerStyle}
         keyExtractor={(v, i) => String(i)}
-        renderItem={({ item }) => (
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item, index }) => (
           <RenderImageOptions
             item={item}
-            selected={State.selected?.id === item.id}
+            index={index}
+            selected={State.selected === index}
+            onPress={v => setState(p => ({ ...p, selected: v }))}
           />
         )}
       />
-
-      <RenderImages images={images} />
-    </View>
+      <RenderImages images={State.categories[State.selected]?.data} />
+    </>
   );
 };
 

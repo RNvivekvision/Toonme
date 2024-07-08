@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePlans } from '../Redux/Actions';
+import { togglePlans, toggleCamera } from '../Redux/Actions';
 import { RNContainer } from '../Common';
 import {
   NativeAd,
@@ -9,11 +9,14 @@ import {
   PickerOptions,
   ImageOptions,
   HowToUse,
+  CameraModal,
 } from '../Components';
 import { Strings } from '../Constants';
 
 const Home = () => {
-  const { showPlans } = useSelector(({ UserReducer }) => UserReducer);
+  const { showPlans, showCamera } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const dispatch = useDispatch();
 
   return (
@@ -26,6 +29,10 @@ const Home = () => {
       <HowToUse />
       <NativeAd />
       <Plans visible={showPlans} onClose={() => dispatch(togglePlans())} />
+      <CameraModal
+        visible={showCamera}
+        onClose={() => dispatch(toggleCamera())}
+      />
     </RNContainer>
   );
 };

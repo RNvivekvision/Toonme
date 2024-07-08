@@ -1,6 +1,7 @@
 import { Alert, Linking, Platform, Share } from 'react-native';
 import Rate, { AndroidMarket } from 'react-native-rate';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 const isDev = __DEV__;
 const androidPackage = 'com.toonme';
@@ -31,6 +32,17 @@ const setAppData = async data => {
 const getAppData = async () => {
   const value = await AsyncStorage.getItem('appdata');
   return JSON.parse(value);
+};
+
+const openGallery = async p => {
+  const img = await ImageCropPicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true,
+    mediaType: 'photo',
+    ...p,
+  });
+  return img;
 };
 
 const RateUs = ({ onSuccess, onError } = {}) => {
@@ -67,6 +79,7 @@ const Functions = {
   OpenUrl,
   setAppData,
   getAppData,
+  openGallery,
   wait,
   RateUs,
   ShareApp,
