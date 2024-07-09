@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAdData } from '../ExtraReducers';
+import { getAdData, getFilters } from '../ExtraReducers';
 
 const initialState = {
   showPlans: false,
-  showCamera: false,
   clickCount: 0,
   adLoading: false,
   adData: null,
@@ -11,6 +10,10 @@ const initialState = {
   Admob: null,
   Admanager1: null,
   Admanager2: null,
+  filters: [],
+  clickedImage: null,
+  selectedFilter: null,
+  showPremium: false,
 };
 
 const UserReducer = createSlice({
@@ -20,8 +23,8 @@ const UserReducer = createSlice({
     togglePlans: s => {
       s.showPlans = !s.showPlans;
     },
-    toggleCamera: s => {
-      s.showCamera = !s.showCamera;
+    togglePremium: s => {
+      s.showPremium = !s.showPremium;
     },
     increaseCount: (s, a) => {
       s.clickCount = s.clickCount + 1;
@@ -29,6 +32,12 @@ const UserReducer = createSlice({
     },
     showAdLoader: (s, a) => {
       s.adLoading = a.payload;
+    },
+    setClickedImage: (s, a) => {
+      s.clickedImage = a.payload;
+    },
+    setSelectedFilter: (s, a) => {
+      s.selectedFilter = a.payload;
     },
   },
   extraReducers: b => {
@@ -47,9 +56,26 @@ const UserReducer = createSlice({
       s.adData = a.payload;
       // s = a.payload;
     });
+
+    b.addCase(getFilters.pending, s => {
+      s.adLoading = true;
+    });
+    b.addCase(getFilters.fulfilled, (s, a) => {
+      s.adLoading = false;
+      s.filters = a.payload;
+    });
+    b.addCase(getFilters.rejected, (s, a) => {
+      s.adLoading = false;
+    });
   },
 });
 
-export const { togglePlans, toggleCamera, increaseCount, showAdLoader } =
-  UserReducer.actions;
+export const {
+  togglePlans,
+  togglePremium,
+  increaseCount,
+  showAdLoader,
+  setClickedImage,
+  setSelectedFilter,
+} = UserReducer.actions;
 export default UserReducer.reducer;

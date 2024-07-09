@@ -39,6 +39,7 @@ const RNHeader = ({
           />
         )}
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
+        {!onSkipPress && <View style={styles.icon} />}
         {onSkipPress && (
           <TouchableOpacity onPress={skip} style={styles.next}>
             <RNText family={FontFamily.Medium} size={FontSize.font14}>

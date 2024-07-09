@@ -43,14 +43,14 @@ const RNButton = ({
   );
 };
 
-const iconSize = wp(6);
+const iconSize = wp(8);
 const useStyles = ({ disable }) => {
   return StyleSheet.create({
     Container: {
       ...RNStyles.center,
       ...RNStyles.flexRow,
       backgroundColor: disable ? Colors.Placeholder : Colors.Primary,
-      paddingVertical: hp(2.5),
+      paddingVertical: hp(2),
       paddingHorizontal: wp(8),
       marginHorizontal: wp(6),
       marginVertical: hp(1),
@@ -65,7 +65,8 @@ const useStyles = ({ disable }) => {
     icon: {
       width: iconSize,
       height: iconSize,
-      marginRight: wp(2),
+      position: 'absolute',
+      left: wp(8),
     },
     doubleTicks: {
       ...RNStyles.icon,

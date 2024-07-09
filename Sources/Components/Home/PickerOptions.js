@@ -1,21 +1,33 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { RNImage, RNStyles, RNText } from '../../Common';
-import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
-import { Images, Strings } from '../../Constants';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { toggleCamera } from '../../Redux/Actions';
+import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
+import { RNImage, RNStyles, RNText } from '../../Common';
+import { setClickedImage } from '../../Redux/Actions';
+import { Images, Strings } from '../../Constants';
+import { NavRoutes } from '../../Navigation';
 import { Functions } from '../../Utils';
 
 const PickerOptions = () => {
+  const { navigate } = useNavigation();
   const dispatch = useDispatch();
 
-  const onCameraPress = () => dispatch(toggleCamera());
+  const onCameraPress = async () => {
+    try {
+      const img = await Functions.openCamera();
+      dispatch(setClickedImage(img));
+      navigate(NavRoutes.Preview);
+    } catch (e) {
+      console.error('Error onCameraPress -> ', e);
+    }
+  };
 
   const onGalleryPress = async () => {
     try {
       const img = await Functions.openGallery();
-      console.log('img -> ', JSON.stringify(img, null, 2));
+      dispatch(setClickedImage(img));
+      navigate(NavRoutes.Preview);
     } catch (e) {
       console.error('Error onGalleryPress -> ', e);
     }

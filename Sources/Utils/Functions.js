@@ -34,12 +34,25 @@ const getAppData = async () => {
   return JSON.parse(value);
 };
 
+const openCamera = async p => {
+  const img = await ImageCropPicker.openCamera({
+    width: 300,
+    height: 400,
+    cropping: true,
+    mediaType: 'photo',
+    includeBase64: true,
+    ...p,
+  });
+  return img;
+};
+
 const openGallery = async p => {
   const img = await ImageCropPicker.openPicker({
     width: 300,
     height: 400,
     cropping: true,
     mediaType: 'photo',
+    includeBase64: true,
     ...p,
   });
   return img;
@@ -79,6 +92,7 @@ const Functions = {
   OpenUrl,
   setAppData,
   getAppData,
+  openCamera,
   openGallery,
   wait,
   RateUs,

@@ -51,6 +51,14 @@ const Strings = {
   All: 'All',
   Sketch: 'Sketch',
   Cartoon: 'Cartoon',
+  SelectCartoon: 'Select Cartoon',
+  Result: 'Result',
+  Preview: 'Preview',
+  Edit: 'Edit',
+  UnlockPremium: 'Unlock Premium',
+  UnlockPremiumDesc:
+    'Watch video to unlock for free and\nget your favorite cartoon',
+  WatchVideo: 'Watch Video',
 };
 
 export default Strings;

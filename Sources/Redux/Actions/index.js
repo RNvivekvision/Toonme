@@ -1,1 +1,8 @@
-export { togglePlans, toggleCamera } from '../Reducers/UserReducer';
+export {
+  togglePlans,
+  togglePremium,
+  increaseCount,
+  setClickedImage,
+  showAdLoader,
+  setSelectedFilter,
+} from '../Reducers/UserReducer';

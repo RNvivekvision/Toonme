@@ -5,6 +5,9 @@ import NativeAdView, {
   HeadlineView,
   IconView,
   TestIds,
+  StarRatingView,
+  TaglineView,
+  StoreView,
 } from 'react-native-admob-native-ads';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../../Theme';
 import { RNStyles } from '../../../Common';
@@ -64,7 +67,6 @@ const GoogleNativeAd = () => {
         <View style={styles.container}>
           <IconView style={styles.iconView} />
           <View style={styles.content}>
-            <HeadlineView style={[styles.headlineView, textColor]} />
             {State.showButton && (
               <CallToActionView
                 style={[styles.button, buttonBgColor]}
@@ -72,6 +74,12 @@ const GoogleNativeAd = () => {
                 allCaps={true}
               />
             )}
+            <HeadlineView style={[styles.headlineView, textColor]} />
+            <View style={RNStyles.flexRow}>
+              <StarRatingView />
+              <StoreView />
+            </View>
+            <TaglineView numberOfLines={1} />
           </View>
         </View>
       </NativeAdView>
@@ -93,14 +101,13 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingHorizontal: wp(2),
+    paddingHorizontal: wp(6),
   },
   headlineView: {
-    fontSize: FontSize.font18,
+    fontSize: FontSize.font16,
     fontFamily: FontFamily.SemiBold,
     color: Colors.Black,
-    textAlign: 'center',
-    paddingVertical: hp(2),
+    // paddingVertical: hp(2),
   },
   button: {
     ...RNStyles.center,

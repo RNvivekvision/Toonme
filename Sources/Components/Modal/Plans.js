@@ -1,11 +1,11 @@
-import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { Modal, StyleSheet, View } from 'react-native';
 import { RNButton, RNIcon, RNImage, RNStyles, RNText } from '../../Common';
 import { Images, Strings } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { useInset } from '../../Hooks';
 import { DummyData } from '../../Utils';
 import { RenderPlans } from '../Renders';
-import { useState } from 'react';
 
 const Plans = ({ visible, onClose }) => {
   const [State, setState] = useState({ selectedPlan: DummyData.plans[0] });

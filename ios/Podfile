@@ -61,6 +61,10 @@ pod 'GoogleUtilities', :modular_headers => true
 pod 'FirebaseCore', :modular_headers => true
 use_modular_headers!
 
+# enable Video caching
+$RNVideoUseVideoCaching=true
+$RNVideoUseGoogleIMA=true
+
 target 'Toonme' do
   config = use_native_modules!
 

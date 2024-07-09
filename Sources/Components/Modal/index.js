@@ -1,3 +1,3 @@
 import Plans from './Plans';
-import CameraModal from './CameraModal';
-export { Plans, CameraModal };
+import UnlockPremium from './UnlockPremium';
+export { Plans, UnlockPremium };

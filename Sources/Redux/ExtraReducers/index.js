@@ -1,1 +1,1 @@
-export { getAdData } from './AdExtraReducer';
+export { getAdData, getFilters } from './AdExtraReducer';

@@ -17,9 +17,7 @@ const RenderImageOptions = ({ item, index, selected, onPress }) => {
           resizeMode={'cover'}
           style={styles.img}
         />
-        <RNText size={FontSize.font10} family={FontFamily.SemiBold}>
-          {item?.category_name}
-        </RNText>
+        <RNText style={styles.title}>{item?.category_name}</RNText>
       </TouchableOpacity>
     </Reanimated.View>
   );
@@ -44,6 +42,10 @@ const useStyles = ({ selected }) => {
       height: size.img,
       borderRadius: 100,
       marginVertical: hp(1),
+    },
+    title: {
+      fontSize: FontSize.font10,
+      fontFamily: FontFamily.SemiBold,
     },
   });
 };

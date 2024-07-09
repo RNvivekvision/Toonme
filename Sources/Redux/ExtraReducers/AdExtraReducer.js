@@ -39,4 +39,20 @@ const getAdData = createAsyncThunk('getAdData', async () => {
   }
 });
 
-export { getAdData };
+const getFilters = createAsyncThunk('getFilters', async () => {
+  try {
+    const responseJson = await fetch(URL.filters);
+    const response = await responseJson.json();
+    const categories = response?.categories?.sort((a, b) => {
+      if (a.category_name < b.category_name) return -1;
+      if (a.category_name > b.category_name) return 1;
+      return 0;
+    });
+    return categories;
+  } catch (e) {
+    console.error('Error getAdData -> ', e);
+    return { error: 'Something went wrong' };
+  }
+});
+
+export { getAdData, getFilters };

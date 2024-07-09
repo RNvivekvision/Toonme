@@ -37,6 +37,8 @@ const Images = {
   camera: require(imagePath + 'camera' + png),
   changeCamera: require(imagePath + 'changeCamera' + png),
   flashlight: require(imagePath + 'flashlight' + png),
+  card: require(imagePath + 'card' + png),
+  watchVideo: require(imagePath + 'watchVideo' + png),
 };
 
 export default Images;

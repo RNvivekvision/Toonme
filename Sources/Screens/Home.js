@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePlans, toggleCamera } from '../Redux/Actions';
+import {
+  setClickedImage,
+  setSelectedFilter,
+  togglePlans,
+  togglePremium,
+} from '../Redux/Actions';
 import { RNContainer } from '../Common';
 import {
   NativeAd,
@@ -9,29 +14,40 @@ import {
   PickerOptions,
   ImageOptions,
   HowToUse,
-  CameraModal,
+  BouncyCard,
+  UnlockPremium,
 } from '../Components';
 import { Strings } from '../Constants';
+import { Functions } from '../Utils';
+import { NavRoutes } from '../Navigation';
 
-const Home = () => {
-  const { showPlans, showCamera } = useSelector(
+const Home = ({ navigation }) => {
+  const { showPlans, showPremium } = useSelector(
     ({ UserReducer }) => UserReducer,
   );
   const dispatch = useDispatch();
+
+  const onFilterPress = async filter => {
+    const img = await Functions.openGallery();
+    dispatch(setClickedImage(img));
+    dispatch(setSelectedFilter(filter?.combo_id));
+    navigation.navigate(NavRoutes.Result);
+  };
 
   return (
     <RNContainer useSafeArea>
       <TOHeader title={Strings.ToonMe}>
         <TryForFree />
         <PickerOptions />
-        <ImageOptions />
+        <NativeAd />
+        <ImageOptions onFilterPress={onFilterPress} />
       </TOHeader>
+      <BouncyCard />
       <HowToUse />
-      <NativeAd />
       <Plans visible={showPlans} onClose={() => dispatch(togglePlans())} />
-      <CameraModal
-        visible={showCamera}
-        onClose={() => dispatch(toggleCamera())}
+      <UnlockPremium
+        visible={showPremium}
+        onClose={() => dispatch(togglePremium())}
       />
     </RNContainer>
   );
