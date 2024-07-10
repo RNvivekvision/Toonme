@@ -14,6 +14,7 @@ import {
   Preview,
   SelectCartoon,
   Result,
+  HotFeature,
 } from '../Screens';
 
 const Stack = createStackNavigator();
@@ -53,6 +54,7 @@ const Routes = () => {
           component={SelectCartoon}
         />
         <Stack.Screen name={NavRoutes.Result} component={Result} />
+        <Stack.Screen name={NavRoutes.HotFeature} component={HotFeature} />
       </Stack.Navigator>
     );
   }, [localdata]);

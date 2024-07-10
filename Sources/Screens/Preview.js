@@ -17,7 +17,7 @@ const Preview = ({ navigation }) => {
     <RNContainer>
       <RNHeader title={Strings.Preview} back>
         <View style={styles.imgContainer}>
-          <RNImage source={{ uri: clickedImage.path }} resizeMode={'cover'} />
+          <RNImage source={{ uri: clickedImage.path }} />
         </View>
 
         <View style={styles.buttonContainer}>

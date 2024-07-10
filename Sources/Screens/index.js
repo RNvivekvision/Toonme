@@ -5,4 +5,14 @@ import Steps from './Steps';
 import Preview from './Preview';
 import SelectCartoon from './SelectCartoon';
 import Result from './Result';
-export { Onboarding, Permissions, Home, Steps, Preview, SelectCartoon, Result };
+import HotFeature from './HotFeature';
+export {
+  Onboarding,
+  Permissions,
+  Home,
+  Steps,
+  Preview,
+  SelectCartoon,
+  Result,
+  HotFeature,
+};

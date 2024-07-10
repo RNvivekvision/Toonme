@@ -13,11 +13,17 @@ import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
-const UnlockPremium = ({ visible, onClose }) => {
+const UnlockPremium = ({ visible, onClose, isHome }) => {
   const { navigate } = useNavigation();
   const dispatch = useDispatch();
 
   const onWatchPress = async () => {
+    if (!isHome) {
+      navigate(NavRoutes.Result);
+      onClose?.();
+      return;
+    }
+
     try {
       const img = await Functions.openGallery();
       dispatch(setClickedImage(img));

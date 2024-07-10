@@ -20,6 +20,40 @@ const RenderImages = ({ images, onFilterPress }) => {
     onFilterPress?.(v);
   };
 
+  function isValidBase64(base64) {
+    const base64Regex =
+      /^(?:[A-Za-z0-9+/]{4})*?(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+    return base64Regex.test(base64);
+  }
+  function decodeBase64(base64) {
+    try {
+      const decodedString = atob(base64);
+      return { success: true, decodedString };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  }
+  function verifyBase64Video(base64) {
+    if (!isValidBase64(base64)) {
+      return { success: false, error: 'Invalid base64 string' };
+    }
+
+    const decodedResult = decodeBase64(base64);
+    if (!decodedResult.success) {
+      return decodedResult;
+    }
+
+    // Create a Blob and check if it's a valid video
+    const byteCharacters = decodedResult.decodedString;
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'video/mp4' });
+    return blob;
+  }
+
   const List = useCallback(() => {
     if (!images?.length > 0) return;
 
@@ -29,6 +63,8 @@ const RenderImages = ({ images, onFilterPress }) => {
       const vid = `data:video/mp4;base64,${v?.data}`;
       const isPro = v?.is_pro === 'true';
       const isVideo = v?.file_type === 'video';
+
+      console.log('isValid -> ', verifyBase64Video(vid));
 
       return (
         <Reanimated.View

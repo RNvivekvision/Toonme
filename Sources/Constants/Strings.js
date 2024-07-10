@@ -59,6 +59,11 @@ const Strings = {
   UnlockPremiumDesc:
     'Watch video to unlock for free and\nget your favorite cartoon',
   WatchVideo: 'Watch Video',
+  HotFeature: 'Hot Feature',
+  Male: 'Male',
+  Female: 'Female',
+  SelectGender: 'Select Gender',
+  HotCartoons: 'Hot Cartoons',
 };
 
 export default Strings;

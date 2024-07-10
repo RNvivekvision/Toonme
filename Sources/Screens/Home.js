@@ -48,6 +48,7 @@ const Home = ({ navigation }) => {
       <UnlockPremium
         visible={showPremium}
         onClose={() => dispatch(togglePremium())}
+        isHome={true}
       />
     </RNContainer>
   );

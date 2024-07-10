@@ -10,6 +10,7 @@ import { Images } from '../../Constants';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { hp, wp } from '../../Theme';
 import { useNavigation } from '@react-navigation/native';
+import { NavRoutes } from '../../Navigation';
 
 const BouncyCard = ({ containerStyle }) => {
   const bounce = useSharedValue(0.8);
@@ -25,7 +26,9 @@ const BouncyCard = ({ containerStyle }) => {
     };
   });
 
-  const onPress = async () => {};
+  const onPress = async () => {
+    navigate(NavRoutes.HotFeature);
+  };
 
   return (
     <Reanimated.View style={[styles.container, containerStyle, animatedStyle]}>
