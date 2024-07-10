@@ -59,6 +59,8 @@ pod 'Firebase', :modular_headers => true
 pod 'FirebaseCoreInternal', :modular_headers => true
 pod 'GoogleUtilities', :modular_headers => true
 pod 'FirebaseCore', :modular_headers => true
+pod 'SDWebImage', :modular_headers => true
+pod 'SDWebImageWebPCoder', :modular_headers => true
 use_modular_headers!
 
 # enable Video caching

@@ -10,6 +10,7 @@ export { default as RNDevider } from './RNDevider';
 export { default as RNIcon } from './RNIcon';
 export { default as RNScrollView } from './RNScrollView';
 export { default as RNContainer } from './RNContainer';
+export { default as RNNoInternet } from './RNNoInternet';
 export { default as RNMaruqee } from './RNMaruqee';
 export { default as RNInput } from './RNInput';
 export { default as RNStyles } from './RNStyles';

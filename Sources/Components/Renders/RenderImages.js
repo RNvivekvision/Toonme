@@ -64,8 +64,6 @@ const RenderImages = ({ images, onFilterPress }) => {
       const isPro = v?.is_pro === 'true';
       const isVideo = v?.file_type === 'video';
 
-      console.log('isValid -> ', verifyBase64Video(vid));
-
       return (
         <Reanimated.View
           key={i}

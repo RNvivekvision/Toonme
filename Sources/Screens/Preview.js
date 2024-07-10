@@ -1,13 +1,36 @@
 import { StyleSheet, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { RNButton, RNContainer, RNHeader, RNImage, RNStyles } from '../Common';
-import { Colors, hp, wp } from '../Theme';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  RNButton,
+  RNContainer,
+  RNHeader,
+  RNImage,
+  RNImageLoader,
+  RNStyles,
+} from '../Common';
+import { Colors, hp, isIOS, wp } from '../Theme';
 import { NativeAd } from '../Components';
 import { NavRoutes } from '../Navigation';
 import { Strings } from '../Constants';
+import PhotoEditor from '@baronha/react-native-photo-editor';
+import { setClickedImage } from '../Redux/Actions';
+import { useState } from 'react';
 
 const Preview = ({ navigation }) => {
+  const [State, setState] = useState({ imgLoading: false });
   const { clickedImage } = useSelector(({ UserReducer }) => UserReducer);
+  const dispatch = useDispatch();
+
+  const onEditPress = async () => {
+    const path = await PhotoEditor.open({
+      path: 'file://' + clickedImage?.path,
+      stickers: [],
+    });
+    const img = isIOS ? path.replace('file://', '') : path;
+    dispatch(setClickedImage({ ...clickedImage, path: img }));
+    console.log('img -> ', JSON.stringify(img, null, 2));
+  };
+  console.log('clickedImage -> ', JSON.stringify(clickedImage, null, 2));
 
   const onCartoonPress = () => {
     navigation.navigate(NavRoutes.SelectCartoon);
@@ -17,7 +40,12 @@ const Preview = ({ navigation }) => {
     <RNContainer>
       <RNHeader title={Strings.Preview} back>
         <View style={styles.imgContainer}>
-          <RNImage source={{ uri: clickedImage.path }} />
+          <RNImageLoader visible={State.imgLoading} />
+          <RNImage
+            source={{ uri: clickedImage?.path }}
+            onLoadStart={() => setState(p => ({ ...p, imgLoading: true }))}
+            onLoadEnd={() => setState(p => ({ ...p, imgLoading: false }))}
+          />
         </View>
 
         <View style={styles.buttonContainer}>
@@ -25,6 +53,7 @@ const Preview = ({ navigation }) => {
             title={Strings.Edit}
             style={styles.button}
             doubleTicks={false}
+            onPress={onEditPress}
           />
           <RNButton
             title={Strings.Cartoon}

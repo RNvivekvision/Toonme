@@ -2,6 +2,8 @@ import { Alert, Linking, Platform, Share } from 'react-native';
 import Rate, { AndroidMarket } from 'react-native-rate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImageCropPicker from 'react-native-image-crop-picker';
+import { CameraRoll } from '@react-native-camera-roll/camera-roll';
+import RNFS from 'react-native-fs';
 
 const isDev = __DEV__;
 const androidPackage = 'com.toonme';
@@ -34,13 +36,15 @@ const getAppData = async () => {
   return JSON.parse(value);
 };
 
+const size = 5000;
 const openCamera = async p => {
   const img = await ImageCropPicker.openCamera({
-    width: 300,
-    height: 400,
+    width: size,
+    height: size,
     cropping: true,
     mediaType: 'photo',
-    includeBase64: true,
+    compressImageQuality: 1,
+    useFrontCamera: true,
     ...p,
   });
   return img;
@@ -48,14 +52,21 @@ const openCamera = async p => {
 
 const openGallery = async p => {
   const img = await ImageCropPicker.openPicker({
-    width: 300,
-    height: 400,
+    width: size,
+    height: size,
     cropping: true,
     mediaType: 'photo',
-    includeBase64: true,
+    compressImageQuality: 1,
     ...p,
   });
   return img;
+};
+
+const saveToCameraRoll = async cartoon => {
+  const downloadDest = `${RNFS.DocumentDirectoryPath}/toonme${Date.now()}.jpg`;
+  await RNFS.downloadFile({ fromUrl: cartoon, toFile: downloadDest }).promise;
+  await CameraRoll.saveAsset(downloadDest, { type: 'photo' });
+  alert('Image saved to camera roll!');
 };
 
 const RateUs = ({ onSuccess, onError } = {}) => {
@@ -94,6 +105,7 @@ const Functions = {
   getAppData,
   openCamera,
   openGallery,
+  saveToCameraRoll,
   wait,
   RateUs,
   ShareApp,

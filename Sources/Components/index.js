@@ -1,6 +1,6 @@
 export { NativeAd } from './Ads';
 export { TOHeader } from './Common';
-export { Plans, UnlockPremium } from './Modal';
+export { Plans, UnlockPremium, SaveCartoon } from './Modal';
 export {
   RenderSteps,
   RenderPlans,
@@ -14,3 +14,4 @@ export {
   HowToUse,
   BouncyCard,
 } from './Home';
+export { Cartoons } from './HotFeature';

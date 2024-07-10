@@ -8,12 +8,11 @@ import {
   RNStyles,
   RNText,
 } from '../Common';
-import { Colors, FontFamily, FontSize, hp, isIOS, wp } from '../Theme';
-import { NativeAd } from '../Components';
+import { Colors, FontSize, hp, wp } from '../Theme';
+import { Cartoons, NativeAd, SaveCartoon } from '../Components';
 import { Strings } from '../Constants';
 import { Functions } from '../Utils';
 import { URL } from '../Services';
-import { useSelector } from 'react-redux';
 
 const HotFeature = ({ navigation }) => {
   const [State, setState] = useState({
@@ -21,6 +20,8 @@ const HotFeature = ({ navigation }) => {
     img: null,
     isLoading: false,
     cartoons: [],
+    showSaveCartoon: false,
+    selectedCartoon: null,
   });
   const styles = useStyles({ ...State });
 
@@ -38,6 +39,11 @@ const HotFeature = ({ navigation }) => {
       setState(p => ({ ...p, isLoading: true }));
       const response = await getCartoonImages();
       console.log('response -> ', JSON.stringify(response, null, 2));
+      if (response?.timeout) {
+        alert('Something went wrong. Please try again.');
+      } else if (response?.output_url?.length > 0) {
+        setState(p => ({ ...p, cartoons: response?.output_url }));
+      }
     } catch (e) {
       console.error('Error onNextPress -> ', e);
     } finally {
@@ -53,16 +59,25 @@ const HotFeature = ({ navigation }) => {
       type: State.img?.mime || 'image/jpeg',
       uri: State.img?.path,
     });
-    const responseJson = await fetch(URL.feature, {
-      method: 'POST',
-      body: form,
-      headers: {
-        Accept: '*/*',
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const responseJson = await Promise.race([
+      fetch(URL.feature, {
+        method: 'POST',
+        body: form,
+        headers: {
+          Accept: '*/*',
+          'Content-Type': 'multipart/form-data',
+        },
+      }),
+      new Promise(res =>
+        setTimeout(() => res({ json: () => ({ timeout: true }) }), 15000),
+      ),
+    ]);
     const response = await responseJson.json();
     return response;
+  };
+
+  const onCartoonPress = cartoon => {
+    setState(p => ({ ...p, selectedCartoon: cartoon, showSaveCartoon: true }));
   };
 
   return (
@@ -115,13 +130,13 @@ const HotFeature = ({ navigation }) => {
 
         <NativeAd />
 
-        <RNText
-          size={FontSize.font18}
-          family={FontFamily.SemiBold}
-          pVertical={hp(1)}
-          pHorizontal={wp(4)}>
-          {Strings.HotCartoons}
-        </RNText>
+        <Cartoons images={State.cartoons} onPress={onCartoonPress} />
+
+        <SaveCartoon
+          visible={State.showSaveCartoon}
+          cartoon={State.selectedCartoon}
+          onClose={() => setState(p => ({ ...p, showSaveCartoon: false }))}
+        />
       </RNHeader>
     </RNContainer>
   );
@@ -171,15 +186,15 @@ const useStyles = ({ img }) => {
       ...RNStyles.center,
       width: size.radio,
       height: size.radio,
-      borderWidth: wp(0.5),
-      borderColor: Colors.Primary,
+      borderWidth: wp(0.2),
+      borderColor: Colors.Black,
       borderRadius: 100,
       marginRight: wp(2),
     },
     radio: {
       width: size.radio * 0.6,
       height: size.radio * 0.6,
-      backgroundColor: Colors.Primary,
+      backgroundColor: Colors.Black,
       borderRadius: 100,
     },
   });

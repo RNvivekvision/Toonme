@@ -2,6 +2,7 @@ import { useCallback, useEffect } from 'react';
 import Splash from 'react-native-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { NavConfigs, NavRoutes } from './index';
 import { useLocalStorage, usePermissions } from '../Hooks';
@@ -16,6 +17,7 @@ import {
   Result,
   HotFeature,
 } from '../Screens';
+import { RNNoInternet } from '../Common';
 
 const Stack = createStackNavigator();
 
@@ -60,9 +62,12 @@ const Routes = () => {
   }, [localdata]);
 
   return (
-    <NavigationContainer>
-      <Screens />
-    </NavigationContainer>
+    <SafeAreaProvider style={{ flex: 1 }}>
+      <NavigationContainer>
+        <RNNoInternet />
+        <Screens />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

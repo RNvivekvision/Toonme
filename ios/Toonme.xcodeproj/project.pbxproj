@@ -23,6 +23,8 @@
 		E258156F2C32DEE5008A4E66 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815682C32DEE5008A4E66 /* Poppins-Regular.ttf */; };
 		E25815702C32DEE5008A4E66 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815692C32DEE5008A4E66 /* Poppins-Bold.ttf */; };
 		E25815712C32DEE5008A4E66 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E258156A2C32DEE5008A4E66 /* Poppins-Medium.ttf */; };
+		E2A1B9A82C3EA6DB002EF57C /* LUTs.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2A1B9A62C3EA6DB002EF57C /* LUTs.bundle */; };
+		E2A1B9A92C3EA6DB002EF57C /* Stickers.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2A1B9A72C3EA6DB002EF57C /* Stickers.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		E25815682C32DEE5008A4E66 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		E25815692C32DEE5008A4E66 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E258156A2C32DEE5008A4E66 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../Sources/Assets/Fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		E2A1B9A62C3EA6DB002EF57C /* LUTs.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTs.bundle; sourceTree = "<group>"; };
+		E2A1B9A72C3EA6DB002EF57C /* Stickers.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Stickers.bundle; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F21123604C0445C4CAD04751 /* Pods-Toonme-ToonmeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonme-ToonmeTests.release.xcconfig"; path = "Target Support Files/Pods-Toonme-ToonmeTests/Pods-Toonme-ToonmeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,8 @@
 		13B07FAE1A68108700A75B9A /* Toonme */ = {
 			isa = PBXGroup;
 			children = (
+				E2A1B9A62C3EA6DB002EF57C /* LUTs.bundle */,
+				E2A1B9A72C3EA6DB002EF57C /* Stickers.bundle */,
 				E24726E22C3BC750004BC64C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A1B9A92C3EA6DB002EF57C /* Stickers.bundle in Resources */,
 				E258156C2C32DEE5008A4E66 /* Poppins-SemiBold.ttf in Resources */,
 				E25815702C32DEE5008A4E66 /* Poppins-Bold.ttf in Resources */,
 				E258156E2C32DEE5008A4E66 /* Poppins-Thin.ttf in Resources */,
@@ -288,6 +295,7 @@
 				E258156B2C32DEE5008A4E66 /* Poppins-Black.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E2A1B9A82C3EA6DB002EF57C /* LUTs.bundle in Resources */,
 				BB962D90BB6055C77BAE4EE3 /* PrivacyInfo.xcprivacy in Resources */,
 				E24726E32C3BC750004BC64C /* GoogleService-Info.plist in Resources */,
 				E258156F2C32DEE5008A4E66 /* Poppins-Regular.ttf in Resources */,

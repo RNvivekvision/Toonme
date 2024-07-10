@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNButton, RNContainer, RNImage, RNStyles, RNText } from '../Common';
-import { useInset } from '../Hooks';
-import { Images, Strings } from '../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
-import { NativeAd } from '../Components';
-import { useState } from 'react';
+import { Images, Strings } from '../Constants';
 import { NavRoutes } from '../Navigation';
+import { NativeAd } from '../Components';
 import { Functions } from '../Utils';
+import { useInset } from '../Hooks';
 
 const Permissions = ({ navigation }) => {
   const [State, setState] = useState({ termsAccepted: false });
@@ -62,6 +62,7 @@ const Permissions = ({ navigation }) => {
           onPress={onAceeptPress}
         />
       </View>
+
       <NativeAd />
     </RNContainer>
   );
@@ -84,7 +85,7 @@ const useStyles = ({ termsAccepted }) => {
     agreeContainer: {
       flexDirection: 'row',
       paddingHorizontal: wp(6),
-      marginVertical: hp(4),
+      marginVertical: hp(2),
     },
     radioContainer: {
       ...RNStyles.center,

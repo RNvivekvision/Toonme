@@ -18,6 +18,7 @@ const Strings = {
   SubscribeDesc: 'No commitments, Cancel Anytime',
   ToonmeCartoonsFromPhotos: 'Toonme - Cartoons From Photos',
   GetPremium: 'Get Premium',
+  Save: 'Save',
   ToonMe: 'Toon Me',
   WelcomeToToonme: 'Welcome To Toonme',
   Wevalueyourprivacy: 'We value your privacy',

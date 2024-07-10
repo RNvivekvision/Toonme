@@ -1,3 +1,4 @@
 import Plans from './Plans';
 import UnlockPremium from './UnlockPremium';
-export { Plans, UnlockPremium };
+import SaveCartoon from './SaveCartoon';
+export { Plans, UnlockPremium, SaveCartoon };
