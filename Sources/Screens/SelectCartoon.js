@@ -17,7 +17,6 @@ const SelectCartoon = ({ navigation }) => {
   const onFilterPress = filter => {
     dispatch(setSelectedFilter(filter?.combo_id));
     navigation.navigate(NavRoutes.Result);
-    console.log('filter -> ', filter.combo_id);
   };
 
   return (

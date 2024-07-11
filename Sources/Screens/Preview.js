@@ -28,9 +28,7 @@ const Preview = ({ navigation }) => {
     });
     const img = isIOS ? path.replace('file://', '') : path;
     dispatch(setClickedImage({ ...clickedImage, path: img }));
-    console.log('img -> ', JSON.stringify(img, null, 2));
   };
-  console.log('clickedImage -> ', JSON.stringify(clickedImage, null, 2));
 
   const onCartoonPress = () => {
     navigation.navigate(NavRoutes.SelectCartoon);

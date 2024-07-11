@@ -6,14 +6,14 @@ const useAdStyles = () => {
 
   // styles...
   const containerBgColor = {
-    backgroundColor: Colors.Black,
+    backgroundColor: adData?.appMoreFieldAdsBackgroundColor || Colors.Black,
   };
-  const textColor = { color: Colors.Black };
+  const textColor = { color: adData?.appMoreFieldAdsTextColor || Colors.Black };
   const buttonBgColor = {
-    backgroundColor: Colors.Primary,
+    backgroundColor: adData?.appMoreFieldAdsButtonColor || Colors.Primary,
   };
   const buttonTextColor = {
-    color: Colors.Black,
+    color: adData?.appMoreFieldAdsButtonTextColor || Colors.Black,
   };
 
   return {

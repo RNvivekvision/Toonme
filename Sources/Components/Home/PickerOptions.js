@@ -43,14 +43,12 @@ const PickerOptions = () => {
         delay={150}
         onPress={onCameraPress}
       />
-
       <Option
         title={Strings.Gallery}
         image={Images.gallery}
         delay={300}
         onPress={onGalleryPress}
       />
-
       <Option
         title={Strings.CollageMaker}
         image={Images.collageMaker}
