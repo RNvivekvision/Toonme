@@ -18,7 +18,7 @@ const Cartoons = ({ images, onPress }) => {
 
       <View style={RNStyles.flexWrapHorizontal}>
         {images.map((v, i) => (
-          <Reanimated.View entering={FadeInDown.delay(i * 150)}>
+          <Reanimated.View key={i} entering={FadeInDown.delay(i * 150)}>
             <TouchableOpacity
               style={styles.button}
               onPress={() => onPress?.(v)}>

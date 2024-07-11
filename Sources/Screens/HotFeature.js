@@ -12,7 +12,7 @@ import { Colors, FontSize, hp, wp } from '../Theme';
 import { Cartoons, NativeAd, SaveCartoon } from '../Components';
 import { Strings } from '../Constants';
 import { Functions } from '../Utils';
-import { URL } from '../Services';
+import { getCartoonImages } from '../Services';
 
 const HotFeature = ({ navigation }) => {
   const [State, setState] = useState({
@@ -37,8 +37,11 @@ const HotFeature = ({ navigation }) => {
   const onNextPress = async () => {
     try {
       setState(p => ({ ...p, isLoading: true }));
-      const response = await getCartoonImages();
-      console.log('response -> ', JSON.stringify(response, null, 2));
+      const response = await getCartoonImages({
+        gender: State.isMale == 0 ? 'male' : 'female',
+        image: State.img,
+      });
+      // console.log('response -> ', JSON.stringify(response, null, 2));
       if (response?.timeout) {
         alert('Something went wrong. Please try again.');
       } else if (response?.output_url?.length > 0) {
@@ -49,31 +52,6 @@ const HotFeature = ({ navigation }) => {
     } finally {
       setState(p => ({ ...p, isLoading: false }));
     }
-  };
-
-  const getCartoonImages = async () => {
-    const form = new FormData();
-    form.append('gender', State.isMale == 0 ? 'male' : 'female');
-    form.append('image', {
-      name: State.img?.filename,
-      type: State.img?.mime || 'image/jpeg',
-      uri: State.img?.path,
-    });
-    const responseJson = await Promise.race([
-      fetch(URL.feature, {
-        method: 'POST',
-        body: form,
-        headers: {
-          Accept: '*/*',
-          'Content-Type': 'multipart/form-data',
-        },
-      }),
-      new Promise(res =>
-        setTimeout(() => res({ json: () => ({ timeout: true }) }), 15000),
-      ),
-    ]);
-    const response = await responseJson.json();
-    return response;
   };
 
   const onCartoonPress = cartoon => {

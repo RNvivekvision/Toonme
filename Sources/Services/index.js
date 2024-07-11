@@ -1,3 +1,2 @@
-import FetchMethod from './FetchMethod';
-import URL from './URL';
-export { FetchMethod, URL };
+export { FetchMethod, URL } from './Api';
+export { getAllFilters, getCartoonImages, getFilteredResult } from './Filters';

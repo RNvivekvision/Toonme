@@ -13,6 +13,7 @@ import { URL } from '../Services';
 import { NativeAd } from '../Components';
 import { Strings } from '../Constants';
 import { Functions } from '../Utils';
+import { getFilteredResult } from '../Services';
 
 const Result = () => {
   const [State, setState] = useState({
@@ -31,28 +32,16 @@ const Result = () => {
   const getFilteredImage = async () => {
     setState(p => ({ ...p, isLoading: true }));
     try {
-      const form = new FormData();
-      form.append('combo_id', selectedFilter);
-      form.append('image', {
-        name: clickedImage?.filename,
-        type: clickedImage?.mime || 'image/jpeg',
-        uri: clickedImage?.path,
+      const response = await getFilteredResult({
+        combo_id: selectedFilter,
+        image: clickedImage,
       });
-      const responseJson = await fetch(URL.result, {
-        method: 'POST',
-        body: form,
-        headers: {
-          Accept: '*/*',
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      const response = await responseJson.json();
-      if (response?.output_url) {
+      if (response?.timeout) {
+        alert('Something went wrong. Please try again.');
+      } else if (response?.output_url) {
         setState(p => ({ ...p, img: response?.output_url }));
       }
-      // console.log('response -> ', JSON.stringify(response, null, 2));
     } catch (e) {
-      // alert('Something went wrong. Please try again.');
       console.error('Error getFilteredImage -> ', e);
     } finally {
       setState(p => ({ ...p, isLoading: false }));

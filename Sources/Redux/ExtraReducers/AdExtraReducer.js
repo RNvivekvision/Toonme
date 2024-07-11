@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { FetchMethod, URL } from '../../Services';
 import { DummyData, Functions } from '../../Utils';
 import { getIp } from '@mobeuv/react-native-check-ip';
+import { getAllFilters } from '../../Services';
 
 const { appInfo } = DummyData;
 
@@ -41,8 +42,7 @@ const getAdData = createAsyncThunk('getAdData', async () => {
 
 const getFilters = createAsyncThunk('getFilters', async () => {
   try {
-    const responseJson = await fetch(URL.filters);
-    const response = await responseJson.json();
+    const response = await getAllFilters();
     const categories = response?.categories?.sort((a, b) => {
       if (a.category_name < b.category_name) return -1;
       if (a.category_name > b.category_name) return 1;
