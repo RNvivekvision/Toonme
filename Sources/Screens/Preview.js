@@ -1,5 +1,5 @@
-import { StyleSheet, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import {
   RNButton,
   RNContainer,
@@ -8,30 +8,35 @@ import {
   RNImageLoader,
   RNStyles,
 } from '../Common';
-import { Colors, hp, isIOS, wp } from '../Theme';
+import { Colors, hp, wp } from '../Theme';
 import { NativeAd } from '../Components';
-import { NavRoutes } from '../Navigation';
-import { Strings } from '../Constants';
-import PhotoEditor from '@baronha/react-native-photo-editor';
-import { setClickedImage } from '../Redux/Actions';
+import { Images, Strings } from '../Constants';
 import { useState } from 'react';
+import { Functions } from '../Utils';
 
 const Preview = ({ navigation }) => {
   const [State, setState] = useState({ imgLoading: false });
   const { clickedImage } = useSelector(({ UserReducer }) => UserReducer);
-  const dispatch = useDispatch();
 
-  const onEditPress = async () => {
-    const path = await PhotoEditor.open({
-      path: 'file://' + clickedImage?.path,
-      stickers: [],
-    });
-    const img = isIOS ? path.replace('file://', '') : path;
-    dispatch(setClickedImage({ ...clickedImage, path: img }));
+  console.log('ClickImage -> ', JSON.stringify(clickedImage, null, 2));
+
+  const onContinueEditingPress = async () => {
+    navigation.goBack();
   };
 
-  const onCartoonPress = () => {
-    navigation.navigate(NavRoutes.SelectCartoon);
+  const onSharePress = async () => {
+    const url = clickedImage?.data
+      ? `data:image/jpeg;base64,${clickedImage?.data}`
+      : clickedImage?.path;
+    try {
+      await Functions.ShareApp({
+        message: 'Share this image to your friends.',
+        url: url,
+        subject: 'Share information from your application',
+      });
+    } catch (e) {
+      console.log('Error onSharePress -> ', e);
+    }
   };
 
   return (
@@ -48,17 +53,17 @@ const Preview = ({ navigation }) => {
 
         <View style={styles.buttonContainer}>
           <RNButton
-            title={Strings.Edit}
+            title={Strings.ContinueEditing}
             style={styles.button}
             doubleTicks={false}
-            onPress={onEditPress}
+            onPress={onContinueEditingPress}
           />
-          <RNButton
-            title={Strings.Cartoon}
-            style={styles.button}
-            doubleTicks={false}
-            onPress={onCartoonPress}
-          />
+          <TouchableOpacity
+            activeOpacity={0.6}
+            onPress={onSharePress}
+            style={styles.shareButton}>
+            <RNImage source={Images.share} style={RNStyles.image50} />
+          </TouchableOpacity>
         </View>
       </RNHeader>
       <NativeAd />
@@ -82,8 +87,16 @@ const styles = StyleSheet.create({
     paddingVertical: hp(2),
   },
   button: {
-    width: wp(40),
-    marginHorizontal: 0,
+    marginRight: wp(2),
+    marginLeft: 0,
+    flex: 1,
+  },
+  shareButton: {
+    ...RNStyles.center,
+    width: wp(15),
+    height: wp(13),
+    backgroundColor: Colors.Primary,
+    borderRadius: wp(3),
   },
 });
 

@@ -13,24 +13,39 @@ import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
-const UnlockPremium = ({ visible, onClose, isHome }) => {
+const UnlockPremium = ({
+  visible,
+  onClose,
+  isHome,
+  isSelectCartoon,
+  isHotFeature,
+  onHotFeature,
+}) => {
   const { navigate } = useNavigation();
   const dispatch = useDispatch();
 
   const onWatchPress = async () => {
-    if (!isHome) {
+    if (isHotFeature) {
+      onClose?.();
+      onHotFeature?.();
+      return;
+    }
+
+    if (isSelectCartoon) {
       navigate(NavRoutes.Result);
       onClose?.();
       return;
     }
 
-    try {
-      const img = await Functions.openGallery();
-      dispatch(setClickedImage(img));
-      navigate(NavRoutes.Result);
-      onClose?.();
-    } catch (e) {
-      console.error('Error onWatchPress -> ', e);
+    if (isHome) {
+      try {
+        const img = await Functions.openGallery();
+        dispatch(setClickedImage(img));
+        navigate(NavRoutes.Result);
+        onClose?.();
+      } catch (e) {
+        console.error('Error onWatchPress -> ', e);
+      }
     }
   };
 

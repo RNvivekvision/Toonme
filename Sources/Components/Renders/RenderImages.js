@@ -6,6 +6,7 @@ import Reanimated, { FadeInDown } from 'react-native-reanimated';
 import Video from 'react-native-video';
 import { useDispatch } from 'react-redux';
 import { setSelectedFilter, togglePremium } from '../../Redux/Actions';
+import { Strings } from '../../Constants';
 
 const RenderImages = ({ images, onFilterPress }) => {
   const styles = useStyles();
@@ -19,40 +20,6 @@ const RenderImages = ({ images, onFilterPress }) => {
     }
     onFilterPress?.(v);
   };
-
-  function isValidBase64(base64) {
-    const base64Regex =
-      /^(?:[A-Za-z0-9+/]{4})*?(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-    return base64Regex.test(base64);
-  }
-  function decodeBase64(base64) {
-    try {
-      const decodedString = atob(base64);
-      return { success: true, decodedString };
-    } catch (e) {
-      return { success: false, error: e.message };
-    }
-  }
-  function verifyBase64Video(base64) {
-    if (!isValidBase64(base64)) {
-      return { success: false, error: 'Invalid base64 string' };
-    }
-
-    const decodedResult = decodeBase64(base64);
-    if (!decodedResult.success) {
-      return decodedResult;
-    }
-
-    // Create a Blob and check if it's a valid video
-    const byteCharacters = decodedResult.decodedString;
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: 'video/mp4' });
-    return blob;
-  }
 
   const List = useCallback(() => {
     if (!images?.length > 0) return;
@@ -72,7 +39,7 @@ const RenderImages = ({ images, onFilterPress }) => {
           <TouchableOpacity activeOpacity={0.6} onPress={() => onItemPress(v)}>
             {isPro && (
               <View style={styles.proContainer}>
-                <RNText style={styles.proText}>{'Pro'}</RNText>
+                <RNText style={styles.proText}>{Strings.Pro}</RNText>
               </View>
             )}
             {isVideo ? (

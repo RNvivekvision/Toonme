@@ -29,6 +29,7 @@ const SelectCartoon = ({ navigation }) => {
       <UnlockPremium
         visible={showPremium}
         onClose={() => dispatch(togglePremium())}
+        isSelectCartoon={true}
       />
     </RNContainer>
   );

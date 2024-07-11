@@ -16,6 +16,8 @@ import {
   SelectCartoon,
   Result,
   HotFeature,
+  Edit,
+  CollageMaker,
 } from '../Screens';
 import { RNNoInternet } from '../Common';
 
@@ -50,6 +52,7 @@ const Routes = () => {
         <Stack.Screen name={NavRoutes.Permissions} component={Permissions} />
         <Stack.Screen name={NavRoutes.Home} component={Drawer} />
         <Stack.Screen name={NavRoutes.Steps} component={Steps} />
+        <Stack.Screen name={NavRoutes.Edit} component={Edit} />
         <Stack.Screen name={NavRoutes.Preview} component={Preview} />
         <Stack.Screen
           name={NavRoutes.SelectCartoon}
@@ -57,6 +60,7 @@ const Routes = () => {
         />
         <Stack.Screen name={NavRoutes.Result} component={Result} />
         <Stack.Screen name={NavRoutes.HotFeature} component={HotFeature} />
+        <Stack.Screen name={NavRoutes.CollageMaker} component={CollageMaker} />
       </Stack.Navigator>
     );
   }, [localdata]);

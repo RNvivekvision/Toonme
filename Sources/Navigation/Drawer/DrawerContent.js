@@ -111,11 +111,14 @@ const useStyles = () => {
 
 const func = {
   home: nav => nav?.closeDrawer(),
-  privacy: () => privacy(),
+  privacy: nav => privacy(nav),
   rateus: () => rateus(),
   share: () => share(),
 };
-const privacy = () => console.log('Privacy Policy...');
+const privacy = async nav => {
+  await Functions.OpenUrl(DummyData.appInfo.privacyPolicy);
+  nav?.closeDrawer();
+};
 const rateus = () => Functions.RateUs();
 const share = async () => await Functions.ShareApp();
 

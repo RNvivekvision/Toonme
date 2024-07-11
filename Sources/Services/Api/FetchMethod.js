@@ -62,7 +62,7 @@ const race = async ({
       headers: headers,
     }),
     new Promise(res =>
-      setTimeout(() => res({ json: () => dummyResponse }), 50000),
+      setTimeout(() => res({ json: () => dummyResponse }), 30000),
     ),
   ]);
   return await response.json();

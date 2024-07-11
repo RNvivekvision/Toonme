@@ -1,10 +1,24 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNImage, RNStyles, RNText } from '../../Common';
-import { FontFamily, FontSize, hp, wp } from '../../Theme';
+import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Strings } from '../../Constants';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
+import { togglePremium } from '../../Redux/Actions';
+import { useDispatch } from 'react-redux';
 
 const Cartoons = ({ images, onPress }) => {
+  const dispatch = useDispatch();
+
+  const onItemPress = (item, index) => {
+    if (index !== 0) {
+      dispatch(togglePremium());
+      onPress?.(item, false);
+      return;
+    }
+
+    onPress?.(item);
+  };
+
   if (!images.length > 0) return null;
 
   return (
@@ -19,9 +33,14 @@ const Cartoons = ({ images, onPress }) => {
       <View style={RNStyles.flexWrapHorizontal}>
         {images.map((v, i) => (
           <Reanimated.View key={i} entering={FadeInDown.delay(i * 150)}>
+            {i !== 0 && (
+              <View style={styles.proContainer}>
+                <RNText style={styles.proText}>{Strings.Pro}</RNText>
+              </View>
+            )}
             <TouchableOpacity
               style={styles.button}
-              onPress={() => onPress?.(v)}>
+              onPress={() => onItemPress(v, i)}>
               <RNImage source={{ uri: v }} resizeMode={'cover'} />
             </TouchableOpacity>
           </Reanimated.View>
@@ -42,6 +61,20 @@ const styles = StyleSheet.create({
     marginVertical: hp(0.5),
     borderRadius: wp(3),
     overflow: 'hidden',
+  },
+  proContainer: {
+    position: 'absolute',
+    zIndex: 1,
+    top: wp(4),
+    right: wp(4),
+    paddingHorizontal: wp(3),
+    paddingVertical: hp(1),
+    borderRadius: wp(4),
+    backgroundColor: Colors.Primary,
+  },
+  proText: {
+    fontSize: FontSize.font12,
+    fontFamily: FontFamily.SemiBold,
   },
 });
 

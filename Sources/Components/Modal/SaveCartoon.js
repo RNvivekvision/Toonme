@@ -9,15 +9,16 @@ import { Colors, hp, wp } from '../../Theme';
 import { Functions } from '../../Utils';
 import { Strings } from '../../Constants';
 
-const SaveCartoon = ({ visible, cartoon, onClose }) => {
+const SaveCartoon = ({ visible, cartoon, onClose, onSave }) => {
   const onClosing = () => {
-    onClose();
+    onClose?.();
   };
 
   const onSavePress = async () => {
     try {
       await Functions.saveToCameraRoll(cartoon);
       onClosing();
+      onSave?.();
     } catch (e) {
       console.error('Error onSavePress -> ', e);
     }

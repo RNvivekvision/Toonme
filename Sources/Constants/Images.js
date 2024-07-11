@@ -39,6 +39,7 @@ const Images = {
   flashlight: require(imagePath + 'flashlight' + png),
   card: require(imagePath + 'card' + png),
   watchVideo: require(imagePath + 'watchVideo' + png),
+  share: require(imagePath + 'share' + png),
 };
 
 export default Images;

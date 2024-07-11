@@ -17,7 +17,7 @@ const PickerOptions = () => {
     try {
       const img = await Functions.openCamera();
       dispatch(setClickedImage(img));
-      navigate(NavRoutes.Preview);
+      navigate(NavRoutes.Edit);
     } catch (e) {
       console.error('Error onCameraPress -> ', e);
     }
@@ -27,13 +27,23 @@ const PickerOptions = () => {
     try {
       const img = await Functions.openGallery();
       dispatch(setClickedImage(img));
-      navigate(NavRoutes.Preview);
+      navigate(NavRoutes.Edit);
     } catch (e) {
       console.error('Error onGalleryPress -> ', e);
     }
   };
 
-  const onCollageMakerPress = () => {};
+  const onCollageMakerPress = async () => {
+    try {
+      const images = await Functions.openGallery({ multiple: true });
+      if (images.length < 2) {
+        return alert('Please select atlease 2 images');
+      }
+      navigate(NavRoutes.CollageMaker, { images });
+    } catch (e) {
+      console.error('Error onCollageMakerPress -> ', e);
+    }
+  };
 
   return (
     <View style={styles.container}>

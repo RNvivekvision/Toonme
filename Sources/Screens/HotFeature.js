@@ -9,14 +9,19 @@ import {
   RNText,
 } from '../Common';
 import { Colors, FontSize, hp, wp } from '../Theme';
-import { Cartoons, NativeAd, SaveCartoon } from '../Components';
+import { Cartoons, NativeAd, SaveCartoon, UnlockPremium } from '../Components';
 import { Strings } from '../Constants';
 import { Functions } from '../Utils';
 import { getCartoonImages } from '../Services';
+import { useDispatch, useSelector } from 'react-redux';
+import { setClickedImage, togglePremium } from '../Redux/Actions';
+import { NavRoutes } from '../Navigation';
 
 const HotFeature = ({ navigation }) => {
+  const { showPremium } = useSelector(({ UserReducer }) => UserReducer);
+  const dispatch = useDispatch();
   const [State, setState] = useState({
-    isMale: -1,
+    isMale: 0,
     img: null,
     isLoading: false,
     cartoons: [],
@@ -54,8 +59,12 @@ const HotFeature = ({ navigation }) => {
     }
   };
 
-  const onCartoonPress = cartoon => {
-    setState(p => ({ ...p, selectedCartoon: cartoon, showSaveCartoon: true }));
+  const onCartoonPress = (cartoon, show) => {
+    setState(p => ({
+      ...p,
+      selectedCartoon: cartoon,
+      showSaveCartoon: show ?? true,
+    }));
   };
 
   return (
@@ -114,6 +123,17 @@ const HotFeature = ({ navigation }) => {
           visible={State.showSaveCartoon}
           cartoon={State.selectedCartoon}
           onClose={() => setState(p => ({ ...p, showSaveCartoon: false }))}
+          onSave={() => {
+            dispatch(setClickedImage({ path: State.selectedCartoon }));
+            navigation.navigate(NavRoutes.Preview);
+          }}
+        />
+
+        <UnlockPremium
+          visible={showPremium}
+          onClose={() => dispatch(togglePremium())}
+          isHotFeature={true}
+          onHotFeature={() => setState(p => ({ ...p, showSaveCartoon: true }))}
         />
       </RNHeader>
     </RNContainer>

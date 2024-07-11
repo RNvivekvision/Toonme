@@ -3,11 +3,13 @@ const Strings = {
     'Welcome To Toonme,\nWhere We Turn Your Photos\nInto Lively Cartoons!',
   Continue: 'Continue',
   Skip: 'Skip',
+  Pro: 'Pro',
   HowToUse: 'How To Use',
   Camera: 'Camera',
   Gallery: 'Gallery',
   CollageMaker: 'Collage Maker',
   Free: 'Free',
+  Edit: 'Edit',
   freeDesc: 'Try the FREE full\nPRO version',
   Tryforfree: 'Try for free',
   UpgradeNow: 'Upgrade Now !!!',
@@ -65,6 +67,7 @@ const Strings = {
   Female: 'Female',
   SelectGender: 'Select Gender',
   HotCartoons: 'Hot Cartoons',
+  ContinueEditing: 'Continue Editing',
 };
 
 export default Strings;

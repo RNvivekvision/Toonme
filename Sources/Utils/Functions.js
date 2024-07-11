@@ -45,6 +45,7 @@ const openCamera = async p => {
     mediaType: 'photo',
     compressImageQuality: 1,
     useFrontCamera: true,
+    includeBase64: true,
     ...p,
   });
   return img;
@@ -57,9 +58,21 @@ const openGallery = async p => {
     cropping: true,
     mediaType: 'photo',
     compressImageQuality: 1,
+    includeBase64: true,
     ...p,
   });
   return img;
+};
+
+const updateImage = async (index, state) => {
+  try {
+    const img = await openGallery();
+    const update = state.images.map((v, i) => (i == index ? img : v));
+    return update;
+  } catch (e) {
+    console.error('Error updateImage -> ', e);
+    return state;
+  }
 };
 
 const saveToCameraRoll = async cartoon => {
@@ -86,7 +99,7 @@ const RateUs = ({ onSuccess, onError } = {}) => {
   });
 };
 
-const ShareApp = async ({ title, message, url } = {}) => {
+const ShareApp = async ({ title, message, url, ...rest } = {}) => {
   const Title = 'Toonme - Cartoon From Photos';
   const Message = `Share ${Title} app to your friends. by clicking the following url`;
 
@@ -94,6 +107,7 @@ const ShareApp = async ({ title, message, url } = {}) => {
     title: title ?? Title,
     message: message ?? Message,
     url: url ?? appLink,
+    ...rest,
   });
 };
 
@@ -105,6 +119,7 @@ const Functions = {
   getAppData,
   openCamera,
   openGallery,
+  updateImage,
   saveToCameraRoll,
   wait,
   RateUs,

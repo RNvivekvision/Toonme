@@ -21,6 +21,7 @@ const HowToUse = () => {
         <RNText
           pLeft={wp(3)}
           size={FontSize.font14}
+          color={Colors.White}
           family={FontFamily.SemiBold}>
           {Strings.HowToUse}
         </RNText>
