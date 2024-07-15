@@ -15,6 +15,8 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8C412AFD3A57BA59DB14D299 /* libPods-Toonme-ToonmeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F699B2DEF02A07243C3A47 /* libPods-Toonme-ToonmeTests.a */; };
 		BB962D90BB6055C77BAE4EE3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1F39D5D371AD3311BD289F7A /* PrivacyInfo.xcprivacy */; };
+		E202CD0F2C452A0900A1F1F8 /* Purchases.storekit in Resources */ = {isa = PBXBuildFile; fileRef = E2CE6DB02C44E59000B16F86 /* Purchases.storekit */; };
+		E202CD102C4548B700A1F1F8 /* Purchases.storekit in Resources */ = {isa = PBXBuildFile; fileRef = E2CE6DB02C44E59000B16F86 /* Purchases.storekit */; };
 		E20CB0B32C4149CF009FD6B9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20CB0B22C4149CF009FD6B9 /* StoreKit.framework */; };
 		E258156B2C32DEE5008A4E66 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815642C32DEE5008A4E66 /* Poppins-Black.ttf */; };
 		E258156C2C32DEE5008A4E66 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E25815652C32DEE5008A4E66 /* Poppins-SemiBold.ttf */; };
@@ -284,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E202CD102C4548B700A1F1F8 /* Purchases.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +301,7 @@
 				E258156E2C32DEE5008A4E66 /* Poppins-Thin.ttf in Resources */,
 				E258156D2C32DEE5008A4E66 /* Poppins-Light.ttf in Resources */,
 				E258156B2C32DEE5008A4E66 /* Poppins-Black.ttf in Resources */,
+				E202CD0F2C452A0900A1F1F8 /* Purchases.storekit in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				E2A1B9A82C3EA6DB002EF57C /* LUTs.bundle in Resources */,
@@ -569,7 +573,7 @@
 				CODE_SIGN_ENTITLEMENTS = Toonme/Toonme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TC9DUZ5V6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Toonme/Info.plist;
@@ -604,7 +608,7 @@
 				CODE_SIGN_ENTITLEMENTS = Toonme/Toonme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TC9DUZ5V6;
 				INFOPLIST_FILE = Toonme/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -702,10 +706,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -778,10 +779,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

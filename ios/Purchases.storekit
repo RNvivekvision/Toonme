@@ -119,6 +119,10 @@
       ]
     }
   ],
+  "subscriptionOffersKeyPair" : {
+    "id" : "6C07F279",
+    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgDEJqi9SPWj/wV+z4Sq1+fV0Mj/HZWKPOMJK1TwkC0y+gCgYIKoZIzj0DAQehRANCAASC4gG1QhSlSA5ZEmaenSrELKNJ85R23nnEese5m2EQi13Olk3ZVvu9J0MTftJrAiXTeNGigL780ljcDLgvXvUT"
+  },
   "version" : {
     "major" : 3,
     "minor" : 0

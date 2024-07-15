@@ -1,19 +1,67 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, StyleSheet, View } from 'react-native';
-import { RNButton, RNIcon, RNImage, RNStyles, RNText } from '../../Common';
+import {
+  RNButton,
+  RNIcon,
+  RNImage,
+  RNLoader,
+  RNStyles,
+  RNText,
+} from '../../Common';
 import { Images, Strings } from '../../Constants';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { useInset } from '../../Hooks';
-import { DummyData } from '../../Utils';
+import { DummyData, Functions } from '../../Utils';
 import { RenderPlans } from '../Renders';
+import * as IAP from 'react-native-iap';
+
+const { skus, AppSpecificSharedSecret } = DummyData;
 
 const Plans = ({ visible, onClose }) => {
-  const [State, setState] = useState({ selectedPlan: DummyData.plans[0] });
+  const [State, setState] = useState({
+    selectedPlan: DummyData.plans[0],
+    isLoading: false,
+  });
   const styles = useStyles();
   const inset = useInset();
 
+  useEffect(() => {
+    initIAP();
+  }, []);
+
+  const initIAP = async () => {
+    try {
+      const connect = await IAP.initConnection();
+      if (!connect) return;
+      const subscriptions = await IAP.getSubscriptions({ skus: skus });
+      const availablePurchases = await IAP.getAvailablePurchases();
+
+      console.log(
+        'Subscriptions -> ',
+        JSON.stringify({ subscriptions, availablePurchases, skus }, null, 2),
+      );
+    } catch (e) {
+      console.error('Error getSubscriptions -> ', e);
+    }
+  };
+
+  const onPress = async () => {
+    setState(p => ({ ...p, isLoading: true }));
+    try {
+      const purchase = await IAP.requestPurchase({
+        sku: State.selectedPlan.sku,
+      });
+      console.log('Purchase -> ', JSON.stringify(purchase, null, 2));
+    } catch (e) {
+      console.error('Error In App Purchase -> ', e);
+    } finally {
+      setState(p => ({ ...p, isLoading: false }));
+    }
+  };
+
   return (
     <Modal visible={visible} animationType={'slide'} onRequestClose={onClose}>
+      <RNLoader visible={State.isLoading} />
       <View style={styles.container}>
         <RNIcon
           icon={Images.cross}
@@ -56,7 +104,9 @@ const Plans = ({ visible, onClose }) => {
           ))}
         </View>
       </View>
-      <RNButton title={Strings.Subscribe} onPress={onClose} />
+
+      <RNButton title={Strings.Subscribe} onPress={onPress} />
+
       <RNText
         align={'center'}
         size={FontSize.font12}

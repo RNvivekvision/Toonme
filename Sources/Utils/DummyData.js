@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { Strings } from '../Constants';
 
 const DummyData = {
@@ -45,11 +46,13 @@ const DummyData = {
     {
       id: 0,
       title: Strings.MonthlyPlan,
+      sku: 'com.cartoon.photo.editor.toonmeapp.monthly',
       price: '$6.99',
     },
     {
       id: 1,
       title: Strings.YearlyPlan,
+      sku: 'com.cartoon.photo.editor.toonmeapp.yearly',
       price: '$12.99',
     },
   ],
@@ -60,6 +63,15 @@ const DummyData = {
     privacyPolicy:
       'https://ghanshyamprivacypolicy.blogspot.com/2021/10/privacy-policy-effective-year-2020.html',
   },
+
+  skus: Platform.select({
+    android: [],
+    ios: [
+      'com.cartoon.photo.editor.toonmeapp.monthly',
+      'com.cartoon.photo.editor.toonmeapp.yearly',
+    ],
+  }),
+  AppSpecificSharedSecret: '97663979c6a04c96bb7d756d8a7014d4',
 };
 
 export default DummyData;
