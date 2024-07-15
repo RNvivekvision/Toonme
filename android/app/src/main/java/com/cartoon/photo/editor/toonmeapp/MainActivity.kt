@@ -1,4 +1,4 @@
-package com.toonme
+package com.cartoon.photo.editor.toonmeapp
 import android.os.Bundle;
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

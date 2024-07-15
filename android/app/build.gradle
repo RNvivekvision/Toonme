@@ -75,9 +75,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.toonme"
+    namespace "com.cartoon.photo.editor.toonmeapp"
     defaultConfig {
-        applicationId "com.toonme"
+        applicationId "com.cartoon.photo.editor.toonmeapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

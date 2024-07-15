@@ -1,4 +1,4 @@
-package com.toonme
+package com.cartoon.photo.editor.toonmeapp
 
 import android.app.Application
 import com.facebook.react.PackageList

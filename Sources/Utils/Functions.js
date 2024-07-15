@@ -6,8 +6,8 @@ import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import RNFS from 'react-native-fs';
 
 const isDev = __DEV__;
-const androidPackage = 'com.toonme';
-const iosAppId = '6505100117';
+const androidPackage = 'com.cartoon.photo.editor.toonmeapp';
+const iosAppId = '6532614368';
 const appLink = Platform.select({
   android: `https://play.google.com/store/apps/details?id=${androidPackage}`,
   ios: `https://apps.apple.com/in/app/id${iosAppId}`,
