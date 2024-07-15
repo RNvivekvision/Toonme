@@ -5,7 +5,6 @@ import Reanimated, { FadeInDown } from 'react-native-reanimated';
 
 const RenderImageOptions = ({ item, index, selected, onPress }) => {
   const styles = useStyles({ selected });
-  const img = `data:image/png;base64,${item?.category_logo}`;
 
   return (
     <Reanimated.View
@@ -13,7 +12,7 @@ const RenderImageOptions = ({ item, index, selected, onPress }) => {
       style={styles.container}>
       <TouchableOpacity onPress={() => onPress?.(index)} style={styles.button}>
         <RNImage
-          source={{ uri: img }}
+          source={{ uri: item?.category_logo }}
           resizeMode={'cover'}
           style={styles.img}
         />
