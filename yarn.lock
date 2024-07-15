@@ -3339,6 +3339,7 @@ __metadata:
     react-native-fs: ^2.20.0
     react-native-gesture-handler: ^2.17.1
     react-native-google-mobile-ads: ^13.6.1
+    react-native-iap: ^12.15.1
     react-native-image-crop-picker: ^0.41.2
     react-native-images-collage: ^3.3.5
     react-native-permissions: ^4.1.5
@@ -4684,9 +4685,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.820":
-  version: 1.4.824
-  resolution: "electron-to-chromium@npm:1.4.824"
-  checksum: c7aa1cfb15461a171ae882cef863370a914496b3229b8dad9e09df035a4409ff3e406557a248f8b7ed24c64388bebf0aeadf1ba195986c6a23ae7f157fda4ca5
+  version: 1.4.825
+  resolution: "electron-to-chromium@npm:1.4.825"
+  checksum: e01e4cdca1ad3c912e03d9c8615f0d3869bc0f2d2621d8e1ba83f78f5e7cd1cffe801914f7c9d631aa3911752d83598a7d4f1827904b380db9b9d034d69d1ab5
   languageName: node
   linkType: hard
 
@@ -8770,6 +8771,20 @@ __metadata:
     "@iabtcf/core": ^1.5.3
     use-deep-compare-effect: ^1.8.1
   checksum: f868731ee3b9cdb286c689ce8fe7923df779b3d3712b6e433a1941078f473f6482d0b7419b597a15ce0d628323bca62323ffd7aa9663b2562e762cb91364d49e
+  languageName: node
+  linkType: hard
+
+"react-native-iap@npm:^12.15.1":
+  version: 12.15.1
+  resolution: "react-native-iap@npm:12.15.1"
+  peerDependencies:
+    expo: ">=47.0.0"
+    react: ">=16.13.1"
+    react-native: ">=0.65.1"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 9931fff44d65bf6d550fb06ed2d041753217d234ab16dcdddb363abd1da970087c443ab35184bb263594e1fd599de821408b97d26e62ed190cda40861ffbdfde
   languageName: node
   linkType: hard
 

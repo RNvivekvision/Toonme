@@ -42,6 +42,7 @@
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.17.1",
     "react-native-google-mobile-ads": "^13.6.1",
+    "react-native-iap": "^12.15.1",
     "react-native-image-crop-picker": "^0.41.2",
     "react-native-images-collage": "^3.3.5",
     "react-native-permissions": "^4.1.5",

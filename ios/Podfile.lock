@@ -1275,6 +1275,8 @@ PODS:
     - GoogleUserMessagingPlatform (= 2.4.0)
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
+  - RNIap (12.15.1):
+    - React-Core
   - RNImageCropPicker (0.41.2):
     - React-Core
     - React-RCTImage
@@ -1385,6 +1387,7 @@ DEPENDENCIES:
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
+  - RNIap (from `../node_modules/react-native-iap`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNRate (from `../node_modules/react-native-rate`)
@@ -1555,6 +1558,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNGoogleMobileAds:
     :path: "../node_modules/react-native-google-mobile-ads"
+  RNIap:
+    :path: "../node_modules/react-native-iap"
   RNImageCropPicker:
     :path: "../node_modules/react-native-image-crop-picker"
   RNPermissions:
@@ -1657,6 +1662,7 @@ SPEC CHECKSUMS:
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 67d3f1f69d4d0c98d6e83f4229e3bbf997d1dc72
   RNGoogleMobileAds: fe43db9d9896373e221ece8a0a6ef6504a15685a
+  RNIap: 17583f958d35788a87948e94072ff6edd3580497
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
   RNPermissions: 1b6ce0475c7763653ac5fd3d77a5af9b3f92ee5d
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
