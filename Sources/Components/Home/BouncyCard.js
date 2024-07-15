@@ -11,10 +11,12 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { hp, wp } from '../../Theme';
 import { useNavigation } from '@react-navigation/native';
 import { NavRoutes } from '../../Navigation';
+import { useUserClick } from '../../Hooks';
 
 const BouncyCard = ({ containerStyle }) => {
   const bounce = useSharedValue(0.8);
   const { navigate } = useNavigation();
+  const { incrementCount } = useUserClick();
 
   useEffect(() => {
     bounce.value = withRepeat(withTiming(1, { duration: 500 }), -1, true);
@@ -27,6 +29,7 @@ const BouncyCard = ({ containerStyle }) => {
   });
 
   const onPress = async () => {
+    await incrementCount();
     navigate(NavRoutes.HotFeature);
   };
 

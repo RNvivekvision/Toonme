@@ -5,9 +5,17 @@ import Reanimated, { FadeInDown } from 'react-native-reanimated';
 import { useDispatch } from 'react-redux';
 import { togglePlans } from '../../Redux/Actions';
 import { Strings } from '../../Constants';
+import { useUserClick } from '../../Hooks';
 
 const TryForFree = () => {
   const dispatch = useDispatch();
+  const { incrementCount } = useUserClick();
+
+  const onPress = async () => {
+    dispatch(togglePlans());
+    await incrementCount();
+  };
+
   return (
     <Reanimated.View entering={FadeInDown.delay(100)} style={styles.container}>
       <View style={styles.free}>
@@ -30,7 +38,7 @@ const TryForFree = () => {
         doubleTicks={false}
         style={styles.tryButton}
         textStyle={{ fontSize: FontSize.font10 }}
-        onPress={() => dispatch(togglePlans())}
+        onPress={onPress}
       />
     </Reanimated.View>
   );

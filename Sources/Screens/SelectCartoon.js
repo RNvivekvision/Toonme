@@ -9,13 +9,16 @@ import {
 import { NavRoutes } from '../Navigation';
 import { setSelectedFilter, togglePremium } from '../Redux/Actions';
 import { Strings } from '../Constants';
+import { useUserClick } from '../Hooks';
 
 const SelectCartoon = ({ navigation }) => {
   const { showPremium } = useSelector(({ UserReducer }) => UserReducer);
+  const { incrementCount } = useUserClick();
   const dispatch = useDispatch();
 
-  const onFilterPress = filter => {
+  const onFilterPress = async filter => {
     dispatch(setSelectedFilter(filter?.combo_id));
+    await incrementCount();
     navigation.navigate(NavRoutes.Result);
   };
 

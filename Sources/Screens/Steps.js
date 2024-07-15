@@ -4,9 +4,11 @@ import { RNButton, RNContainer, RNHeader } from '../Common';
 import { NativeAd, RenderSteps } from '../Components';
 import { DummyData } from '../Utils';
 import { Strings } from '../Constants';
+import { useUserClick } from '../Hooks';
 
 const Steps = ({ navigation }) => {
   const flatListRef = useRef();
+  const { incrementCount } = useUserClick();
   const [State, setState] = useState({ currentSlider: 0 });
   const title = `Step ${State.currentSlider + 1} of ${DummyData.steps.length}`;
 
@@ -26,7 +28,8 @@ const Steps = ({ navigation }) => {
     });
   };
 
-  const onNextPress = () => {
+  const onNextPress = async () => {
+    await incrementCount();
     if (State.currentSlider + 1 >= DummyData.steps.length) {
       navigation.goBack();
       return;

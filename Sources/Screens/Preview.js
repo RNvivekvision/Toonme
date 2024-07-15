@@ -13,14 +13,15 @@ import { NativeAd } from '../Components';
 import { Images, Strings } from '../Constants';
 import { useState } from 'react';
 import { Functions } from '../Utils';
+import { useUserClick } from '../Hooks';
 
 const Preview = ({ navigation }) => {
   const [State, setState] = useState({ imgLoading: false });
   const { clickedImage } = useSelector(({ UserReducer }) => UserReducer);
-
-  console.log('ClickImage -> ', JSON.stringify(clickedImage, null, 2));
+  const { incrementCount } = useUserClick();
 
   const onContinueEditingPress = async () => {
+    await incrementCount();
     navigation.goBack();
   };
 
@@ -29,6 +30,7 @@ const Preview = ({ navigation }) => {
       ? `data:image/jpeg;base64,${clickedImage?.data}`
       : clickedImage?.path;
     try {
+      await incrementCount();
       await Functions.ShareApp({
         message: 'Share this image to your friends.',
         url: url,

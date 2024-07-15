@@ -23,6 +23,7 @@ import { Functions } from '../Utils';
 import { NavRoutes } from '../Navigation';
 import { useState } from 'react';
 import { Colors } from '../Theme';
+import { useUserClick } from '../Hooks';
 import { getAdData, getFilters } from '../Redux/ExtraReducers';
 
 const Home = ({ navigation }) => {
@@ -31,11 +32,13 @@ const Home = ({ navigation }) => {
     ({ UserReducer }) => UserReducer,
   );
   const dispatch = useDispatch();
+  const { incrementCount } = useUserClick();
 
   const onFilterPress = async filter => {
     const img = await Functions.openGallery();
     dispatch(setClickedImage(img));
     dispatch(setSelectedFilter(filter?.combo_id));
+    await incrementCount();
     navigation.navigate(NavRoutes.Result);
   };
 

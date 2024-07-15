@@ -5,9 +5,16 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
 import { Images, Strings } from '../../Constants';
 import { NavRoutes } from '../../Navigation';
+import { useUserClick } from '../../Hooks';
 
 const HowToUse = () => {
   const { navigate } = useNavigation();
+  const { incrementCount } = useUserClick();
+
+  const onPress = async () => {
+    await incrementCount();
+    navigate(NavRoutes.Steps);
+  };
 
   return (
     <Reanimated.View
@@ -15,7 +22,7 @@ const HowToUse = () => {
       style={styles.container}>
       <TouchableOpacity
         activeOpacity={0.6}
-        onPress={() => navigate(NavRoutes.Steps)}
+        onPress={onPress}
         style={styles.button}>
         <RNImage source={Images.howToUse} style={RNStyles.icon} />
         <RNText

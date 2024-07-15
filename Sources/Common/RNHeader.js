@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RNIcon, RNStyles, RNText, RNScrollView } from './index';
-import { useInset } from '../Hooks';
+import { useInset, useUserClick } from '../Hooks';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { Images, Strings } from '../Constants';
 
@@ -19,12 +19,15 @@ const RNHeader = ({
 }) => {
   const navigation = useNavigation();
   const styles = useStyles();
+  const { incrementCount } = useUserClick();
 
   const onBackPress = async () => {
+    await incrementCount();
     navigation.goBack();
   };
 
   const skip = async () => {
+    await incrementCount();
     onSkipPress?.();
   };
 

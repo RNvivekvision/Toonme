@@ -14,6 +14,7 @@ import { NativeAd } from '../Components';
 import { Strings } from '../Constants';
 import { Functions } from '../Utils';
 import { getFilteredResult } from '../Services';
+import { useUserClick } from '../Hooks';
 
 const Result = () => {
   const [State, setState] = useState({
@@ -24,6 +25,7 @@ const Result = () => {
   const { clickedImage, selectedFilter } = useSelector(
     ({ UserReducer }) => UserReducer,
   );
+  const { incrementCount } = useUserClick();
 
   useEffect(() => {
     getFilteredImage();
@@ -50,6 +52,7 @@ const Result = () => {
 
   const onSavePress = async () => {
     try {
+      await incrementCount();
       await Functions.saveToCameraRoll(State.img);
     } catch (e) {
       console.error('Error onSavePress -> ', e);

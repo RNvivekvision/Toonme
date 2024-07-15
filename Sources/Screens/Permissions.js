@@ -6,13 +6,15 @@ import { Images, Strings } from '../Constants';
 import { NavRoutes } from '../Navigation';
 import { NativeAd } from '../Components';
 import { Functions } from '../Utils';
-import { useInset } from '../Hooks';
+import { useInset, useUserClick } from '../Hooks';
 
 const Permissions = ({ navigation }) => {
   const [State, setState] = useState({ termsAccepted: false });
   const styles = useStyles({ ...State });
+  const { incrementCount } = useUserClick();
 
   const onAceeptPress = async () => {
+    await incrementCount();
     await Functions.setAppData({ hasUser: true });
     navigation.reset({
       index: 0,

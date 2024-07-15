@@ -3,13 +3,15 @@ import { RNButton, RNContainer, RNImage, RNStyles, RNText } from '../Common';
 import { Images, Strings } from '../Constants';
 import { FontFamily, FontSize, hp, wp } from '../Theme';
 import { NativeAd } from '../Components';
-import { useInset } from '../Hooks';
+import { useInset, useUserClick } from '../Hooks';
 import { NavRoutes } from '../Navigation';
 
 const Onboarding = ({ navigation }) => {
   const styles = useStyles();
+  const { incrementCount } = useUserClick();
 
-  const onContinuePress = () => {
+  const onContinuePress = async () => {
+    await incrementCount();
     navigation.navigate(NavRoutes.Permissions);
   };
 

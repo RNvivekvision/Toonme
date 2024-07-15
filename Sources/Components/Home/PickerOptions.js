@@ -8,15 +8,18 @@ import { setClickedImage } from '../../Redux/Actions';
 import { Images, Strings } from '../../Constants';
 import { NavRoutes } from '../../Navigation';
 import { Functions } from '../../Utils';
+import { useUserClick } from '../../Hooks';
 
 const PickerOptions = () => {
   const { navigate } = useNavigation();
+  const { incrementCount } = useUserClick();
   const dispatch = useDispatch();
 
   const onCameraPress = async () => {
     try {
       const img = await Functions.openCamera();
       dispatch(setClickedImage(img));
+      await incrementCount();
       navigate(NavRoutes.Edit);
     } catch (e) {
       console.error('Error onCameraPress -> ', e);
@@ -27,6 +30,7 @@ const PickerOptions = () => {
     try {
       const img = await Functions.openGallery();
       dispatch(setClickedImage(img));
+      await incrementCount();
       navigate(NavRoutes.Edit);
     } catch (e) {
       console.error('Error onGalleryPress -> ', e);
@@ -39,6 +43,7 @@ const PickerOptions = () => {
       if (images.length < 2) {
         return alert('Please select atlease 2 images');
       }
+      await incrementCount();
       navigate(NavRoutes.CollageMaker, { images });
     } catch (e) {
       console.error('Error onCollageMakerPress -> ', e);

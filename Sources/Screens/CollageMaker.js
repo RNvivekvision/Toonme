@@ -9,10 +9,12 @@ import { setClickedImage } from '../Redux/Actions';
 import { NavRoutes } from '../Navigation';
 import { Strings } from '../Constants';
 import { hp, wp } from '../Theme';
+import { useUserClick } from '../Hooks';
 
 const CollageMaker = ({ navigation, route }) => {
   const viewRef = useRef();
   const dispatch = useDispatch();
+  const { incrementCount } = useUserClick();
   const images = route?.params?.images;
 
   const onSavePress = async () => {
@@ -21,6 +23,7 @@ const CollageMaker = ({ navigation, route }) => {
       await CameraRoll.saveAsset(screenShot, { type: 'photo' });
       dispatch(setClickedImage({ path: screenShot }));
       alert('Image saved to camera roll!');
+      await incrementCount();
       navigation.navigate(NavRoutes.Preview);
     } catch (e) {
       console.error('Error on Saving Screen Shot -> ', e);

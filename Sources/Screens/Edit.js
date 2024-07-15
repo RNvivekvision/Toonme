@@ -15,11 +15,13 @@ import { Strings } from '../Constants';
 import PhotoEditor from '@baronha/react-native-photo-editor';
 import { setClickedImage } from '../Redux/Actions';
 import { useState } from 'react';
+import { useUserClick } from '../Hooks';
 
 const Edit = ({ navigation }) => {
   const [State, setState] = useState({ imgLoading: false });
   const { clickedImage } = useSelector(({ UserReducer }) => UserReducer);
   const dispatch = useDispatch();
+  const { incrementCount } = useUserClick();
 
   const onEditPress = async () => {
     const path = await PhotoEditor.open({
@@ -28,9 +30,11 @@ const Edit = ({ navigation }) => {
     });
     const img = isIOS ? path.replace('file://', '') : path;
     dispatch(setClickedImage({ ...clickedImage, path: img }));
+    await incrementCount();
   };
 
-  const onCartoonPress = () => {
+  const onCartoonPress = async () => {
+    await incrementCount();
     navigation.navigate(NavRoutes.SelectCartoon);
   };
 

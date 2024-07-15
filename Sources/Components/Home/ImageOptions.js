@@ -2,11 +2,18 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FlatList, StyleSheet } from 'react-native';
 import { RenderImageOptions, RenderImages } from '../Renders';
+import { useUserClick } from '../../Hooks';
 import { wp } from '../../Theme';
 
 const ImageOptions = ({ onFilterPress }) => {
   const { filters } = useSelector(({ UserReducer }) => UserReducer);
   const [State, setState] = useState({ selected: 0 });
+  const { incrementCount } = useUserClick();
+
+  const onItemPress = async v => {
+    await incrementCount();
+    setState(p => ({ ...p, selected: v }));
+  };
 
   return (
     <>
@@ -21,7 +28,7 @@ const ImageOptions = ({ onFilterPress }) => {
             item={item}
             index={index}
             selected={State.selected === index}
-            onPress={v => setState(p => ({ ...p, selected: v }))}
+            onPress={onItemPress}
           />
         )}
       />

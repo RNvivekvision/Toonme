@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { RNIcon, RNStyles, RNText, RNScrollView } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { togglePlans } from '../../Redux/Actions';
-import { useInset } from '../../Hooks';
+import { useInset, useUserClick } from '../../Hooks';
 import { Images } from '../../Constants';
 
 const TOHeader = ({
@@ -17,18 +17,18 @@ const TOHeader = ({
   scrollProps,
 }) => {
   const navigation = useNavigation();
-  const styles = useStyles();
+  const { incrementCount } = useUserClick();
   const dispatch = useDispatch();
+  const styles = useStyles();
 
   const onDrawerPress = async () => {
+    await incrementCount();
     navigation.openDrawer();
   };
 
   const onCrownPress = () => {
     dispatch(togglePlans());
   };
-
-  const onSearchPress = () => {};
 
   return (
     <View style={RNStyles.container}>
@@ -40,12 +40,6 @@ const TOHeader = ({
           iconStyle={styles.icon}
         />
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
-        {/* <RNIcon
-          icon={Images.search}
-          onPress={onSearchPress}
-          containerStyle={{ ...styles.iconContainer, marginRight: wp(2) }}
-          iconStyle={styles.icon}
-        /> */}
         <RNIcon
           icon={Images.crown}
           onPress={onCrownPress}

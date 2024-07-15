@@ -1,11 +1,11 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import Splash from 'react-native-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { NavConfigs, NavRoutes } from './index';
-import { useLocalStorage, usePermissions } from '../Hooks';
+import { useGoogleAds, useLocalStorage, usePermissions } from '../Hooks';
 import { getAdData, getFilters } from '../Redux/ExtraReducers';
 import Drawer from './Drawer';
 import {
@@ -20,21 +20,40 @@ import {
   CollageMaker,
 } from '../Screens';
 import { RNNoInternet } from '../Common';
+import { AppState } from 'react-native';
+import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
 
 const Routes = () => {
+  const { adData } = useSelector(({ UserReducer }) => UserReducer);
   const { requestPermission } = usePermissions();
   const { localdata } = useLocalStorage();
+  const { showAppOpenAd } = useGoogleAds();
   const dispatch = useDispatch();
+  const appState = useRef(AppState.currentState);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === 'active'
+      ) {
+        showAppOpenAd();
+      }
+      appState.current = nextAppState;
+    });
+    showAppOpenAd();
+    return () => subscription.remove();
+  }, [adData]);
 
   useEffect(() => {
     dispatch(getAdData());
     dispatch(getFilters());
+    init();
     setTimeout(() => {
       Splash.hide();
     }, 2000);
-    init();
   }, []);
 
   const init = async () => {

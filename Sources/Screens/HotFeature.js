@@ -16,10 +16,12 @@ import { getCartoonImages } from '../Services';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClickedImage, togglePremium } from '../Redux/Actions';
 import { NavRoutes } from '../Navigation';
+import { useUserClick } from '../Hooks';
 
 const HotFeature = ({ navigation }) => {
   const { showPremium } = useSelector(({ UserReducer }) => UserReducer);
   const dispatch = useDispatch();
+  const { incrementCount } = useUserClick();
   const [State, setState] = useState({
     isMale: 0,
     img: null,
@@ -34,6 +36,7 @@ const HotFeature = ({ navigation }) => {
     try {
       const img = await Functions.openGallery();
       setState(p => ({ ...p, img: img }));
+      await incrementCount();
     } catch (e) {
       console.error('Error onPlusPress -> ', e);
     }
@@ -41,6 +44,7 @@ const HotFeature = ({ navigation }) => {
 
   const onNextPress = async () => {
     try {
+      await incrementCount();
       setState(p => ({ ...p, isLoading: true }));
       const response = await getCartoonImages({
         gender: State.isMale == 0 ? 'male' : 'female',
@@ -59,7 +63,7 @@ const HotFeature = ({ navigation }) => {
     }
   };
 
-  const onCartoonPress = (cartoon, show) => {
+  const onCartoonPress = async (cartoon, show) => {
     setState(p => ({
       ...p,
       selectedCartoon: cartoon,

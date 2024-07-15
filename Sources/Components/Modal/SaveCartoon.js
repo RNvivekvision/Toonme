@@ -8,14 +8,16 @@ import { RNButton, RNImage, RNStyles } from '../../Common';
 import { Colors, hp, wp } from '../../Theme';
 import { Functions } from '../../Utils';
 import { Strings } from '../../Constants';
+import { useUserClick } from '../../Hooks';
 
 const SaveCartoon = ({ visible, cartoon, onClose, onSave }) => {
-  const onClosing = () => {
-    onClose?.();
-  };
+  const { incrementCount } = useUserClick();
+
+  const onClosing = () => onClose?.();
 
   const onSavePress = async () => {
     try {
+      await incrementCount();
       await Functions.saveToCameraRoll(cartoon);
       onClosing();
       onSave?.();

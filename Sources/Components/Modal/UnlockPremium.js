@@ -12,6 +12,7 @@ import { setClickedImage, setSelectedFilter } from '../../Redux/Actions';
 import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
+import { useUserClick } from '../../Hooks';
 
 const UnlockPremium = ({
   visible,
@@ -22,9 +23,12 @@ const UnlockPremium = ({
   onHotFeature,
 }) => {
   const { navigate } = useNavigation();
+  const { incrementCount } = useUserClick();
   const dispatch = useDispatch();
 
   const onWatchPress = async () => {
+    await incrementCount();
+
     if (isHotFeature) {
       onClose?.();
       onHotFeature?.();

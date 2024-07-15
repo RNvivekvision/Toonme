@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
 import { Images, Strings } from '../../Constants';
-import { useInset } from '../../Hooks';
+import { useInset, useUserClick } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
 import { useDispatch } from 'react-redux';
 import { togglePlans } from '../../Redux/Actions';
@@ -12,6 +12,17 @@ const { Drawer } = DummyData;
 const DrawerContent = ({ navigation }) => {
   const dispatch = useDispatch();
   const styles = useStyles();
+  const { incrementCount } = useUserClick();
+
+  const onPress = async v => {
+    await incrementCount();
+    await func[v.key]?.(navigation);
+    // navigation.closeDrawer();
+  };
+
+  const onGetPremium = () => {
+    dispatch(togglePlans());
+  };
 
   return (
     <View style={RNStyles.container}>
@@ -26,7 +37,7 @@ const DrawerContent = ({ navigation }) => {
             <TouchableOpacity
               key={i}
               activeOpacity={0.6}
-              onPress={async () => await func[v.key]?.(navigation)}
+              onPress={() => onPress(v)}
               style={styles.renderDrawer}>
               <View style={RNStyles.flexRow1}>
                 <RNImage source={Images['drawer_' + i]} style={RNStyles.icon} />
@@ -45,7 +56,7 @@ const DrawerContent = ({ navigation }) => {
 
       <TouchableOpacity
         activeOpacity={0.6}
-        onPress={() => dispatch(togglePlans())}
+        onPress={onGetPremium}
         style={styles.buttonContainer}>
         <View style={RNStyles.flexRow1}>
           <RNImage source={Images.premium} style={styles.icon} />

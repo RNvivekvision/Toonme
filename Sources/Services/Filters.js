@@ -3,7 +3,6 @@ import { FetchMethod, URL } from './Api';
 const getAllFilters = async () => {
   const responseJson = await fetch(URL.filters);
   const response = await responseJson.json();
-  console.log('response -> ', JSON.stringify(response, null, 2));
   return response;
 };
 
