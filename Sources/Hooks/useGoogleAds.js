@@ -63,7 +63,7 @@ const useGoogleAds = () => {
     }
   };
 
-  if (adData?.showAdInApp) {
+  if (!adData?.showAdInApp) {
     return {
       showAppOpenAd: () =>
         showAds({

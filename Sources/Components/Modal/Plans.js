@@ -35,24 +35,32 @@ const Plans = ({ visible, onClose }) => {
       if (!connect) return;
       const subscriptions = await IAP.getSubscriptions({ skus: skus });
       const availablePurchases = await IAP.getAvailablePurchases();
+      const purchasesHistory = await IAP.getPurchaseHistory();
 
       console.log(
         'Subscriptions -> ',
-        JSON.stringify({ subscriptions, availablePurchases, skus }, null, 2),
+        JSON.stringify(
+          { subscriptions, availablePurchases, purchasesHistory, skus },
+          null,
+          2,
+        ),
       );
     } catch (e) {
       console.error('Error getSubscriptions -> ', e);
     }
   };
 
-  const onPress = async () => {
+  const onRequestPurchase = async () => {
     setState(p => ({ ...p, isLoading: true }));
+    console.log(State.selectedPlan.sku);
+
     try {
       const purchase = await IAP.requestPurchase({
         sku: State.selectedPlan.sku,
       });
       console.log('Purchase -> ', JSON.stringify(purchase, null, 2));
     } catch (e) {
+      alert(e);
       console.error('Error In App Purchase -> ', e);
     } finally {
       setState(p => ({ ...p, isLoading: false }));
@@ -105,7 +113,7 @@ const Plans = ({ visible, onClose }) => {
         </View>
       </View>
 
-      <RNButton title={Strings.Subscribe} onPress={onPress} />
+      <RNButton title={Strings.Subscribe} onPress={onRequestPurchase} />
 
       <RNText
         align={'center'}

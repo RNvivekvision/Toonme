@@ -1,5 +1,5 @@
 {
-  "identifier" : "10294A32",
+  "identifier" : "82A6E8A2",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -8,8 +8,6 @@
   ],
   "settings" : {
     "_failTransactionsEnabled" : false,
-    "_locale" : "en_US",
-    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,
@@ -60,11 +58,11 @@
   },
   "subscriptionGroups" : [
     {
-      "id" : "FD950DB6",
+      "id" : "114CAFDF",
       "localizations" : [
 
       ],
-      "name" : "Premium Access",
+      "name" : "Premium Subscriptions",
       "subscriptions" : [
         {
           "adHocOffers" : [
@@ -76,7 +74,7 @@
           "displayPrice" : "6.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "1B336773",
+          "internalID" : "D78C41DB",
           "introductoryOffer" : null,
           "localizations" : [
             {
@@ -87,8 +85,8 @@
           ],
           "productID" : "com.cartoon.photo.editor.toonmeapp.monthly",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly Subscription",
-          "subscriptionGroupID" : "FD950DB6",
+          "referenceName" : "Monthly",
+          "subscriptionGroupID" : "114CAFDF",
           "type" : "RecurringSubscription"
         },
         {
@@ -101,8 +99,12 @@
           "displayPrice" : "12.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "4F116A40",
-          "introductoryOffer" : null,
+          "internalID" : "708EF640",
+          "introductoryOffer" : {
+            "displayPrice" : "0.99",
+            "internalID" : "65DB4501",
+            "paymentMode" : "none"
+          },
           "localizations" : [
             {
               "description" : "",
@@ -112,17 +114,13 @@
           ],
           "productID" : "com.cartoon.photo.editor.toonmeapp.yearly",
           "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly Subscription",
-          "subscriptionGroupID" : "FD950DB6",
+          "referenceName" : "Yearly",
+          "subscriptionGroupID" : "114CAFDF",
           "type" : "RecurringSubscription"
         }
       ]
     }
   ],
-  "subscriptionOffersKeyPair" : {
-    "id" : "6C07F279",
-    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgDEJqi9SPWj/wV+z4Sq1+fV0Mj/HZWKPOMJK1TwkC0y+gCgYIKoZIzj0DAQehRANCAASC4gG1QhSlSA5ZEmaenSrELKNJ85R23nnEese5m2EQi13Olk3ZVvu9J0MTftJrAiXTeNGigL780ljcDLgvXvUT"
-  },
   "version" : {
     "major" : 3,
     "minor" : 0
