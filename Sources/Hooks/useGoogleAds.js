@@ -8,9 +8,14 @@ import { showAdLoader } from '../Redux/Actions';
 import { Functions } from '../Utils';
 
 const useGoogleAds = () => {
-  const { clickAds, adData, Admob, Admanager1, Admanager2 } = useSelector(
-    ({ UserReducer }) => UserReducer,
-  );
+  const {
+    clickAds,
+    adData,
+    Admob,
+    Admanager1,
+    Admanager2,
+    subscriptionPurchase,
+  } = useSelector(({ UserReducer }) => UserReducer);
   const methods = [Admob, Admanager1, Admanager2];
   const dispatch = useDispatch();
 
@@ -63,7 +68,7 @@ const useGoogleAds = () => {
     }
   };
 
-  if (!adData?.showAdInApp) {
+  if (adData?.showAdInApp && !subscriptionPurchase) {
     return {
       showAppOpenAd: () =>
         showAds({

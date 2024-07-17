@@ -1,7 +1,36 @@
 {
-  "identifier" : "82A6E8A2",
+  "identifier" : "35CAEF2F",
   "nonRenewingSubscriptions" : [
-
+    {
+      "displayPrice" : "6.99",
+      "familyShareable" : false,
+      "internalID" : "CCE9DE81",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "toon_me_monthly_699",
+      "referenceName" : "Monthly Subscription",
+      "type" : "NonRenewingSubscription"
+    },
+    {
+      "displayPrice" : "12.99",
+      "familyShareable" : false,
+      "internalID" : "75849338",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "toon_me_yearly_1299",
+      "referenceName" : "Yearly Subscription",
+      "type" : "NonRenewingSubscription"
+    }
   ],
   "products" : [
 
@@ -57,69 +86,7 @@
     ]
   },
   "subscriptionGroups" : [
-    {
-      "id" : "114CAFDF",
-      "localizations" : [
 
-      ],
-      "name" : "Premium Subscriptions",
-      "subscriptions" : [
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "6.99",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "D78C41DB",
-          "introductoryOffer" : null,
-          "localizations" : [
-            {
-              "description" : "",
-              "displayName" : "",
-              "locale" : "en_US"
-            }
-          ],
-          "productID" : "com.cartoon.photo.editor.toonmeapp.monthly",
-          "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly",
-          "subscriptionGroupID" : "114CAFDF",
-          "type" : "RecurringSubscription"
-        },
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "12.99",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "708EF640",
-          "introductoryOffer" : {
-            "displayPrice" : "0.99",
-            "internalID" : "65DB4501",
-            "paymentMode" : "none"
-          },
-          "localizations" : [
-            {
-              "description" : "",
-              "displayName" : "",
-              "locale" : "en_US"
-            }
-          ],
-          "productID" : "com.cartoon.photo.editor.toonmeapp.yearly",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly",
-          "subscriptionGroupID" : "114CAFDF",
-          "type" : "RecurringSubscription"
-        }
-      ]
-    }
   ],
   "version" : {
     "major" : 3,

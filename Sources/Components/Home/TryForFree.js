@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { RNButton, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { togglePlans } from '../../Redux/Actions';
 import { Strings } from '../../Constants';
 import { useUserClick } from '../../Hooks';
@@ -10,11 +10,15 @@ import { useUserClick } from '../../Hooks';
 const TryForFree = () => {
   const dispatch = useDispatch();
   const { incrementCount } = useUserClick();
-
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const onPress = async () => {
     dispatch(togglePlans());
     await incrementCount();
   };
+
+  if (subscriptionPurchase) return;
 
   return (
     <Reanimated.View entering={FadeInDown.delay(100)} style={styles.container}>

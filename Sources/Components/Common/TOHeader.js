@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RNIcon, RNStyles, RNText, RNScrollView } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { togglePlans } from '../../Redux/Actions';
@@ -18,6 +18,9 @@ const TOHeader = ({
 }) => {
   const navigation = useNavigation();
   const { incrementCount } = useUserClick();
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const dispatch = useDispatch();
   const styles = useStyles();
 
@@ -40,12 +43,14 @@ const TOHeader = ({
           iconStyle={styles.icon}
         />
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
-        <RNIcon
-          icon={Images.crown}
-          onPress={onCrownPress}
-          containerStyle={styles.iconContainer}
-          iconStyle={styles.icon}
-        />
+        {!subscriptionPurchase && (
+          <RNIcon
+            icon={Images.crown}
+            onPress={onCrownPress}
+            containerStyle={styles.iconContainer}
+            iconStyle={styles.icon}
+          />
+        )}
       </View>
       {noScroll ? (
         children

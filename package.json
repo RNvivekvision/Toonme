@@ -45,6 +45,7 @@
     "react-native-iap": "^12.15.1",
     "react-native-image-crop-picker": "^0.41.2",
     "react-native-images-collage": "^3.3.5",
+    "react-native-keychain": "^8.2.0",
     "react-native-permissions": "^4.1.5",
     "react-native-rate": "^1.2.12",
     "react-native-reanimated": "^3.12.1",

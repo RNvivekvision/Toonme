@@ -4,9 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import RNFS from 'react-native-fs';
+import * as Keychain from 'react-native-keychain';
 
 const isDev = __DEV__;
 const androidPackage = 'com.cartoon.photo.editor.toonmeapp';
+const iosBundleId = 'com.cartoon.photo.editor.toonmeapp';
 const iosAppId = '6532614368';
 const appLink = Platform.select({
   android: `https://play.google.com/store/apps/details?id=${androidPackage}`,
@@ -34,6 +36,31 @@ const setAppData = async data => {
 const getAppData = async () => {
   const value = await AsyncStorage.getItem('appdata');
   return JSON.parse(value);
+};
+
+const setSubscription = async value => {
+  try {
+    await Keychain.setGenericPassword('subscription', JSON.stringify(value), {
+      service: iosBundleId,
+    });
+    // await Keychain.resetGenericPassword({
+    //   service: iosBundleId,
+    // });
+    console.log('subscription added in Keychain...');
+  } catch (e) {
+    console.error('Error setSubscription -> ', e);
+  }
+};
+
+const getSubscription = async () => {
+  try {
+    const pass = await Keychain.getGenericPassword({
+      service: iosBundleId,
+    });
+    return JSON.parse(pass.password);
+  } catch (e) {
+    console.error('Error getSubscription -> ', e);
+  }
 };
 
 const size = 5000;
@@ -116,7 +143,9 @@ const Functions = {
   ALERT,
   OpenUrl,
   setAppData,
+  setSubscription,
   getAppData,
+  getSubscription,
   openCamera,
   openGallery,
   updateImage,

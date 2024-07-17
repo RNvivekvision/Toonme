@@ -14,6 +14,7 @@ const initialState = {
   clickedImage: null,
   selectedFilter: null,
   showPremium: false,
+  subscriptionPurchase: false,
 };
 
 const UserReducer = createSlice({
@@ -38,6 +39,9 @@ const UserReducer = createSlice({
     },
     setSelectedFilter: (s, a) => {
       s.selectedFilter = a.payload;
+    },
+    setSubscriptionPurchase: (s, a) => {
+      s.subscriptionPurchase = a.payload;
     },
   },
   extraReducers: b => {
@@ -77,5 +81,6 @@ export const {
   showAdLoader,
   setClickedImage,
   setSelectedFilter,
+  setSubscriptionPurchase,
 } = UserReducer.actions;
 export default UserReducer.reducer;

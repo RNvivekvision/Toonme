@@ -5,4 +5,5 @@ export {
   setClickedImage,
   showAdLoader,
   setSelectedFilter,
+  setSubscriptionPurchase,
 } from '../Reducers/UserReducer';

@@ -2,9 +2,9 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { RNImage, RNStyles, RNText } from '../../Common';
 import { Images, Strings } from '../../Constants';
-import { useInset, useUserClick } from '../../Hooks';
+import { useInset } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { togglePlans } from '../../Redux/Actions';
 
 const { Drawer } = DummyData;
@@ -12,13 +12,9 @@ const { Drawer } = DummyData;
 const DrawerContent = ({ navigation }) => {
   const dispatch = useDispatch();
   const styles = useStyles();
-  const { incrementCount } = useUserClick();
-
-  const onPress = async v => {
-    await incrementCount();
-    await func[v.key]?.(navigation);
-    // navigation.closeDrawer();
-  };
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
 
   const onGetPremium = () => {
     dispatch(togglePlans());
@@ -37,7 +33,7 @@ const DrawerContent = ({ navigation }) => {
             <TouchableOpacity
               key={i}
               activeOpacity={0.6}
-              onPress={() => onPress(v)}
+              onPress={async () => await func[v.key]?.(navigation)}
               style={styles.renderDrawer}>
               <View style={RNStyles.flexRow1}>
                 <RNImage source={Images['drawer_' + i]} style={RNStyles.icon} />
@@ -54,21 +50,23 @@ const DrawerContent = ({ navigation }) => {
         </View>
       </View>
 
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={onGetPremium}
-        style={styles.buttonContainer}>
-        <View style={RNStyles.flexRow1}>
-          <RNImage source={Images.premium} style={styles.icon} />
-          <RNText
-            pLeft={wp(3)}
-            family={FontFamily.SemiBold}
-            size={FontSize.font14}>
-            {Strings.GetPremium}
-          </RNText>
-        </View>
-        <RNImage source={Images.right} style={styles.icon} />
-      </TouchableOpacity>
+      {!subscriptionPurchase && (
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={onGetPremium}
+          style={styles.buttonContainer}>
+          <View style={RNStyles.flexRow1}>
+            <RNImage source={Images.premium} style={styles.icon} />
+            <RNText
+              pLeft={wp(3)}
+              family={FontFamily.SemiBold}
+              size={FontSize.font14}>
+              {Strings.GetPremium}
+            </RNText>
+          </View>
+          <RNImage source={Images.right} style={styles.icon} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

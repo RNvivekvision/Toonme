@@ -17,9 +17,8 @@ import { useAdStyles } from '../../../Hooks';
 
 const GoogleNativeAd = () => {
   const NativeAdRef = useRef();
-  const { adData, Admob, Admanager1, Admanager2 } = useSelector(
-    ({ UserReducer }) => UserReducer,
-  );
+  const { adData, Admob, Admanager1, Admanager2, subscriptionPurchase } =
+    useSelector(({ UserReducer }) => UserReducer);
   const [State, setState] = useState({
     showButton: false,
     adUnitID: Admob?.nativeAdvanced,
@@ -53,8 +52,8 @@ const GoogleNativeAd = () => {
     }
   };
 
+  if (subscriptionPurchase) return;
   if (!showAd) return null;
-
   return (
     adUnitID && (
       <NativeAdView

@@ -14,6 +14,9 @@ import { useInset } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
 import { RenderPlans } from '../Renders';
 import * as IAP from 'react-native-iap';
+import { useDispatch } from 'react-redux';
+import { setSubscriptionPurchase } from '../../Redux/Actions';
+// import { setSubscriptionPurchase } from '../../Redux/Actions';
 
 const { skus, AppSpecificSharedSecret } = DummyData;
 
@@ -24,6 +27,7 @@ const Plans = ({ visible, onClose }) => {
   });
   const styles = useStyles();
   const inset = useInset();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     initIAP();
@@ -31,20 +35,11 @@ const Plans = ({ visible, onClose }) => {
 
   const initIAP = async () => {
     try {
+      await IAP.clearTransactionIOS();
       const connect = await IAP.initConnection();
       if (!connect) return;
       const subscriptions = await IAP.getSubscriptions({ skus: skus });
-      const availablePurchases = await IAP.getAvailablePurchases();
-      const purchasesHistory = await IAP.getPurchaseHistory();
-
-      console.log(
-        'Subscriptions -> ',
-        JSON.stringify(
-          { subscriptions, availablePurchases, purchasesHistory, skus },
-          null,
-          2,
-        ),
-      );
+      console.log('Subscriptions -> ', JSON.stringify(subscriptions, null, 2));
     } catch (e) {
       console.error('Error getSubscriptions -> ', e);
     }
@@ -52,18 +47,54 @@ const Plans = ({ visible, onClose }) => {
 
   const onRequestPurchase = async () => {
     setState(p => ({ ...p, isLoading: true }));
-    console.log(State.selectedPlan.sku);
 
     try {
       const purchase = await IAP.requestPurchase({
         sku: State.selectedPlan.sku,
       });
       console.log('Purchase -> ', JSON.stringify(purchase, null, 2));
+      // const oneMonthLaterTimestamp = new Date(
+      //   new Date().setMonth(new Date().getMonth() + 1),
+      // ).getTime();
+      // await Functions.setSubscription({
+      //   ...purchase,
+      //   expiry: oneMonthLaterTimestamp,
+      // });
+      dispatch(setSubscriptionPurchase(true));
+      onClose?.();
     } catch (e) {
       alert(e);
       console.error('Error In App Purchase -> ', e);
     } finally {
       setState(p => ({ ...p, isLoading: false }));
+    }
+  };
+
+  const onValidateReceipt = async () => {
+    try {
+      const latestPurchase = await IAP.getReceiptIOS({});
+      const receiptBody = {
+        'receipt-data': latestPurchase,
+        password: AppSpecificSharedSecret,
+      };
+      const decodedReceipt = await IAP.validateReceiptIos({
+        receiptBody,
+        isTest: Functions.isDev,
+      });
+      console.log(
+        'Validate -> ',
+        JSON.stringify(
+          {
+            latestPurchase,
+            decodedReceipt,
+          },
+          null,
+          2,
+        ),
+      );
+    } catch (e) {
+      alert(e);
+      console.error('Error Validating Receipt -> ', e);
     }
   };
 
@@ -114,6 +145,8 @@ const Plans = ({ visible, onClose }) => {
       </View>
 
       <RNButton title={Strings.Subscribe} onPress={onRequestPurchase} />
+
+      {/* <RNButton title={'Validate'} onPress={onValidateReceipt} /> */}
 
       <RNText
         align={'center'}

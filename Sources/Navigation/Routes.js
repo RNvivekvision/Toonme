@@ -26,7 +26,9 @@ import { useSelector } from 'react-redux';
 const Stack = createStackNavigator();
 
 const Routes = () => {
-  const { adData } = useSelector(({ UserReducer }) => UserReducer);
+  const { adData, subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const { requestPermission } = usePermissions();
   const { localdata } = useLocalStorage();
   const { showAppOpenAd } = useGoogleAds();
@@ -43,9 +45,8 @@ const Routes = () => {
       }
       appState.current = nextAppState;
     });
-    showAppOpenAd();
     return () => subscription.remove();
-  }, [adData]);
+  }, [adData, subscriptionPurchase]);
 
   useEffect(() => {
     dispatch(getAdData());

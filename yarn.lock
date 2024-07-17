@@ -3975,6 +3975,7 @@ __metadata:
     react-native-iap: ^12.15.1
     react-native-image-crop-picker: ^0.41.2
     react-native-images-collage: ^3.3.5
+    react-native-keychain: ^8.2.0
     react-native-permissions: ^4.1.5
     react-native-rate: ^1.2.12
     react-native-reanimated: ^3.12.1
@@ -9523,6 +9524,13 @@ __metadata:
   version: 3.3.5
   resolution: "react-native-images-collage@npm:3.3.5"
   checksum: 5a5026701f753d13802c1a6b3a0144d3f90eac52113e373944f73929a8c26a485da3924a562e7a44898dc6b53a886cd5faa8ca8c27d66710f7925c7315127391
+  languageName: node
+  linkType: hard
+
+"react-native-keychain@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "react-native-keychain@npm:8.2.0"
+  checksum: 4c4d5331013b8ab17c21120a2388e1e82aa30586738c0a34ed9dcffb6ce12454125ddb690951cad5563c9290b060eb68ccffa9477650cc3a5ddc347696b5d4ef
   languageName: node
   linkType: hard
 
