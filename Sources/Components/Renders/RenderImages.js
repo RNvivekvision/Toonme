@@ -4,15 +4,18 @@ import { RNImage, RNImageLoader, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
 import Video from 'react-native-video';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedFilter, togglePremium } from '../../Redux/Actions';
 import { Strings } from '../../Constants';
 
 const RenderImages = ({ images, onFilterPress }) => {
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const dispatch = useDispatch();
 
   const onItemPress = v => {
-    if (v?.is_pro === 'true') {
+    if (v?.is_pro === 'true' && !subscriptionPurchase) {
       dispatch(setSelectedFilter(v?.combo_id));
       dispatch(togglePremium());
       return;
@@ -35,8 +38,11 @@ const RenderImages = ({ images, onFilterPress }) => {
 };
 
 const Comp = ({ item, index, onItemPress }) => {
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const [State, setState] = useState({ isLoading: false });
-  const isPro = item?.is_pro === 'true';
+  const isPro = item?.is_pro === 'true' && !subscriptionPurchase;
   const isVideo = item?.file_type === 'video';
 
   return (

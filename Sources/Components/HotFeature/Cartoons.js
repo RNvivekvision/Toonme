@@ -4,13 +4,16 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Strings } from '../../Constants';
 import Reanimated, { FadeInDown } from 'react-native-reanimated';
 import { togglePremium } from '../../Redux/Actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Cartoons = ({ images, onPress }) => {
+  const { subscriptionPurchase } = useSelector(
+    ({ UserReducer }) => UserReducer,
+  );
   const dispatch = useDispatch();
 
   const onItemPress = (item, index) => {
-    if (index !== 0) {
+    if (index !== 0 && !subscriptionPurchase) {
       dispatch(togglePremium());
       onPress?.(item, false);
       return;
@@ -33,7 +36,7 @@ const Cartoons = ({ images, onPress }) => {
       <View style={RNStyles.flexWrapHorizontal}>
         {images.map((v, i) => (
           <Reanimated.View key={i} entering={FadeInDown.delay(i * 150)}>
-            {i !== 0 && (
+            {i !== 0 && !subscriptionPurchase && (
               <View style={styles.proContainer}>
                 <RNText style={styles.proText}>{Strings.Pro}</RNText>
               </View>
