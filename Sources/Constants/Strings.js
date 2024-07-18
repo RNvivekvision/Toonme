@@ -21,6 +21,7 @@ const Strings = {
   ToonmeCartoonsFromPhotos: 'Toonme - Cartoons From Photos',
   GetPremium: 'Get Premium',
   Save: 'Save',
+  SelectImage: 'Select Image',
   ToonMe: 'Toon Me',
   Refresh: 'Refresh',
   WelcomeToToonme: 'Welcome To Toonme',

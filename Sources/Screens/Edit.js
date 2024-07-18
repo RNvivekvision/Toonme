@@ -39,7 +39,7 @@ const Edit = ({ navigation }) => {
   };
 
   return (
-    <RNContainer>
+    <RNContainer useSafeArea>
       <RNHeader title={Strings.Edit} back>
         <View style={styles.imgContainer}>
           <RNImageLoader visible={State.imgLoading} />

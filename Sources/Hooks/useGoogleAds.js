@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   AppOpenAd,
   InterstitialAd,
+  RewardedAd,
   TestIds,
 } from 'react-native-google-mobile-ads';
 import { showAdLoader } from '../Redux/Actions';
@@ -84,7 +85,13 @@ const useGoogleAds = () => {
           testAdId: TestIds.INTERSTITIAL,
           condition: clickAds || onboard,
         }),
-      showRewardAd: () => {},
+      showRewardAd: () =>
+        showAds({
+          adType: RewardedAd,
+          key: 'rewarded',
+          testAdId: TestIds.REWARDED,
+          condition: true,
+        }),
     };
   }
 

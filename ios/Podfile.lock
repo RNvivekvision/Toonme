@@ -1251,14 +1251,14 @@ PODS:
     - React-Core
   - RNDeviceInfo (11.1.0):
     - React-Core
-  - RNFBAnalytics (20.2.0):
+  - RNFBAnalytics (20.2.1):
     - Firebase/Analytics (= 10.29.0)
     - React-Core
     - RNFBApp
-  - RNFBApp (20.2.0):
+  - RNFBApp (20.2.1):
     - Firebase/CoreOnly (= 10.29.0)
     - React-Core
-  - RNFBCrashlytics (20.2.0):
+  - RNFBCrashlytics (20.2.1):
     - Firebase/Crashlytics (= 10.29.0)
     - FirebaseCoreExtension
     - React-Core
@@ -1661,9 +1661,9 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: ec53e44dc3e75b44aa2a9f37618a49c3bc080a7a
   RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
   RNDeviceInfo: b899ce37a403a4dea52b7cb85e16e49c04a5b88e
-  RNFBAnalytics: 099f3051fb05c25cc3f07f03d442c41534e6f0e2
-  RNFBApp: 801b0c9d1adb238aa4365f4863390ed6e89d549c
-  RNFBCrashlytics: 3b7c077fa57c2e108d10a8f76cafae07c96db244
+  RNFBAnalytics: da75b00bd2da11d02d760e26beb7ef2bb92b9405
+  RNFBApp: 5548f7e415d10dd7d167684400c41b539544380b
+  RNFBCrashlytics: 982cedf27b5051a2f40d0d89c55299ba1b1f2886
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 67d3f1f69d4d0c98d6e83f4229e3bbf997d1dc72
   RNGoogleMobileAds: fe43db9d9896373e221ece8a0a6ef6504a15685a

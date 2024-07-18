@@ -1,5 +1,5 @@
 // import Axios from 'axios';
-// import { Functions } from '../Utils';
+import { Functions } from '../../Utils';
 import URL from './URL';
 
 const REQUEST = async ({
@@ -34,7 +34,9 @@ const REQUEST = async ({
       body: JSON.stringify(Params),
       headers: Headers,
     }),
-    new Promise(res => setTimeout(() => res(resolving), 10000)),
+    new Promise(res =>
+      setTimeout(() => res(resolving), Functions.requestTimeout),
+    ),
   ]);
   const response = await responseJson?.json();
   // console.log('Response -> ', JSON.stringify(response, null, 2));

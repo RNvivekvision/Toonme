@@ -1,3 +1,4 @@
+import { Functions } from '../../Utils';
 import REQUEST from './REQUEST';
 const GET = async ({ EndPoint, NeedToken }) => {
   return await REQUEST({
@@ -62,7 +63,10 @@ const race = async ({
       headers: headers,
     }),
     new Promise(res =>
-      setTimeout(() => res({ json: () => dummyResponse }), 15000),
+      setTimeout(
+        () => res({ json: () => dummyResponse }),
+        Functions.requestTimeout,
+      ),
     ),
   ]);
   return await response.json();

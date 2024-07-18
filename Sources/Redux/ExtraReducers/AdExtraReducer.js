@@ -4,6 +4,7 @@ import { FetchMethod, URL } from '../../Services';
 import { DummyData, Functions } from '../../Utils';
 import { getIp } from '@mobeuv/react-native-check-ip';
 import { getAllFilters } from '../../Services';
+import { Strings } from '../../Constants';
 
 const { appInfo } = DummyData;
 
@@ -36,7 +37,7 @@ const getAdData = createAsyncThunk('getAdData', async () => {
     }
   } catch (e) {
     console.error('Error getAdData -> ', e);
-    return { error: 'Something went wrong' };
+    return { error: Strings.errorMsg };
   }
 });
 
@@ -51,7 +52,7 @@ const getFilters = createAsyncThunk('getFilters', async () => {
     return categories;
   } catch (e) {
     console.error('Error getAdData -> ', e);
-    return { error: 'Something went wrong' };
+    return { error: Strings.errorMsg };
   }
 });
 

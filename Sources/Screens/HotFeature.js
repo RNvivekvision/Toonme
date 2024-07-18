@@ -52,11 +52,12 @@ const HotFeature = ({ navigation }) => {
       });
       // console.log('response -> ', JSON.stringify(response, null, 2));
       if (response?.timeout) {
-        alert('Something went wrong. Please try again.');
+        alert(Strings.errorMsg);
       } else if (response?.output_url?.length > 0) {
         setState(p => ({ ...p, cartoons: response?.output_url }));
       }
     } catch (e) {
+      alert(Strings.errorMsg);
       console.error('Error onNextPress -> ', e);
     } finally {
       setState(p => ({ ...p, isLoading: false }));

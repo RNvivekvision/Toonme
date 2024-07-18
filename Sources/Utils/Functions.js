@@ -7,6 +7,7 @@ import RNFS from 'react-native-fs';
 import * as Keychain from 'react-native-keychain';
 
 const isDev = __DEV__;
+const requestTimeout = 20000;
 const androidPackage = 'com.cartoon.photo.editor.toonmeapp';
 const iosBundleId = 'com.cartoon.photo.editor.toonmeapp';
 const iosAppId = '6532614368';
@@ -135,6 +136,7 @@ const ShareApp = async ({ title, message, url, ...rest } = {}) => {
 
 const Functions = {
   isDev,
+  requestTimeout,
   ALERT,
   OpenUrl,
   setAppData,

@@ -70,7 +70,7 @@ const Result = ({ navigation }) => {
   };
 
   return (
-    <RNContainer isLoading={State.isLoading}>
+    <RNContainer isLoading={State.isLoading} useSafeArea>
       <RNHeader title={Strings.Result} back>
         <View style={styles.imgContainer}>
           <RNImageLoader visible={State.imgLoading} />

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     ...RNStyles.flexWrapHorizontal,
     paddingHorizontal: wp(4),
     paddingTop: hp(2),
-    paddingBottom: hp(16),
+    paddingBottom: hp(8),
   },
   content: {
     width: wp(45),

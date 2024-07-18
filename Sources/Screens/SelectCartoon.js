@@ -23,7 +23,7 @@ const SelectCartoon = ({ navigation }) => {
   };
 
   return (
-    <RNContainer>
+    <RNContainer useSafeArea>
       <RNHeader title={Strings.SelectCartoon} back>
         <BouncyCard containerStyle={{ position: 'relative' }} />
         <ImageOptions onFilterPress={onFilterPress} />

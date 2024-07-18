@@ -4,7 +4,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import { RNButton, RNImage, RNStyles, RNText } from '../../Common';
+import { RNButton, RNImage, RNLoader, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images, Strings } from '../../Constants';
 import { Functions } from '../../Utils';
@@ -17,7 +17,8 @@ import {
 import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { useUserClick } from '../../Hooks';
+import { useGoogleAds, useUserClick } from '../../Hooks';
+import { useEffect, useState } from 'react';
 
 const UnlockPremium = ({
   visible,
@@ -28,12 +29,29 @@ const UnlockPremium = ({
   onHotFeature,
 }) => {
   const { navigate } = useNavigation();
-  const { incrementCount } = useUserClick();
+  const { showRewardAd } = useGoogleAds();
+  const [State, setState] = useState({ showRewardAd: true, isLoading: false });
   const dispatch = useDispatch();
 
-  const onWatchPress = async () => {
-    await incrementCount();
+  const resetState = () => {
+    setState(p => ({ ...p, isLoading: false, showRewardAd: true }));
+  };
 
+  useEffect(() => {
+    if (visible) {
+      resetState();
+    }
+  }, [visible]);
+
+  const onWatchPress = async () => {
+    if (State.showRewardAd) {
+      setState(p => ({ ...p, isLoading: true }));
+      await showRewardAd();
+      setState(p => ({ ...p, isLoading: false, showRewardAd: false }));
+      return;
+    }
+
+    setState(p => ({ ...p, showRewardAd: true }));
     if (isHotFeature) {
       onClose?.();
       onHotFeature?.();
@@ -71,6 +89,7 @@ const UnlockPremium = ({
       onRequestClose={onClosing}>
       <TouchableWithoutFeedback onPress={onClosing}>
         <View style={styles.overlay}>
+          <RNLoader visible={State.isLoading} />
           <View style={styles.content}>
             <RNImage source={Images.onboarding_1} style={styles.img} />
             <RNText
@@ -81,11 +100,13 @@ const UnlockPremium = ({
             </RNText>
             <RNText align={'center'}>{Strings.UnlockPremiumDesc}</RNText>
             <RNButton
-              title={Strings.WatchVideo}
-              doubleTicks={false}
-              icon={Images.watchVideo}
+              title={
+                State.showRewardAd ? Strings.WatchVideo : Strings.SelectImage
+              }
+              doubleTicks={!State.showRewardAd}
+              icon={State.showRewardAd ? Images.watchVideo : null}
               style={[styles.button, { marginTop: hp(4) }]}
-              textStyle={{ paddingLeft: wp(4) }}
+              textStyle={{ paddingLeft: State.showRewardAd ? wp(4) : 0 }}
               onPress={onWatchPress}
             />
             <RNButton
@@ -124,7 +145,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    marginHorizontal: wp(8),
+    marginHorizontal: wp(10),
   },
 });
 

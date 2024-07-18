@@ -31,13 +31,13 @@ const CollageMaker = ({ navigation, route }) => {
   };
 
   return (
-    <RNContainer>
+    <RNContainer useSafeArea>
       <RNHeader title={Strings.CollageMaker} back>
         <ViewShot ref={viewRef} style={styles.imgContainer}>
           {Tags[images.length]?.(images)}
         </ViewShot>
         <RNButton
-          title={Strings.Continue}
+          title={Strings.Save}
           doubleTicks={false}
           onPress={onSavePress}
         />
