@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { RNButton, RNContainer, RNImage, RNStyles, RNText } from '../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../Theme';
 import { Images, Strings } from '../Constants';
@@ -24,46 +24,48 @@ const Permissions = ({ navigation }) => {
 
   return (
     <RNContainer style={styles.container}>
-      <View style={RNStyles.container}>
-        <RNImage source={Images.onboarding_1} style={styles.img} />
-        <RNText
-          align={'center'}
-          size={FontSize.font20}
-          family={FontFamily.SemiBold}>
-          {Strings.WelcomeToToonme}
-        </RNText>
-        <RNText align={'center'} size={FontSize.font14}>
-          {Strings.Wevalueyourprivacy}
-        </RNText>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={RNStyles.container}>
+          <RNImage source={Images.onboarding_1} style={styles.img} />
+          <RNText
+            align={'center'}
+            size={FontSize.font20}
+            family={FontFamily.SemiBold}>
+            {Strings.WelcomeToToonme}
+          </RNText>
+          <RNText align={'center'} size={FontSize.font14}>
+            {Strings.Wevalueyourprivacy}
+          </RNText>
 
-        <View style={styles.agreeContainer}>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            onPress={() =>
-              setState(p => ({ ...p, termsAccepted: !p.termsAccepted }))
-            }
-            style={styles.radioContainer}>
-            <View style={styles.radio} />
-          </TouchableOpacity>
-          <View style={RNStyles.flexWrapHorizontal}>
-            <RNText>{Strings.Iagreetothe}</RNText>
-            <TouchableOpacity>
-              <RNText style={styles.terms}>{Strings.TermsofUse}</RNText>
+          <View style={styles.agreeContainer}>
+            <TouchableOpacity
+              activeOpacity={0.6}
+              onPress={() =>
+                setState(p => ({ ...p, termsAccepted: !p.termsAccepted }))
+              }
+              style={styles.radioContainer}>
+              <View style={styles.radio} />
             </TouchableOpacity>
-            <RNText>{Strings.and}</RNText>
-            <RNText>{Strings.acknowledgethatIhavereadthe}</RNText>
-            <TouchableOpacity>
-              <RNText style={styles.terms}>{Strings.privacypolicy}</RNText>
-            </TouchableOpacity>
+            <View style={RNStyles.flexWrapHorizontal}>
+              <RNText>{Strings.Iagreetothe}</RNText>
+              <TouchableOpacity>
+                <RNText style={styles.terms}>{Strings.TermsofUse}</RNText>
+              </TouchableOpacity>
+              <RNText>{Strings.and}</RNText>
+              <RNText>{Strings.acknowledgethatIhavereadthe}</RNText>
+              <TouchableOpacity>
+                <RNText style={styles.terms}>{Strings.privacypolicy}</RNText>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <RNButton
-          disable={!State.termsAccepted}
-          title={Strings.AcceptContinue}
-          onPress={onAceeptPress}
-        />
-      </View>
+          <RNButton
+            disable={!State.termsAccepted}
+            title={Strings.AcceptContinue}
+            onPress={onAceeptPress}
+          />
+        </View>
+      </ScrollView>
 
       <NativeAd />
     </RNContainer>

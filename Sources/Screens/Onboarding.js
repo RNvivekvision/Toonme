@@ -56,7 +56,7 @@ const useStyles = () => {
       fontSize: FontSize.font20,
       fontFamily: FontFamily.SemiBold,
       textAlign: 'center',
-      paddingVertical: hp(3),
+      paddingVertical: hp(2),
     },
   });
 };

@@ -92,14 +92,9 @@ const openGallery = async p => {
 };
 
 const updateImage = async (index, state) => {
-  try {
-    const img = await openGallery();
-    const update = state.images.map((v, i) => (i == index ? img : v));
-    return update;
-  } catch (e) {
-    console.error('Error updateImage -> ', e);
-    return state;
-  }
+  const img = await openGallery();
+  const update = state.images?.map((v, i) => (i == index ? img : v));
+  return update;
 };
 
 const saveToCameraRoll = async cartoon => {

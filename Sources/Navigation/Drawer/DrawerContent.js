@@ -78,22 +78,23 @@ const useStyles = () => {
   return StyleSheet.create({
     container: {},
     logoContainer: {
-      height: hp(23),
+      height: hp(25),
       backgroundColor: Colors.Primary,
       paddingTop: inset.top + hp(2),
     },
     title: {
-      paddingHorizontal: wp(4),
       textAlign: 'center',
       fontSize: FontSize.font18,
       fontFamily: FontFamily.SemiBold,
+      width: '75%',
+      alignSelf: 'center',
     },
     logo: {
       width: size.logo,
       height: size.logo,
       alignSelf: 'center',
       position: 'absolute',
-      top: -hp(8),
+      top: -wp(15),
     },
     icon: {
       width: size.icon,

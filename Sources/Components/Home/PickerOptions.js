@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.Primary,
     flex: 1,
     marginHorizontal: wp(1),
-    height: wp(20),
+    height: wp(18),
     borderRadius: wp(3),
   },
   button: {

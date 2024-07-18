@@ -37,6 +37,8 @@ const useStyles = ({ selected }) => {
       height: wp(20),
       borderRadius: 100,
       alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingBottom: hp(2),
     },
     img: {
       width: size.img,

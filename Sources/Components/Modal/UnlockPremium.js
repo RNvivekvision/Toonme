@@ -8,7 +8,12 @@ import { RNButton, RNImage, RNStyles, RNText } from '../../Common';
 import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { Images, Strings } from '../../Constants';
 import { Functions } from '../../Utils';
-import { setClickedImage, setSelectedFilter } from '../../Redux/Actions';
+import {
+  setClickedImage,
+  setSelectedFilter,
+  togglePlans,
+  togglePremium,
+} from '../../Redux/Actions';
 import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
@@ -79,9 +84,18 @@ const UnlockPremium = ({
               title={Strings.WatchVideo}
               doubleTicks={false}
               icon={Images.watchVideo}
-              style={styles.button}
+              style={[styles.button, { marginTop: hp(4) }]}
               textStyle={{ paddingLeft: wp(4) }}
               onPress={onWatchPress}
+            />
+            <RNButton
+              title={Strings.Subscribe}
+              textStyle={{ paddingLeft: wp(4) }}
+              style={styles.button}
+              onPress={() => {
+                dispatch(togglePremium());
+                dispatch(togglePlans());
+              }}
             />
           </View>
         </View>
@@ -100,6 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.White,
     width: wp(90),
     borderRadius: wp(4),
+    paddingBottom: hp(2),
   },
   img: {
     width: wp(50),
@@ -109,8 +124,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    marginVertical: hp(3),
-    marginHorizontal: wp(12),
+    marginHorizontal: wp(8),
   },
 });
 

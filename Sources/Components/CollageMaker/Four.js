@@ -14,7 +14,7 @@ const Four = ({ images }) => {
 
   return (
     <View style={styles.container}>
-      {State.images.map((v, i) => (
+      {State.images?.map((v, i) => (
         <TouchableOpacity
           key={i}
           activeOpacity={0.6}

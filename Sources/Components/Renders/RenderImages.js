@@ -27,7 +27,7 @@ const RenderImages = ({ images, onFilterPress }) => {
     return (
       <View style={styles.container}>
         {images.map((v, i) => (
-          <Comp key={i} item={v} index={i} onItemPress={onItemPress} />
+          <Render key={i} item={v} index={i} onItemPress={onItemPress} />
         ))}
       </View>
     );
@@ -37,7 +37,7 @@ const RenderImages = ({ images, onFilterPress }) => {
   return <List />;
 };
 
-const Comp = ({ item, index, onItemPress }) => {
+const Render = ({ item, index, onItemPress }) => {
   const { subscriptionPurchase } = useSelector(
     ({ UserReducer }) => UserReducer,
   );

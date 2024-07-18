@@ -15,7 +15,7 @@ const Two = ({ images }) => {
 
   return (
     <View style={styles.container}>
-      {State.images.map((v, i) => (
+      {State.images?.map((v, i) => (
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={() => onItemPress(i)}

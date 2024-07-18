@@ -22,11 +22,13 @@ import {
 import { RNNoInternet } from '../Common';
 import { AppState } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Plans } from '../Components';
+import { togglePlans } from '../Redux/Actions';
 
 const Stack = createStackNavigator();
 
 const Routes = () => {
-  const { adData, subscriptionPurchase } = useSelector(
+  const { adData, subscriptionPurchase, showPlans } = useSelector(
     ({ UserReducer }) => UserReducer,
   );
   const { requestPermission } = usePermissions();
@@ -91,6 +93,7 @@ const Routes = () => {
         <RNNoInternet />
         <Screens />
       </NavigationContainer>
+      <Plans visible={showPlans} onClose={() => dispatch(togglePlans())} />
     </SafeAreaProvider>
   );
 };

@@ -8,10 +8,16 @@ const size = { img: wp(90) };
 const Three = ({ images }) => {
   const [State, setState] = useState({ images: images });
   const [first, second, third] = State.images;
+  console.log('State -> ', JSON.stringify(State, null, 2));
 
   const onItemPress = async index => {
-    const images = await Functions.updateImage(index, State);
-    setState(p => ({ ...p, images: images }));
+    try {
+      const images = await Functions.updateImage(index, State);
+      console.log(JSON.stringify(images, null, 2));
+      setState(p => ({ ...p, images: images }));
+    } catch (e) {
+      console.log('Error onItemPress -> ', e);
+    }
   };
 
   return (

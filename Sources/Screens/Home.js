@@ -10,7 +10,6 @@ import {
   NativeAd,
   TOHeader,
   TryForFree,
-  Plans,
   PickerOptions,
   ImageOptions,
   HowToUse,
@@ -28,9 +27,7 @@ import { getAdData, getFilters } from '../Redux/ExtraReducers';
 
 const Home = ({ navigation }) => {
   const [State, setState] = useState({ refreshing: false });
-  const { showPlans, showPremium } = useSelector(
-    ({ UserReducer }) => UserReducer,
-  );
+  const { showPremium } = useSelector(({ UserReducer }) => UserReducer);
   const dispatch = useDispatch();
   const { incrementCount } = useUserClick();
 
@@ -72,7 +69,6 @@ const Home = ({ navigation }) => {
       </TOHeader>
       <BouncyCard />
       <HowToUse />
-      <Plans visible={showPlans} onClose={() => dispatch(togglePlans())} />
       <UnlockPremium
         visible={showPremium}
         onClose={() => dispatch(togglePremium())}

@@ -44,7 +44,7 @@ const BouncyCard = ({ containerStyle }) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: hp(17),
+    height: hp(18),
     marginVertical: hp(1),
     position: 'absolute',
     bottom: 0,
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     left: 0,
   },
   img: {
-    resizeMode: 'cover',
-    width: '95%',
+    resizeMode: 'contain',
+    width: '90%',
     alignSelf: 'center',
     borderRadius: wp(4),
   },

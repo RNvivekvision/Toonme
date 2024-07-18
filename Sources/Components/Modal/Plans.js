@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Modal, StyleSheet, View } from 'react-native';
+import { Modal, ScrollView, StyleSheet, View } from 'react-native';
 import {
   RNButton,
   RNIcon,
@@ -16,6 +16,7 @@ import { RenderPlans } from '../Renders';
 import * as IAP from 'react-native-iap';
 import { useDispatch } from 'react-redux';
 import { setSubscriptionPurchase } from '../../Redux/Actions';
+import { getFilters } from '../../Redux/ExtraReducers';
 // import { setSubscriptionPurchase } from '../../Redux/Actions';
 
 const { skus, AppSpecificSharedSecret } = DummyData;
@@ -39,7 +40,7 @@ const Plans = ({ visible, onClose }) => {
       const connect = await IAP.initConnection();
       if (!connect) return;
       const subscriptions = await IAP.getSubscriptions({ skus: skus });
-      console.log('Subscriptions -> ', JSON.stringify(subscriptions, null, 2));
+      // console.log('Subscriptions -> ', JSON.stringify(subscriptions, null, 2));
     } catch (e) {
       console.error('Error getSubscriptions -> ', e);
     }
@@ -61,6 +62,7 @@ const Plans = ({ visible, onClose }) => {
       //   expiry: oneMonthLaterTimestamp,
       // });
       dispatch(setSubscriptionPurchase(true));
+      dispatch(getFilters());
       onClose?.();
     } catch (e) {
       alert(e);
@@ -101,48 +103,53 @@ const Plans = ({ visible, onClose }) => {
   return (
     <Modal visible={visible} animationType={'slide'} onRequestClose={onClose}>
       <RNLoader visible={State.isLoading} />
-      <View style={styles.container}>
-        <RNIcon
-          icon={Images.cross}
-          containerStyle={styles.iconContainer}
-          iconStyle={styles.icon}
-          onPress={onClose}
-        />
-        <View style={styles.imgContainer}>
-          <RNImage
-            source={Images.onboardingBackground}
-            style={RNStyles.image100}
+
+      <ScrollView>
+        <View style={styles.container}>
+          <RNIcon
+            icon={Images.cross}
+            containerStyle={styles.iconContainer}
+            iconStyle={styles.icon}
+            onPress={onClose}
           />
-          <RNImage source={Images.onboarding_0} style={styles.onboarding_0} />
-        </View>
-
-        <View style={styles.content}>
-          <RNText size={FontSize.font20} family={FontFamily.SemiBold}>
-            {Strings.UpgradeNow}
-          </RNText>
-          <RNText size={FontSize.font14} pBottom={hp(1)} pRight={wp(6)}>
-            {Strings.UpgradeNowDesc}
-          </RNText>
-
-          <View style={styles.trueContainer}>
-            <RNImage source={Images.trueYellow} style={RNStyles.icon} />
-            <RNText style={styles.trueText}>{Strings.RemoveAllAds}</RNText>
-          </View>
-          <View style={styles.trueContainer}>
-            <RNImage source={Images.trueYellow} style={RNStyles.icon} />
-            <RNText style={styles.trueText}>{Strings.UnlimitedDownload}</RNText>
-          </View>
-
-          {DummyData.plans.map((v, i) => (
-            <RenderPlans
-              key={i}
-              item={v}
-              onPress={v => setState(p => ({ ...p, selectedPlan: v }))}
-              selected={State.selectedPlan?.id == v.id}
+          <View style={styles.imgContainer}>
+            <RNImage
+              source={Images.onboardingBackground}
+              style={RNStyles.image100}
             />
-          ))}
+            <RNImage source={Images.onboarding_0} style={styles.onboarding_0} />
+          </View>
+
+          <View style={styles.content}>
+            <RNText size={FontSize.font20} family={FontFamily.SemiBold}>
+              {Strings.UpgradeNow}
+            </RNText>
+            <RNText size={FontSize.font14} pBottom={hp(1)} pRight={wp(6)}>
+              {Strings.UpgradeNowDesc}
+            </RNText>
+
+            <View style={styles.trueContainer}>
+              <RNImage source={Images.trueYellow} style={RNStyles.icon} />
+              <RNText style={styles.trueText}>{Strings.RemoveAllAds}</RNText>
+            </View>
+            <View style={styles.trueContainer}>
+              <RNImage source={Images.trueYellow} style={RNStyles.icon} />
+              <RNText style={styles.trueText}>
+                {Strings.UnlimitedDownload}
+              </RNText>
+            </View>
+
+            {DummyData.plans.map((v, i) => (
+              <RenderPlans
+                key={i}
+                item={v}
+                onPress={v => setState(p => ({ ...p, selectedPlan: v }))}
+                selected={State.selectedPlan?.id == v.id}
+              />
+            ))}
+          </View>
         </View>
-      </View>
+      </ScrollView>
 
       <RNButton title={Strings.Subscribe} onPress={onRequestPurchase} />
 
@@ -194,6 +201,7 @@ const useStyles = () => {
     },
     content: {
       paddingHorizontal: wp(4),
+      paddingBottom: hp(2),
     },
     trueContainer: {
       ...RNStyles.flexRow,
