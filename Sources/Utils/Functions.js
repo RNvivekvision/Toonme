@@ -79,6 +79,27 @@ const openCamera = async p => {
   return img;
 };
 
+const cameraErrorAlert = e => {
+  const permissionError = e.message?.includes('did not grant');
+  if (permissionError) {
+    ALERT({
+      Title: 'Permission Denied',
+      Text: 'Allow access to camera and microphone',
+      Buttons: [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'destructive',
+        },
+        {
+          text: 'Settings',
+          onPress: () => OpenUrl('app-settings:'),
+        },
+      ],
+    });
+  }
+};
+
 const openGallery = async p => {
   const img = await ImageCropPicker.openPicker({
     width: size,
@@ -90,6 +111,27 @@ const openGallery = async p => {
     ...p,
   });
   return img;
+};
+
+const galleryErrorAlert = e => {
+  const permissionError = e.message?.includes('did not grant');
+  if (permissionError) {
+    ALERT({
+      Title: 'Permission Denied',
+      Text: 'Allow access to gallery and photos',
+      Buttons: [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'destructive',
+        },
+        {
+          text: 'Settings',
+          onPress: () => OpenUrl('app-settings:'),
+        },
+      ],
+    });
+  }
 };
 
 const updateImage = async (index, state) => {
@@ -152,7 +194,9 @@ const Functions = {
   getAppData,
   getSubscription,
   openCamera,
+  cameraErrorAlert,
   openGallery,
+  galleryErrorAlert,
   updateImage,
   saveToCameraRoll,
   wait,

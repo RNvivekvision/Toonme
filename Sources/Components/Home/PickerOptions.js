@@ -23,6 +23,7 @@ const PickerOptions = () => {
       navigate(NavRoutes.Edit);
     } catch (e) {
       console.error('Error onCameraPress -> ', e);
+      Functions.cameraErrorAlert(e);
     }
   };
 
@@ -33,7 +34,8 @@ const PickerOptions = () => {
       await incrementCount();
       navigate(NavRoutes.Edit);
     } catch (e) {
-      console.error('Error onGalleryPress -> ', e);
+      console.error('Error onGalleryPress -> ', e.message);
+      Functions.galleryErrorAlert(e);
     }
   };
 
@@ -47,6 +49,7 @@ const PickerOptions = () => {
       navigate(NavRoutes.CollageMaker, { images });
     } catch (e) {
       console.error('Error onCollageMakerPress -> ', e);
+      Functions.galleryErrorAlert(e);
     }
   };
 

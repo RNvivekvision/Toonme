@@ -31,7 +31,7 @@ const Routes = () => {
   const { adData, subscriptionPurchase, showPlans } = useSelector(
     ({ UserReducer }) => UserReducer,
   );
-  const { requestPermission } = usePermissions();
+  const { requestPermissions } = usePermissions();
   const { localdata } = useLocalStorage();
   const { showAppOpenAd } = useGoogleAds();
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const Routes = () => {
   }, []);
 
   const init = async () => {
-    await requestPermission();
+    await requestPermissions();
   };
 
   const Screens = useCallback(() => {

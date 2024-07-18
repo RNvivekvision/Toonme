@@ -34,21 +34,21 @@ const useGoogleAds = () => {
       const AdId = Functions.isDev ? testAdId : method[key];
       const Ad = adType.createForAdRequest(AdId); // initialization...
 
-      console.log('\n\nshowing loader...');
+      console.log('showing ads loader...');
       dispatch(showAdLoader(true)); // Show loader...
 
-      console.log('start loading ad...');
+      console.log('start loading ads...');
       Ad.load();
       await Functions.wait(2000); // wait for 2 seconds to load ad...
 
       count++;
       if (!Ad.loaded) {
-        console.log('Not Loaded...');
+        console.log('Ads Not Loaded...');
         if (count >= methods.length) {
-          console.log('return all methods...');
+          console.log('return all Ads methods...');
           return dispatch(showAdLoader(false));
         } else {
-          console.log('go to next method...');
+          console.log('go to next method of Ads...');
           return showAds({
             adType,
             testAdId,
@@ -59,13 +59,13 @@ const useGoogleAds = () => {
           });
         }
       } else {
-        console.log('ad loaded and condition fulfilled...');
+        console.log('Ads loaded and condition fulfilled...');
         dispatch(showAdLoader(false));
         return await Ad.show();
       }
     } catch (e) {
       dispatch(showAdLoader(false));
-      console.log('Error show Ads -> ', e);
+      console.log('Error Show Ads -> ', e);
     }
   };
 

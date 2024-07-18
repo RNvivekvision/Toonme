@@ -60,7 +60,6 @@ const GoogleNativeAd = () => {
         ref={NativeAdRef}
         show={false}
         adUnitID={adUnitID}
-        style={{ backgroundColor: '#00f' }}
         onAdLoaded={() => setState(p => ({ ...p, showButton: true }))}
         onAdFailedToLoad={onAdFailedToLoad}>
         <View style={styles.container}>

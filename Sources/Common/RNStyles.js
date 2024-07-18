@@ -78,10 +78,13 @@ const RNStyles = StyleSheet.create({
     height: '50%',
   },
   shadow: {
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
     shadowColor: Colors.Black,
-    shadowOpacity: 0.15,
-    shadowRadius: 5,
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
     elevation: 7,
   },
   imageLoading: {

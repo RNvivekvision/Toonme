@@ -39,6 +39,7 @@ const HotFeature = ({ navigation }) => {
       await incrementCount();
     } catch (e) {
       console.error('Error onPlusPress -> ', e);
+      Functions.galleryErrorAlert(e);
     }
   };
 

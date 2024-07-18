@@ -17,8 +17,8 @@ import {
 import { NavRoutes } from '../../Navigation';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { useGoogleAds, useUserClick } from '../../Hooks';
-import { useEffect, useState } from 'react';
+import { useGoogleAds } from '../../Hooks';
+import { useState } from 'react';
 
 const UnlockPremium = ({
   visible,
@@ -30,28 +30,15 @@ const UnlockPremium = ({
 }) => {
   const { navigate } = useNavigation();
   const { showRewardAd } = useGoogleAds();
-  const [State, setState] = useState({ showRewardAd: true, isLoading: false });
+  const [State, setState] = useState({ isLoading: false });
   const dispatch = useDispatch();
 
-  const resetState = () => {
-    setState(p => ({ ...p, isLoading: false, showRewardAd: true }));
-  };
-
-  useEffect(() => {
-    if (visible) {
-      resetState();
-    }
-  }, [visible]);
-
   const onWatchPress = async () => {
-    if (State.showRewardAd) {
-      setState(p => ({ ...p, isLoading: true }));
-      await showRewardAd();
-      setState(p => ({ ...p, isLoading: false, showRewardAd: false }));
-      return;
-    }
+    setState(p => ({ ...p, isLoading: true }));
+    await showRewardAd();
+    await Functions.wait(10000);
+    setState(p => ({ ...p, isLoading: false }));
 
-    setState(p => ({ ...p, showRewardAd: true }));
     if (isHotFeature) {
       onClose?.();
       onHotFeature?.();
@@ -72,6 +59,7 @@ const UnlockPremium = ({
         onClose?.();
       } catch (e) {
         console.error('Error onWatchPress -> ', e);
+        Functions.galleryErrorAlert(e);
       }
     }
   };
@@ -100,13 +88,11 @@ const UnlockPremium = ({
             </RNText>
             <RNText align={'center'}>{Strings.UnlockPremiumDesc}</RNText>
             <RNButton
-              title={
-                State.showRewardAd ? Strings.WatchVideo : Strings.SelectImage
-              }
-              doubleTicks={!State.showRewardAd}
-              icon={State.showRewardAd ? Images.watchVideo : null}
+              title={Strings.WatchVideo}
+              doubleTicks={false}
+              icon={Images.watchVideo}
               style={[styles.button, { marginTop: hp(4) }]}
-              textStyle={{ paddingLeft: State.showRewardAd ? wp(4) : 0 }}
+              textStyle={{ paddingLeft: wp(4) }}
               onPress={onWatchPress}
             />
             <RNButton

@@ -16,42 +16,38 @@ const permissions = Platform.select({
   ],
 });
 
+const checkPermission = async permission => {
+  try {
+    const status = await check(permission);
+    return status === RESULTS.GRANTED;
+  } catch (error) {
+    console.error(`Error checking permission ${permission}:`, error);
+    return false;
+  }
+};
+
+const requestPermission = async permission => {
+  try {
+    const status = await request(permission);
+    return status === RESULTS.GRANTED;
+  } catch (error) {
+    console.error(`Error requesting permission ${permission}:`, error);
+    return false;
+  }
+};
+
 const usePermissions = () => {
-  const checkPermission = async () => {
-    try {
-      const status1 = await check(permissions[0]);
-      const status2 = await check(permissions[1]);
-      const status3 = await check(permissions[2]);
-      const status4 = await request(permissions[3]);
-      const isGranted = [status1, status2, status3, status4].every(
-        s => s === RESULTS.GRANTED,
-      );
-      // console.log('check permission -> ', isGranted);
-      return isGranted;
-    } catch (error) {
-      console.error('Error checking usePermission:', error);
-      return false;
-    }
+  const checkPermissions = async () => {
+    const statuses = await Promise.all(permissions.map(checkPermission));
+    return statuses.every(status => status);
   };
 
-  const requestPermission = async () => {
-    try {
-      const status1 = await request(permissions[0]);
-      const status2 = await request(permissions[1]);
-      const status3 = await request(permissions[2]);
-      const status4 = await request(permissions[3]);
-      const isGranted = [status1, status2, status3, status4].every(
-        s => s === RESULTS.GRANTED,
-      );
-      // console.log('request permission -> ', isGranted);
-      return isGranted;
-    } catch (error) {
-      console.error('Error requesting usePermission:', error);
-      return false;
-    }
+  const requestPermissions = async () => {
+    const statuses = await Promise.all(permissions.map(requestPermission));
+    return statuses.every(status => status);
   };
 
-  return { checkPermission, requestPermission };
+  return { checkPermissions, requestPermissions };
 };
 
 export default usePermissions;

@@ -32,11 +32,16 @@ const Home = ({ navigation }) => {
   const { incrementCount } = useUserClick();
 
   const onFilterPress = async filter => {
-    const img = await Functions.openGallery();
-    dispatch(setClickedImage(img));
-    dispatch(setSelectedFilter(filter?.combo_id));
-    await incrementCount();
-    navigation.navigate(NavRoutes.Result);
+    try {
+      const img = await Functions.openGallery();
+      dispatch(setClickedImage(img));
+      dispatch(setSelectedFilter(filter?.combo_id));
+      await incrementCount();
+      navigation.navigate(NavRoutes.Result);
+    } catch (e) {
+      console.error('Error onFilterPress -> ', e);
+      Functions.galleryErrorAlert(e);
+    }
   };
 
   const onRefresh = () => {
