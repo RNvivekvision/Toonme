@@ -98,6 +98,14 @@ const updateImage = async (index, state) => {
   return update;
 };
 
+const updateDownloadCount = async () => {
+  const appData = await getAppData();
+  await setAppData({
+    downloadCount: appData?.downloadCount ? appData?.downloadCount + 1 : 1,
+  });
+  return appData?.downloadCount + 1;
+};
+
 const saveToCameraRoll = async cartoon => {
   const downloadDest = `${RNFS.DocumentDirectoryPath}/toonme${Date.now()}.jpg`;
   await RNFS.downloadFile({ fromUrl: cartoon, toFile: downloadDest }).promise;
@@ -150,6 +158,7 @@ const Functions = {
   wait,
   RateUs,
   ShareApp,
+  updateDownloadCount,
 };
 
 export default Functions;

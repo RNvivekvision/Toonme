@@ -62,7 +62,8 @@ const Result = ({ navigation }) => {
 
   const onSavePress = async () => {
     try {
-      await incrementCount();
+      const downloadCount = await Functions.updateDownloadCount();
+      await incrementCount(downloadCount > 10);
       await Functions.saveToCameraRoll(State.img);
     } catch (e) {
       console.error('Error onSavePress -> ', e);

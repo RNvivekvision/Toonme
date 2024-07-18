@@ -10,6 +10,7 @@ import { NavRoutes } from '../Navigation';
 import { Strings } from '../Constants';
 import { hp, wp } from '../Theme';
 import { useUserClick } from '../Hooks';
+import { Functions } from '../Utils';
 
 const CollageMaker = ({ navigation, route }) => {
   const viewRef = useRef();
@@ -19,11 +20,12 @@ const CollageMaker = ({ navigation, route }) => {
 
   const onSavePress = async () => {
     try {
+      const downloadCount = await Functions.updateDownloadCount();
+      await incrementCount(downloadCount > 10);
       const screenShot = await viewRef.current?.capture();
       await CameraRoll.saveAsset(screenShot, { type: 'photo' });
       dispatch(setClickedImage({ path: screenShot }));
       alert('Image saved to camera roll!');
-      await incrementCount();
       navigation.navigate(NavRoutes.Preview);
     } catch (e) {
       console.error('Error on Saving Screen Shot -> ', e);

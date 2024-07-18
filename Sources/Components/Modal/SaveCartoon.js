@@ -17,7 +17,8 @@ const SaveCartoon = ({ visible, cartoon, onClose, onSave }) => {
 
   const onSavePress = async () => {
     try {
-      await incrementCount();
+      const downloadCount = await Functions.updateDownloadCount();
+      await incrementCount(downloadCount > 10);
       await Functions.saveToCameraRoll(cartoon);
       onClosing();
       onSave?.();
@@ -28,7 +29,7 @@ const SaveCartoon = ({ visible, cartoon, onClose, onSave }) => {
 
   return (
     <Modal
-      visible={visible}
+      visible={visible || false}
       animationType={'fade'}
       transparent={true}
       onRequestClose={onClosing}>
