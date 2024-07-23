@@ -51,7 +51,7 @@ const HotFeature = ({ navigation }) => {
         gender: State.isMale == 0 ? 'male' : 'female',
         image: State.img,
       });
-      // console.log('response -> ', JSON.stringify(response, null, 2));
+      console.log('response -> ', JSON.stringify(response, null, 2));
       if (response?.timeout) {
         alert(Strings.errorMsg);
       } else if (response?.output_url?.length > 0) {

@@ -30,9 +30,9 @@ const Plans = ({ visible, onClose }) => {
   const inset = useInset();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    initIAP();
-  }, []);
+  // useEffect(() => {
+  //   initIAP();
+  // }, []);
 
   const initIAP = async () => {
     try {
@@ -151,8 +151,8 @@ const Plans = ({ visible, onClose }) => {
         </View>
       </ScrollView>
 
-      <RNButton title={Strings.Subscribe} onPress={onRequestPurchase} />
-
+      <RNButton title={Strings.Subscribe} />
+      {/* <RNButton title={Strings.Subscribe} onPress={onRequestPurchase} /> */}
       {/* <RNButton title={'Validate'} onPress={onValidateReceipt} /> */}
 
       <RNText

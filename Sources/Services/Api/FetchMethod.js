@@ -88,7 +88,10 @@ const getFormData = obj => {
   return form;
 };
 
-const dummyResponse = { timeout: true };
+const dummyResponse = {
+  timeout: true,
+  waitingTime: Functions.requestTimeout,
+};
 const defaultHeader = {
   Accept: '*/*',
   'Content-Type': 'multipart/form-data',
