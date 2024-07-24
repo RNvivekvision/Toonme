@@ -43,14 +43,14 @@ const TOHeader = ({
           iconStyle={styles.icon}
         />
         <RNText style={[styles.title, titleStyle]}>{title}</RNText>
-        {!subscriptionPurchase && (
+        {/* {!subscriptionPurchase && (
           <RNIcon
             icon={Images.crown}
             onPress={onCrownPress}
             containerStyle={styles.iconContainer}
             iconStyle={styles.icon}
           />
-        )}
+        )} */}
       </View>
       {noScroll ? (
         children

@@ -67,7 +67,7 @@ const Home = ({ navigation }) => {
             />
           ),
         }}>
-        <TryForFree />
+        {/* <TryForFree /> */}
         <PickerOptions />
         <NativeAd />
         <ImageOptions onFilterPress={onFilterPress} />

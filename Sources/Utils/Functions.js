@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import RNFS from 'react-native-fs';
-import * as Keychain from 'react-native-keychain';
+// import * as Keychain from 'react-native-keychain';
 
 const isDev = __DEV__;
 const requestTimeout = 20000;

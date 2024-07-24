@@ -1286,8 +1286,6 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController (~> 2.7.4)
-  - RNKeychain (8.2.0):
-    - React-Core
   - RNPermissions (4.1.5):
     - React-Core
   - RNRate (1.2.12):
@@ -1391,7 +1389,6 @@ DEPENDENCIES:
   - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
   - RNIap (from `../node_modules/react-native-iap`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
-  - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNRate (from `../node_modules/react-native-rate`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1565,8 +1562,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-iap"
   RNImageCropPicker:
     :path: "../node_modules/react-native-image-crop-picker"
-  RNKeychain:
-    :path: "../node_modules/react-native-keychain"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNRate:
@@ -1669,7 +1664,6 @@ SPEC CHECKSUMS:
   RNGoogleMobileAds: fe43db9d9896373e221ece8a0a6ef6504a15685a
   RNIap: 17583f958d35788a87948e94072ff6edd3580497
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
-  RNKeychain: bfe3d12bf4620fe488771c414530bf16e88f3678
   RNPermissions: 1b6ce0475c7763653ac5fd3d77a5af9b3f92ee5d
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReanimated: f1ce27e7d23e6f941024b862ad76a7fdae93dea9

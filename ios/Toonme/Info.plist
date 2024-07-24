@@ -42,15 +42,15 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to your camera to allow you to take photos.</string>
+	<string>$(PRODUCT_NAME) requires access to your camera to capture photos that can be transformed into cartoon images. This allows you to create and customize cartoon-style photos directly within the app.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to your microphone to record audio.</string>
+	<string>$(PRODUCT_NAME) requires access to your microphone to record audio messages or comments that can be added to your cartoon photos. This feature enhances the personalization of your content.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to your photo library to allow you to upload photos.</string>
+	<string>$(PRODUCT_NAME) requires access to your photo library to save and upload cartoon-styled images created within the app. This allows you to manage and share your cartoon photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to your photo library to allow you to upload photos.</string>
+	<string>$(PRODUCT_NAME) requires access to your photo library to select and transform existing photos into cartoon images. This functionality allows you to enhance your photos with cartoon effects.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Toonme utilizes user tracking for delivering personalized advertisements tailored to your interests.</string>
+	<string>$(PRODUCT_NAME) uses user tracking to deliver personalized advertisements based on your interests. This helps provide you with relevant ads and improve your experience with cartoon photo features.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

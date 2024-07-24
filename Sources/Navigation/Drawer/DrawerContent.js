@@ -50,7 +50,7 @@ const DrawerContent = ({ navigation }) => {
         </View>
       </View>
 
-      {!subscriptionPurchase && (
+      {/* {!subscriptionPurchase && (
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={onGetPremium}
@@ -66,7 +66,7 @@ const DrawerContent = ({ navigation }) => {
           </View>
           <RNImage source={Images.right} style={styles.icon} />
         </TouchableOpacity>
-      )}
+      )} */}
     </View>
   );
 };

@@ -95,7 +95,7 @@ const UnlockPremium = ({
               textStyle={{ paddingLeft: wp(4) }}
               onPress={onWatchPress}
             />
-            <RNButton
+            {/* <RNButton
               title={Strings.Subscribe}
               textStyle={{ paddingLeft: wp(4) }}
               style={styles.button}
@@ -103,7 +103,7 @@ const UnlockPremium = ({
                 dispatch(togglePremium());
                 dispatch(togglePlans());
               }}
-            />
+            /> */}
           </View>
         </View>
       </TouchableWithoutFeedback>
