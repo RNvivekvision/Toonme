@@ -1063,12 +1063,12 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-video (6.4.2):
+  - react-native-video (6.4.3):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-    - react-native-video/Video (= 6.4.2)
-  - react-native-video/Video (6.4.2):
+    - react-native-video/Video (= 6.4.3)
+  - react-native-video/Video (6.4.3):
     - DVAssetLoaderDelegate (~> 0.3.1)
     - glog
     - GoogleAds-IMA-iOS-SDK (~> 3.22.1)
@@ -1275,8 +1275,6 @@ PODS:
     - GoogleUserMessagingPlatform (= 2.4.0)
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-  - RNIap (12.15.1):
-    - React-Core
   - RNImageCropPicker (0.41.2):
     - React-Core
     - React-RCTImage
@@ -1387,7 +1385,6 @@ DEPENDENCIES:
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
-  - RNIap (from `../node_modules/react-native-iap`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNRate (from `../node_modules/react-native-rate`)
@@ -1558,8 +1555,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNGoogleMobileAds:
     :path: "../node_modules/react-native-google-mobile-ads"
-  RNIap:
-    :path: "../node_modules/react-native-iap"
   RNImageCropPicker:
     :path: "../node_modules/react-native-image-crop-picker"
   RNPermissions:
@@ -1631,7 +1626,7 @@ SPEC CHECKSUMS:
   react-native-photo-editor: df7a23b0f31379ca5f64671f7d9fc42dbdd68722
   react-native-safe-area-context: b7daa1a8df36095a032dff095a1ea8963cb48371
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-video: a28e5d3a3b91610709fa1a62b2f146f7b6c0cc11
+  react-native-video: a205b80d2c0feb54ce403ee7dc1f5745105471c0
   react-native-view-shot: 6b7ed61d77d88580fed10954d45fad0eb2d47688
   React-nativeconfig: b4d4e9901d4cabb57be63053fd2aa6086eb3c85f
   React-NativeModulesApple: cd26e56d56350e123da0c1e3e4c76cb58a05e1ee
@@ -1662,7 +1657,6 @@ SPEC CHECKSUMS:
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 67d3f1f69d4d0c98d6e83f4229e3bbf997d1dc72
   RNGoogleMobileAds: fe43db9d9896373e221ece8a0a6ef6504a15685a
-  RNIap: 17583f958d35788a87948e94072ff6edd3580497
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
   RNPermissions: 1b6ce0475c7763653ac5fd3d77a5af9b3f92ee5d
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a

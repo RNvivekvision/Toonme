@@ -35,8 +35,10 @@ const UnlockPremium = ({
 
   const onWatchPress = async () => {
     setState(p => ({ ...p, isLoading: true }));
-    await showRewardAd();
-    await Functions.wait(10000);
+    const willWait = await showRewardAd();
+    if (willWait) {
+      await Functions.wait(10000);
+    }
     setState(p => ({ ...p, isLoading: false }));
 
     if (isHotFeature) {

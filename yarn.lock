@@ -3656,11 +3656,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0":
-  version: 20.14.11
-  resolution: "@types/node@npm:20.14.11"
+  version: 20.14.12
+  resolution: "@types/node@npm:20.14.12"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 24396dea2bc803c2d2ebfdd31a3e6e93818ba1a5933d63cd0f64fad1e2955a8280ba09338a48ffe68cd84748eec8bee27135045f15661aa389656f67fe0b0924
+  checksum: 1dd493d9e27da43fc374b17cf4b956dbd1dfe20ecf4749408a1db046c79b5a39261a2aa7a3f59b79fd1b5632b861ba72837779d812e0d3b6cf5b22f1650fe722
   languageName: node
   linkType: hard
 
@@ -3966,14 +3966,11 @@ __metadata:
     react: 18.2.0
     react-native: 0.73.6
     react-native-admob-native-ads: ^0.6.6
-    react-native-collage-layout: ^1.0.2
     react-native-device-info: ^11.1.0
     react-native-fs: ^2.20.0
     react-native-gesture-handler: ^2.17.1
     react-native-google-mobile-ads: ^13.6.1
-    react-native-iap: ^12.15.1
     react-native-image-crop-picker: ^0.41.2
-    react-native-images-collage: ^3.3.5
     react-native-permissions: ^4.1.5
     react-native-rate: ^1.2.12
     react-native-reanimated: ^3.12.1
@@ -5305,9 +5302,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.820":
-  version: 1.4.833
-  resolution: "electron-to-chromium@npm:1.4.833"
-  checksum: 2b8764b0016bc528687ed6507be4b293817c1375a1ce70b17139382b716f6d2a0b77b954cea56ec4cf4508b174b42772511c3b94ca561bce3dbec84c10ea4448
+  version: 1.5.1
+  resolution: "electron-to-chromium@npm:1.5.1"
+  checksum: 4843d3db0c7c5810c603d2367599c21e1c56ba8d17e1d0061aef24ae93ba1a1f40592c7dd9279f91d456d240a15b73360dbbe2a8679ff14b1542908097cee8ea
   languageName: node
   linkType: hard
 
@@ -9416,13 +9413,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-collage-layout@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "react-native-collage-layout@npm:1.0.2"
-  checksum: e47f7768d5aadfb2906d6781ad080fc9120ceda7272069d76b638c82595283fd92fdfbb0168c1f2b835d07b5663526ffc5d2ae9b2d03486a6b5a40565468047e
-  languageName: node
-  linkType: hard
-
 "react-native-device-info@npm:^11.1.0":
   version: 11.1.0
   resolution: "react-native-device-info@npm:11.1.0"
@@ -9473,33 +9463,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-iap@npm:^12.15.1":
-  version: 12.15.1
-  resolution: "react-native-iap@npm:12.15.1"
-  peerDependencies:
-    expo: ">=47.0.0"
-    react: ">=16.13.1"
-    react-native: ">=0.65.1"
-  peerDependenciesMeta:
-    expo:
-      optional: true
-  checksum: 9931fff44d65bf6d550fb06ed2d041753217d234ab16dcdddb363abd1da970087c443ab35184bb263594e1fd599de821408b97d26e62ed190cda40861ffbdfde
-  languageName: node
-  linkType: hard
-
 "react-native-image-crop-picker@npm:^0.41.2":
   version: 0.41.2
   resolution: "react-native-image-crop-picker@npm:0.41.2"
   peerDependencies:
     react-native: ">=0.40.0"
   checksum: c1333b3b761e948bd0bc856773f68dcc859c7ce39dda3e14d2c32c17d55927735bfc5cbbb7ac5e8bac21feda87c93399f2a596aca7d5b0611cc1e8203d97ad2e
-  languageName: node
-  linkType: hard
-
-"react-native-images-collage@npm:^3.3.5":
-  version: 3.3.5
-  resolution: "react-native-images-collage@npm:3.3.5"
-  checksum: 5a5026701f753d13802c1a6b3a0144d3f90eac52113e373944f73929a8c26a485da3924a562e7a44898dc6b53a886cd5faa8ca8c27d66710f7925c7315127391
   languageName: node
   linkType: hard
 
@@ -9592,12 +9561,12 @@ __metadata:
   linkType: hard
 
 "react-native-video@npm:^6.3.0":
-  version: 6.4.2
-  resolution: "react-native-video@npm:6.4.2"
+  version: 6.4.3
+  resolution: "react-native-video@npm:6.4.3"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 774c57725b6142b33d588a04c1df19dc5f4d7c403c91ed45ab9e56f4ead109abfb7a04009a2db210e6d6e868234dda628172c20eda60edfec1cd5cff02ddc6e9
+  checksum: 94ae488505a74c247b847b4fc6afcbfaf0ec0b9adc2a1e19b8637e8c240d4c37e6584ebf368b9dcc6d308c27f6e4e06848181a9dd05ee3a71abb8f3ac786b1f4
   languageName: node
   linkType: hard
 
@@ -11504,11 +11473,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.2.1, yaml@npm:^2.2.2":
-  version: 2.4.5
-  resolution: "yaml@npm:2.4.5"
+  version: 2.5.0
+  resolution: "yaml@npm:2.5.0"
   bin:
     yaml: bin.mjs
-  checksum: f8efd407c07e095f00f3031108c9960b2b12971d10162b1ec19007200f6c987d2e28f73283f4731119aa610f177a3ea03d4a8fcf640600a25de1b74d00c69b3d
+  checksum: a116dca5c61641d9bf1f1016c6e71daeb1ed4915f5930ed237d45ab7a605aa5d92c332ff64879a6cd088cabede008c778774e3060ffeb4cd617d28088e4b2d83
   languageName: node
   linkType: hard
 

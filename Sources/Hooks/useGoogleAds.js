@@ -61,7 +61,8 @@ const useGoogleAds = () => {
       } else {
         console.log('Ads loaded and condition fulfilled...');
         dispatch(showAdLoader(false));
-        return await Ad.show();
+        await Ad.show();
+        return true; // return true especially for reward ads because when user earn reward and then gallery will be open for Toonme App
       }
     } catch (e) {
       dispatch(showAdLoader(false));
@@ -98,7 +99,10 @@ const useGoogleAds = () => {
   return {
     showAppOpenAd: () => console.log('showAdInApp: ', adData?.showAdInApp),
     showInterstitialAd: () => console.log('showAdInApp: ', adData?.showAdInApp),
-    showRewardAd: () => console.log('showAdInApp: ', adData?.showAdInApp),
+    showRewardAd: () => {
+      console.log('showAdInApp: ', adData?.showAdInApp);
+      return false; // return false because when there is no ads then user has not to wait for open gallery in UnlockPremium Component
+    },
   };
 };
 

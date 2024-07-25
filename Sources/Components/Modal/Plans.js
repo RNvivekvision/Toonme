@@ -13,7 +13,7 @@ import { Colors, FontFamily, FontSize, hp, wp } from '../../Theme';
 import { useInset } from '../../Hooks';
 import { DummyData, Functions } from '../../Utils';
 import { RenderPlans } from '../Renders';
-import * as IAP from 'react-native-iap';
+// import * as IAP from 'react-native-iap';
 import { useDispatch } from 'react-redux';
 import { setSubscriptionPurchase } from '../../Redux/Actions';
 import { getFilters } from '../../Redux/ExtraReducers';
